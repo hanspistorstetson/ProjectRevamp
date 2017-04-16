@@ -6,6 +6,6 @@ Makefile
 *.sqlite
 
 *.user
-
+*.db
 .DS_Store
 .DS_Store?
