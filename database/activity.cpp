@@ -19,13 +19,13 @@ Activity::Activity() {
     cout << "Database opened." << endl;
 
     char* errmsg;
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activity (activity name, eventid, actvityid, status);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activityTable (name text, eventid int, actvityid int, status text);", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating event table: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
     
-    retval = sqlite3_exec(db, "INSERT INTO activity (name, eventid, activity id, status) values (\"Constructor Test\", \"Blah blah\", \"blah\", \"blah\");", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "INSERT INTO activityTable (\"test\", 1, 3, \"active\");", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating test event in constructor: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -36,7 +36,7 @@ void Activity::createActivity(string activity_name, int event_id, int activity_i
     int retval;
 
     sqlite3_stmt *s;
-    const char *sql = "INSERT INTO activities (name, event_id, activity_id, activity_status) VALUES (?, ?, ?, ?)";
+    const char *sql = "INSERT INTO activityTable (activity_name, event_id, activity_id, activity_status) VALUES (?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for activity " << sqlite3_errcode(db) << endl;
