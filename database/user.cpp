@@ -12,7 +12,7 @@ User::User() {
 
     retval = sqlite3_open("qrlogger.db", &db);
     if (retval != 0) {
-        cout << "Cannot open qrlogger.db: " << sqlite3_errorcode(db) << endl;
+        cout << "Cannot open qrlogger.db: " << sqlite3_errcode(db) << endl;
         exit(1);
     }
 

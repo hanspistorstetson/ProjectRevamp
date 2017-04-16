@@ -3,7 +3,7 @@
 
 #include <vector>
 
-class user {
+class User {
     public:
         //TODO: Stub out methods for the controller to access the database
         User();
