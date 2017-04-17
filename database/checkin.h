@@ -14,6 +14,6 @@ class Checkin {
         bool isCheckedIn();
     private:
         bool checkedIn;
-        std::vector<User> Attendees;
+        User* attendee;
 };
 #endif

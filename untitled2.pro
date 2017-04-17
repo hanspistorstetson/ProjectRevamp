@@ -51,4 +51,5 @@ FORMS    += mainwindow.ui
 DISTFILES += \
     README.txt \
     test.db \
-    untitled2.pro.user
+    untitled2.pro.user \
+    Makefile
