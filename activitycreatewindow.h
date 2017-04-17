@@ -15,6 +15,11 @@ public:
     explicit ActivityCreateWindow(QWidget *parent = 0);
     ~ActivityCreateWindow();
 
+private slots:
+    void on_cancelButton_released();
+
+    void on_createActivityButton_released();
+
 private:
     Ui::ActivityCreateWindow *ui;
 };

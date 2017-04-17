@@ -20,7 +20,13 @@ private slots:
 
     void on_backButton_released();
 
-    void on_searchUsersButton_released();
+    void on_addUsersButton_released();
+
+    void on_searchActsButton_released();
+
+    void on_addActsButton_released();
+
+    void on_deactEventButton_released();
 
 private:
     Ui::EventAdminWindow *ui;

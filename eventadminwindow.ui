@@ -91,7 +91,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="searchUsersButton">
+       <widget class="QPushButton" name="addUsersButton">
         <property name="text">
          <string>Add</string>
         </property>
@@ -109,7 +109,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="searchActsButton">
+       <widget class="QPushButton" name="addActsButton">
         <property name="text">
          <string>Add</string>
         </property>

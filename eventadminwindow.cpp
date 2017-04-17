@@ -1,6 +1,7 @@
 #include "eventadminwindow.h"
 #include "ui_eventadminwindow.h"
 #include "usercreatewindow.h"
+#include "activitycreatewindow.h"
 
 EventAdminWindow::EventAdminWindow(QWidget *parent) :
     QDialog(parent),
@@ -19,9 +20,30 @@ void EventAdminWindow::on_backButton_released()
     this->close();
 }
 
-void EventAdminWindow::on_searchUsersButton_released()
+void EventAdminWindow::on_addUsersButton_released()
 {
     UserCreateWindow ucw;
     ucw.setModal(true);
     ucw.exec();
+}
+
+void EventAdminWindow::on_addActsButton_released()
+{
+    ActivityCreateWindow acw;
+    acw.setModal(true);
+    acw.exec();
+}
+
+void EventAdminWindow::on_activeEventButton_released()
+{
+    /*  This will set event to 'active'
+     *
+     */
+}
+
+void EventAdminWindow::on_deactEventButton_released()
+{
+    /*  This will deactivate event, or set event to 'inactive'
+     *
+     */
 }
