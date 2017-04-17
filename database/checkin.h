@@ -2,9 +2,18 @@
 #define CHECKIN_H
 
 #include <vector>
+#include "user.h"
+#include "event.h"
+#include "activity.h"
 
-class checkin {
+class Checkin {
     public:
-        //TODO: Stub out methods for controller to access database
+        Checkin();
+        Checkin(User, Activity);
+        void incrementCount(Activity);
+        bool isCheckedIn();
+    private:
+        bool checkedIn;
+        std::vector<User> Attendees;
 };
 #endif
