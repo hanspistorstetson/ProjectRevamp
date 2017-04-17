@@ -6,8 +6,9 @@
 class Activity {
     public:
 	Activity();
-	Activity(int eventid, int id , std::string name); //is this necessary if have createActivit?y
-  	void createActvity(std::string , int event, int id , std::string _status);//need preReqs???
+	
+	//Activity(int eventid, int id , std::string name); //is this necessary if have createActivit?y
+  	void createActivity(std::string , int event, int id , std::string _status);//need preReqs???
 	int getId();
 	int getEventId();
 	void setId(int);

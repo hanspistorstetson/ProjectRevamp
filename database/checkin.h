@@ -9,8 +9,8 @@
 class Checkin {
     public:
         Checkin();
-        Checkin(User, Activity);
-        void incrementCount(Activity);
+//        Checkin(User, Activity);
+  //      void incrementCount(Activity);
         bool isCheckedIn();
     private:
         bool checkedIn;
