@@ -1,9 +1,9 @@
 CC=g++
 
 
-INCLUDE_FLAGS=-I/usr/local/include
+INCLUDE_FLAGS=-I/usr/local/Cellar/opencv3/3.2.0/include
 CFLAGS=-c -Wall $(INCLUDE_FLAGS)
-LDFLAGS= -L/usr/local/lib -opencv_core -opencv_highgui -opencv_videoio -opencv_imgproc -lzbar
+LDFLAGS= -L/usr/local/Cellar/opencv3/3.2.0/lib -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_imgproc -lzbar
 
 SOURCES = qr.cpp
 OBJECTS=$(SOURCES:.cpp=.o)

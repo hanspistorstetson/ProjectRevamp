@@ -1,5 +1,3 @@
-#include <opencv2/opencv.hpp>
-#include <opencv2/videoio.hpp>
 #include <zbar.h>
 #include <iostream>
 using namespace cv;
@@ -14,6 +12,7 @@ int main(int argc, char* argv[])
         cout << "Failed to open video source 0!" << endl;
         return -1;
     }
+
     ImageScanner scanner;
     scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);
     double dWidth = cap.get(CV_CAP_PROP_FRAME_WIDTH);
