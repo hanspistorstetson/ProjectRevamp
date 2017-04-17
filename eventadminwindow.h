@@ -18,6 +18,8 @@ public:
 private slots:
     void on_activeEventButton_released();
 
+    void on_backButton_released();
+
 private:
     Ui::EventAdminWindow *ui;
 };

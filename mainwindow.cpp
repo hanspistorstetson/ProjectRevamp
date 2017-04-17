@@ -31,9 +31,10 @@ void MainWindow::makeHidden()
 void MainWindow::on_eventCreateButton_released()
 {
     eventCreateWindow ecw;
+    this->hide();
     ecw.setModal(true);
     ecw.exec();
-    this->hide();
+    this->show();
 }
 
 void MainWindow::on_eventOpenButton_released()
@@ -44,4 +45,5 @@ void MainWindow::on_eventOpenButton_released()
     this->hide();
     adminWindow.setModal(true);
     adminWindow.exec();
+    this->show();
 }

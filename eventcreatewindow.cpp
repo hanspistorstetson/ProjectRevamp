@@ -34,7 +34,8 @@ void eventCreateWindow::on_createButton_released()
     //pass data to controller (which will create event in the database)
     //create admin window passing it the event that was just created
     EventAdminWindow eaw;
+    this->hide();
     eaw.setModal(true);
     eaw.exec();
-
+    this->show();
 }

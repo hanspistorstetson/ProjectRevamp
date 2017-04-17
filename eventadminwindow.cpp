@@ -12,3 +12,8 @@ EventAdminWindow::~EventAdminWindow()
 {
     delete ui;
 }
+
+void EventAdminWindow::on_backButton_released()
+{
+    this->close();
+}
