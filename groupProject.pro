@@ -26,12 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     eventcreatewindow.cpp \
-    eventadminwindow.cpp
+    eventadminwindow.cpp \
+    usercreatewindow.cpp \
+    activitycreatewindow.cpp
 
 HEADERS  += mainwindow.h \
     eventcreatewindow.h \
-    eventadminwindow.h
+    eventadminwindow.h \
+    usercreatewindow.h \
+    activitycreatewindow.h
 
 FORMS    += mainwindow.ui \
     eventcreatewindow.ui \
-    eventadminwindow.ui
+    eventadminwindow.ui \
+    usercreatewindow.ui \
+    activitycreatewindow.ui

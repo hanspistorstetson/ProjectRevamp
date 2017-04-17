@@ -20,6 +20,8 @@ private slots:
 
     void on_backButton_released();
 
+    void on_searchUsersButton_released();
+
 private:
     Ui::EventAdminWindow *ui;
 };
