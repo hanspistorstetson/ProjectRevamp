@@ -6,7 +6,7 @@
 class Activity {
     public:
 	//Activity(int eventid, int id , std::string name); //is this necessary if have createActivit?y
-  	static Activity* createActvity(std::string , int event, int id , std::string _status);//need preReqs???
+  	static Activity* createActvity(std::string , int event, std::string _status);//need preReqs???
     static Activity* loadActivityByID(size_t activityid);
     int getId();
 	int getEventId();
@@ -15,7 +15,8 @@ class Activity {
 	std::vector<Checkin*> getCheckins();
 //	void addToCheckins(//.....
 ///	void setPreReq(Activity);
-	
+	void setActive();
+	void setInactive();	
     private:
 	int id;
 	std::vector<Checkin*> myAttendees;
