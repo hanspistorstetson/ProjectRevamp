@@ -14,7 +14,7 @@ class Activity {
 	void setEventId(int);
 	std::vector<Checkin*> getCheckins();
 	void addCheckins(Checkin* checkin);
-	void setPreReq(Activity);
+	void setPreReq(Activity*);
 	void setActive();
 	void setInactive();	
     
