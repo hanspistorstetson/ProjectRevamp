@@ -24,5 +24,10 @@ void ActivityCreateWindow::on_createActivityButton_released()
      * and then pass to controller
      * then close window
      */
+    std::string name = ui->actNameTF->text().toStdString();
+    //get activity status
+
+//    std::vector<Activity*> preReqs;
+
     this->close();
 }

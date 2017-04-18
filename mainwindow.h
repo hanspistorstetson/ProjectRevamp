@@ -18,7 +18,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_released();
 
     void on_eventCreateButton_released();
 

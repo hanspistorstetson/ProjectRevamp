@@ -22,8 +22,6 @@ private slots:
 
     void on_addUsersButton_released();
 
-    void on_searchActsButton_released();
-
     void on_addActsButton_released();
 
     void on_deactEventButton_released();

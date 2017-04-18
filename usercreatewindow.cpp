@@ -20,6 +20,9 @@ void UserCreateWindow::on_createUserButton_released()
      * then close the window
      *
      * */
+    std::string firstName = ui->firstNameTF->text().toStdString();
+    std::string lastName = ui->lastNameTF->text().toStdString();
+    std::string email = ui->emailTF->text().toStdString();
 
     this->close();
 }

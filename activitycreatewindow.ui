@@ -33,15 +33,36 @@
     <item row="0" column="1">
      <widget class="QLineEdit" name="actNameTF"/>
     </item>
+    <item row="1" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QRadioButton" name="activeRadioButton">
+        <property name="text">
+         <string>Active</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="upcomingRadioButton">
+        <property name="text">
+         <string>Upcoming</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="actStatusLabel">
+     <widget class="QLabel" name="statusLabel">
       <property name="text">
        <string>Status</string>
       </property>
      </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="actStatusTF"/>
     </item>
    </layout>
   </widget>
@@ -50,8 +71,8 @@
     <rect>
      <x>160</x>
      <y>20</y>
-     <width>101</width>
-     <height>21</height>
+     <width>200</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="text">
@@ -63,8 +84,8 @@
     <rect>
      <x>50</x>
      <y>160</y>
-     <width>44</width>
-     <height>14</height>
+     <width>111</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
@@ -74,10 +95,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>155</y>
-     <width>151</width>
-     <height>31</height>
+     <x>160</x>
+     <y>145</y>
+     <width>231</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
