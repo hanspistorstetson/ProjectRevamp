@@ -15,7 +15,9 @@ class Activity {
 	std::vector<Checkin*> getCheckins();
 	void addCheckins(Checkin* checkin);
 	void setPreReq(Activity);
-	
+	void setActive();
+	void setInactive();	
+    
     private:
 	int id;
 	std::vector<Checkin*> myAttendees;
