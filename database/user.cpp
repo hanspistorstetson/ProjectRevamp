@@ -19,7 +19,7 @@ User::User() {
     cout << "Database opened." << endl;
 
     char* errmsg;
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS users (uuid text, username text, email text, eventid int, FOREIGN KEY(eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS users (uuid text PRIMARY KEY, username text, fname text, lname text, eventid int, FOREIGN KEY(eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating users table: " << errmsg << endl;
         sqlite3_free(errmsg);
