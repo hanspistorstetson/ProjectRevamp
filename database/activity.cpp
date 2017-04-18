@@ -32,7 +32,7 @@ Activity::Activity() {
     }
 }
 
-void Activity::createActivity(string activity_name, int event_id, int activity_id, string activity_status) {
+void Activity::createActivity(string activity_name, int event_id, string activity_status) {
     int retval;
 
     sqlite3_stmt *s;
@@ -48,8 +48,10 @@ void Activity::createActivity(string activity_name, int event_id, int activity_i
         return;
     }
     retval = sqlite3_bind_text(s, 2, desc.c_str(), desc.size(), SQLITE_STATIC);
-
-
+	
+	//needs to return pointer to the activity created
+	Activity* a = new Activity();
+	return a;
 }
 
 
