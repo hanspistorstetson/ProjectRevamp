@@ -6,6 +6,8 @@
 #include "event.h"
 #include "activity.h"
 
+class Activity;
+
 class Checkin {
     private:
         bool checkedIn;
@@ -18,7 +20,7 @@ class Checkin {
         static Checkin* makeCheckin(User*, Activity*);
         static Checkin* loadCheckin(size_t);
         size_t getUserId();
-        void setUserId();
+        void setUserId(size_t);
         size_t getActId();
         void setActId();
         User* getAttendee();

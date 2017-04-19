@@ -37,7 +37,6 @@ HEADERS  += mainwindow.h \
     activity.h \
     checkin.h \
     event.h \
-    sqlite3.h \
     #activity.h#
     database/activity.h \
     database/checkin.h \
@@ -50,5 +49,4 @@ FORMS    += mainwindow.ui
 DISTFILES += \
     README.txt \
     test.db \
-    untitled2.pro.user \
-    Makefile
+    untitled2.pro.user
