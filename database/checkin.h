@@ -7,13 +7,24 @@
 #include "activity.h"
 
 class Checkin {
-    public:
-        Checkin();
-//        Checkin(User, Activity);
-  //      void incrementCount(Activity);
-        bool isCheckedIn();
     private:
         bool checkedIn;
         User* attendee;
+        Activity* activity;
+        size_t userID;
+        size_t actID;
+        Checkin();
+    public:
+        static Checkin* makeCheckin(User*, Activity*);
+        static Checkin* loadCheckin(size_t);
+        size_t getUserId();
+        void setUserId();
+        size_t getActId();
+        void setActId();
+        User* getAttendee();
+        Activity* getActivity();
+        bool isCheckedIn();
+        ~Checkin();
+
 };
 #endif

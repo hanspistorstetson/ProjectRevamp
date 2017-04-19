@@ -38,7 +38,6 @@ HEADERS  += mainwindow.h \
     checkin.h \
     event.h \
     sqlite3.h \
-    user.h \
     #activity.h#
     database/activity.h \
     database/checkin.h \
