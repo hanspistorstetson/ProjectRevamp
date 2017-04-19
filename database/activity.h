@@ -12,8 +12,8 @@ class Activity {
 	size_t getEventId();
 	void setId(size_t);
 	void setEventId(size_t);
-	std::vector<Checkin*> getCheckins();
-	void addCheckins(Checkin* checkin);
+//	std::vector<Checkin*> getCheckins();
+//	void addCheckins(Checkin* checkin);
 	void setPreReq(Activity*);
 	void setActive();
 	void setInactive();
@@ -21,7 +21,7 @@ class Activity {
     
     private:
 	size_t id;
-	std::vector<Checkin*> myAttendees;
+//	std::vector<Checkin*> myAttendees;
 	size_t eventId;
 	std::vector<Activity*> myPreReqs;//where are we declaring these?
 	std::string status;

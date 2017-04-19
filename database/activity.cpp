@@ -1,6 +1,7 @@
 #include <iostream>
 #include "sqlite3.h"
 #include "activity.h"
+#include "database.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
@@ -9,12 +10,8 @@ using namespace std;
 
 Activity::Activity() {
     int retval;
+    sqlite3* db = Database::openDatabase();
 
-    retval = sqlite3_open("qrlogger.db", &db); //need the global db to use here;
-    if (retval != 0) {
-        cout << "Cannot open qrlogger.db: " << sqlite3_errcode(db) << endl;
-        exit(1);
-    }
     
     cout << "Database opened." << endl;
 
@@ -32,7 +29,7 @@ Activity::Activity() {
     }
 }
 
-static Activity* Activity::createActivity(string activity_name, size_t event_id, string activity_status) {
+ Activity* Activity::createActivity(string activity_name, size_t event_id, string activity_status) {
     int retval;
 
     sqlite3_stmt *s;
@@ -61,6 +58,7 @@ static Activity* Activity::createActivity(string activity_name, size_t event_id,
     }
 	//needs to return pointer to the activity created
 	Activity* a = new Activity();
+
 	return a;
 }
 
