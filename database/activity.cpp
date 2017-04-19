@@ -9,8 +9,8 @@ using namespace std;
 
 Activity::Activity() {
     int retval;
-    
-    retval = sqlite3_open("qrlogger.db", &db);
+
+    retval = sqlite3_open("qrlogger.db", &db); //need the global db to use here;
     if (retval != 0) {
         cout << "Cannot open qrlogger.db: " << sqlite3_errcode(db) << endl;
         exit(1);
@@ -25,14 +25,14 @@ Activity::Activity() {
         sqlite3_free(errmsg);
     }
     
-    retval = sqlite3_exec(db, "INSERT INTO activityTable (\"test\", 1, \"active\");", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "INSERT INTO activityTable (\"test\", \"active\", 1);", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating test event in constructor: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
 }
 
-void Activity::createActivity(string activity_name, int event_id, string activity_status) {
+static Activity* Activity::createActivity(string activity_name, size_t event_id, string activity_status) {
     int retval;
 
     sqlite3_stmt *s;
@@ -42,13 +42,23 @@ void Activity::createActivity(string activity_name, int event_id, string activit
         cout << "Error in preparing insert statement for activity " << sqlite3_errcode(db) << endl;
         return;
     }
-    retval = sqlite3_bind_text(s, 1, event_name.c_str(), event_name.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 1, activity_name.c_str(), activity_name.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_text(s, 2, desc.c_str(), desc.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 2, activity_status.c_str(), activity_status.size(), SQLITE_STATIC);	
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding SQL statement " << sql << endl;
+        return;
+    }
+    
+   retval = sqlite3_bind_int(s, 3, event_id);	
 	
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding SQL statement " << sql << endl;
+        return;
+    }
 	//needs to return pointer to the activity created
 	Activity* a = new Activity();
 	return a;
@@ -66,11 +76,11 @@ void Activity::setInactive() {
 string Activity::getStatus() {
 	return status;
 }
-int Activity:: getId() {
+size_t Activity:: getId() {
 	return id;
 }
 
-int Activity:: getEventId() {
+size_t Activity:: getEventId() {
 	return eventId;
 }
 void  Activity:: setId(int newid) {
