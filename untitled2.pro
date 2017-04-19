@@ -24,8 +24,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    sqlite3.c
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    activity.h \
+    checkin.h \
+    event.h \
+    sqlite3.h \
+    user.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES += \
+    README.txt
