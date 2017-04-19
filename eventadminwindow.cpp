@@ -2,6 +2,7 @@
 #include "ui_eventadminwindow.h"
 #include "usercreatewindow.h"
 #include "activitycreatewindow.h"
+#include "listactivities.h"
 
 EventAdminWindow::EventAdminWindow(QWidget *parent) :
     QDialog(parent),
@@ -46,4 +47,13 @@ void EventAdminWindow::on_deactEventButton_released()
     /*  This will deactivate event, or set event to 'inactive'
      *
      */
+}
+
+void EventAdminWindow::on_listActsButton_released()
+{
+    ListActivities la;
+    this->hide();
+    la.setModal(true);
+    la.exec();
+    this->show();
 }
