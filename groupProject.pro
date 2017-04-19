@@ -28,16 +28,19 @@ SOURCES += main.cpp\
     eventcreatewindow.cpp \
     eventadminwindow.cpp \
     usercreatewindow.cpp \
-    activitycreatewindow.cpp
+    activitycreatewindow.cpp \
+    listactivities.cpp
 
 HEADERS  += mainwindow.h \
     eventcreatewindow.h \
     eventadminwindow.h \
     usercreatewindow.h \
-    activitycreatewindow.h
+    activitycreatewindow.h \
+    listactivities.h
 
 FORMS    += mainwindow.ui \
     eventcreatewindow.ui \
     eventadminwindow.ui \
     usercreatewindow.ui \
-    activitycreatewindow.ui
+    activitycreatewindow.ui \
+    listactivities.ui
