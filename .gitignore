@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Ignored Files #
 Makefile
 *.o
@@ -10,8 +9,3 @@ Makefile
 *.db
 .DS_Store
 .DS_Store?
-=======
-*.user
-untitled2.pro.user
-*.user
->>>>>>> bb835d6661be13cd2a925296f2f470d8cf3cb5ba
