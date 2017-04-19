@@ -29,18 +29,33 @@ SOURCES += main.cpp\
     eventadminwindow.cpp \
     usercreatewindow.cpp \
     activitycreatewindow.cpp \
-    listactivities.cpp
+    listactivities.cpp \
+    activitysearch.cpp \
+    activity.cpp \
+    checkin.cpp \
+    qrcodefound.cpp \
+    qrnotfound.cpp
 
 HEADERS  += mainwindow.h \
     eventcreatewindow.h \
     eventadminwindow.h \
     usercreatewindow.h \
     activitycreatewindow.h \
-    listactivities.h
+    listactivities.h \
+    activitysearch.h \
+    activity.h \
+    checkin.h \
+    qrcodefound.h \
+    qrnotfound.h
 
 FORMS    += mainwindow.ui \
     eventcreatewindow.ui \
     eventadminwindow.ui \
     usercreatewindow.ui \
     activitycreatewindow.ui \
-    listactivities.ui
+    listactivities.ui \
+    activitysearch.ui \
+    activity.ui \
+    checkin.ui \
+    qrcodefound.ui \
+    qrnotfound.ui
