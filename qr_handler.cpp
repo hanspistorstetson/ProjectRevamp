@@ -17,6 +17,7 @@
 #include "qr_handler.h"
 using namespace std;
 using namespace zbar;
+using namespace cv;
 
 gdImagePtr QR_Handler::generate(string message) {
 	int version = 3;
@@ -60,14 +61,14 @@ gdImagePtr QR_Handler::qrcode_png(QRcode* code, int fg_color[3], int bg_color[3]
 	return img;
 }
 
-string QR_Handler::read(cv::Mat img) {
+string QR_Handler::read(Mat img) {
 	zbar::ImageScanner scanner;
 	if (!img.data) {
 		cout << "COULDN'T FIND FILE" << endl;
 		return NULL;
 	}
-	cv::Mat grey;
-	cv::cvtColor(img, grey, CV_BGR2GRAY);
+	Mat grey;
+	cvtColor(img, grey, CV_BGR2GRAY);
 	uchar* raw = (uchar*) grey.data;
 	zbar::Image image(img.cols, img.rows, "Y800", raw, img.cols * img.rows);
 	scanner.scan(image);
@@ -75,4 +76,14 @@ string QR_Handler::read(cv::Mat img) {
 		return symbol->get_data();
 	}
 	return NULL;
+}
+
+string QR_Handler::readFromFile(string dir) {
+	// NOT IMPLEMENTED
+	return "not implemented";
+}
+
+bool generateToFile(string dir) {
+	// NOT IMPLEMENTED
+	return false;
 }

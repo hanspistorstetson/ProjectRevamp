@@ -1,5 +1,4 @@
 #include "qr_camscan.h"
-
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
 #include <zbar.h>

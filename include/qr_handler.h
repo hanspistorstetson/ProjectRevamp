@@ -8,11 +8,13 @@
 using namespace std;
 using namespace cv;
 
-class QR_Handler{
+class QR_Handler {
 	public:
-		QR_Handler(){}
+		QR_Handler() {}
 		gdImagePtr generate(string);
 		string read(Mat);
+		string readFromFile(string);
+		bool generateToFile(string);
 	private:
 		gdImagePtr qrcode_png(QRcode*, int[], int[], int, int);
 };
