@@ -1,7 +1,9 @@
 #include "qr_handler.cpp"
 #include "qr_camscan.h"
 
-int testGenerator() {
+using namespace std;
+
+int testGeneratorOld() {
 	boost::uuids::uuid uuid = boost::uuids::random_generator()();
 	const std::string tmp = boost::lexical_cast<std::string>(uuid);
 	cout << tmp << endl;
@@ -27,9 +29,18 @@ int testGenerator() {
 	}
 }
 
+int testGenerator() {
+	QR_Handler* handle = new QR_Handler();
+	handle->generateToFile("HelloWorld");
+	cout << handle->readFromFile("./img/HelloWorld.gif") << endl;
+	delete handle;
+	return 1;
+}
+
 int testScanner() {
 	QR_CamScan* testScan = new QR_CamScan();
 	testScan->scan();
+	delete testScan;
 	return 0;
 }
 

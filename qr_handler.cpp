@@ -83,7 +83,7 @@ string QR_Handler::readFromFile(string dir) {
 	return "not implemented";
 }
 
-bool generateToFile(string dir) {
+bool QR_Handler::generateToFile(string dir) {
 	// NOT IMPLEMENTED
 	return false;
 }
