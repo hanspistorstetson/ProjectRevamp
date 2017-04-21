@@ -8,11 +8,13 @@ using namespace cv;
 using namespace std;
 using namespace zbar;
 
-string QR_CamScan::scan()
-{
+QR_CamScan::~QR_CamScan() {
+	killSwitch = true;
+}
+
+string QR_CamScan::scan() {
 	VideoCapture cap(0);
-	if (!cap.isOpened())
-	{
+	if (!cap.isOpened()) {
 		cout << "Failed to open video source 0!" << endl;
 		return "NODATA";
 	}
@@ -22,8 +24,7 @@ string QR_CamScan::scan()
 	double dHeight = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
 	cout << "Frame size : " << dWidth << " x " << dHeight << endl;
 	namedWindow("BHDT QR Test",CV_WINDOW_AUTOSIZE);
-	while (1)
-	{
+	while (!killSwitch) {
 		Mat frame;
 		bool read = cap.read(frame);
 		if (!read) {

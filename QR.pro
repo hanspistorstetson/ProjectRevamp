@@ -1,3 +1,5 @@
+#ifdef __linux__
+
 TEMPLATE = app
 CONFIG += console c++11
 CONFIG -= app_bundle
@@ -24,4 +26,4 @@ HEADERS += \
 	include/qr_handler.h \
 	include/qr_camscan.h
 
-
+#endif

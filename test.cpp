@@ -34,5 +34,5 @@ int testScanner() {
 }
 
 int main(int argc, char* argv[]) {
-	testScanner();
+	return testScanner();
 }

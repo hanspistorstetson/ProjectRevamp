@@ -7,10 +7,13 @@ using namespace std;
 
 class QR_CamScan
 {
+	private:
+		bool killSwitch;
+
 	public:
-		QR_CamScan(){}
+		QR_CamScan(){ killSwitch = false; }
 		~QR_CamScan();
 		string scan();
 };
 
-#endif // QR_CAMSCAN_H
+#endif
