@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 
     //stuff from database main file
-    sqlite3 *db;
+   /* sqlite3 *db;
     int retval;
     retval = sqlite3_open("test.db", &db);
     if (retval != 0) {
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
     }
     sqlite3_finalize(s);
 
-    sqlite3_close(db);
+    sqlite3_close(db);*/
     //end stuff from database main file
 
     return a.exec();
