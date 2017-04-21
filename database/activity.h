@@ -1,7 +1,7 @@
 #ifndef ACTIVITY_H
 #define ACTIVITY_H
-#include "checkin.h"
 #include <vector>
+class Checkin;
 
 class Activity {
     public:
