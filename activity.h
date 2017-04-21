@@ -15,6 +15,9 @@ public:
     explicit Activity(QWidget *parent = 0);
     ~Activity();
 
+private slots:
+    void on_QR_released();
+
 private:
     Ui::Activity *ui;
 };

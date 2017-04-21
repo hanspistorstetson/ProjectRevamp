@@ -52,8 +52,8 @@ void EventAdminWindow::on_deactEventButton_released()
 void EventAdminWindow::on_listActsButton_released()
 {
     ListActivities la;
-    this->hide();
+    //this->hide();
     la.setModal(true);
     la.exec();
-    this->show();
+   // this->show();
 }

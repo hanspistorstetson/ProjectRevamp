@@ -1,6 +1,7 @@
 #ifndef LISTACTIVITIES_H
 #define LISTACTIVITIES_H
 
+#include <QListWidgetItem>
 #include <QDialog>
 
 namespace Ui {
@@ -14,6 +15,13 @@ class ListActivities : public QDialog
 public:
     explicit ListActivities(QWidget *parent = 0);
     ~ListActivities();
+
+private slots:
+    void on_pushButton_released();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
+
+    void on_pushButton_2_released();
 
 private:
     Ui::ListActivities *ui;
