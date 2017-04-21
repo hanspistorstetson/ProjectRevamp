@@ -29,7 +29,7 @@ Database::Database() {
         sqlite3_free(errmsg);
     }
 
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activities (activityid integer primary key, name text, desc text, eventid text, status text);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activities (activityid integer primary key, name text, eventid int, status text);", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating activites table: " << errmsg << endl;
         sqlite3_free(errmsg);
