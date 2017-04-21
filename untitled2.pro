@@ -39,7 +39,8 @@ HEADERS  += mainwindow.h \
     database/event.h \
     database/sqlite3.h \
     database/user.h \
-    database/database.h
+    database/database.h \
+    database/activity.h
 
 FORMS    += mainwindow.ui
 

@@ -28,7 +28,6 @@ Checkin* Checkin::createCheckin(User* user, Activity* act)
     activity = new Activity();
     activity = act;
     */
-
     sqlite3_stmt *s;
     const char *sql = "INSERT INTO checkinTable (user, act) VALUES (?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -41,14 +40,15 @@ Checkin* Checkin::createCheckin(User* user, Activity* act)
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-
+    /*
    retval = sqlite3_bind_text(s, 2, act->getName().c_str(), act->getName().size(), SQLITE_STATIC);
 
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-    //needs to return pointer to the activity created
+    */
+    //needs to return pointer to the checkin created
     Checkin* myCheckin = new Checkin();
     return myCheckin;
 
