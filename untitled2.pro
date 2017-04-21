@@ -25,28 +25,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    sqlite3.c \
     database/activity.cpp \
     database/dbtest.cpp \
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
     database/checkin.cpp
+    database/database.cpp
+    database/dbtest.cpp
 
 HEADERS  += mainwindow.h \
-    activity.h \
-    checkin.h \
-    event.h \
     #activity.h#
     database/activity.h \
     database/checkin.h \
     database/event.h \
     database/sqlite3.h \
     database/user.h
+    database/database.h
 
 FORMS    += mainwindow.ui
 
 DISTFILES += \
     README.txt \
-    test.db \
+    qrlogger.db \
     untitled2.pro.user
