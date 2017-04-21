@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
-    database/checkin.cpp
+    database/checkin.cpp \
+    database/database.cpp
 
 HEADERS  += mainwindow.h \
     activity.h \
@@ -42,7 +43,8 @@ HEADERS  += mainwindow.h \
     database/checkin.h \
     database/event.h \
     database/sqlite3.h \
-    database/user.h
+    database/user.h \
+    database/database.h
 
 FORMS    += mainwindow.ui
 
