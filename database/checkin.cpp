@@ -21,7 +21,7 @@ Checkin::~Checkin()
 static Checkin* Checkin::createCheckin(User* user, Activity* act)
 {
     int retval;
-
+    sqlite3* db = Database::openDatabase();
     attendee = user;
     activity = act;
 
@@ -50,8 +50,8 @@ static Checkin* Checkin::createCheckin(User* user, Activity* act)
         return;
     }
     //needs to return pointer to the activity created
-    Checkin* cin = new Checkin();
-    return cin;
+    Checkin* myCheckin = new Checkin();
+    return myCheckin;
 
 }
 
