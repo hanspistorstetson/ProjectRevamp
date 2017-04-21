@@ -53,7 +53,7 @@ Event* Event::createEvent(string event_name, string desc, string organizer_name,
     }
     
     //select statement to get the event id
-    sql = "SELECT eventid FROM events WHERE event_name = ?, description = ?, org_name = ?, event_status = ?";
+    sql = "SELECT eventid FROM events WHERE event_name = ? AND description = ? AND org_name = ? AND event_status = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for events " << sqlite3_errcode(db) << endl;
@@ -119,6 +119,51 @@ Event* Event::loadEventById(size_t id) {
 
     Event *e = new Event(id, name, desc, org, status);
     return e;
+}
+
+string Event::getEventName() {
+    return this->name;
+}
+
+string Event::getEventDesc() {
+    return this->desc;
+}
+
+string Event::getOrgName() {
+    return this->org;
+}
+
+string Event::getStatus() {
+    return this->status;
+}
+
+void Event::setEventName(string _name) {
+    this->name = _name;
+    sqlite3* db = Database::openDatabase();
+    int retval;
+
+    sqlite3_stmt* s;
+    const char* sql = "UPDATE events set event_name = ? WHERE eventid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error in preparing update statement for updating event_name field in events table " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_int(s, 2, this->eventid);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding int to SQL statement " << sql << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 1, name.c_str(), name.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding text to SQL statment " << sql << endl;
+        return;
+    }
+    if (sqlite3_step(s) != SQLITE_DONE) {
+        cout << "Error executing SQL statement << " << sql << endl;
+        return;
+    }
+    sqlite3_reset(s);
 }
 
 Event::~Event() {
