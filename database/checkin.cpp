@@ -18,36 +18,35 @@ Checkin::~Checkin()
 }
 */
 
-static Checkin* Checkin::createCheckin(User* user, Activity* act)
+Checkin* Checkin::createCheckin(User* user, Activity* act)
 {
     int retval;
     sqlite3* db = Database::openDatabase();
+    /*
+    attendee = new User();
     attendee = user;
+    activity = new Activity();
     activity = act;
+    */
 
     sqlite3_stmt *s;
     const char *sql = "INSERT INTO checkinTable (user, act) VALUES (?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for activity " << sqlite3_errcode(db) << endl;
-        return;
+        return NULL;
     }
-    retval = sqlite3_bind_text(s, 1, activity_name.c_str(), activity_name.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 1, user->getUserFname().c_str(), user->getUserFname().size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
-        return;
-    }
-    retval = sqlite3_bind_text(s, 2, activity_status.c_str(), activity_status.size(), SQLITE_STATIC);
-    if (retval != SQLITE_OK) {
-        cout << "Error in binding SQL statement " << sql << endl;
-        return;
+        return NULL;
     }
 
-   retval = sqlite3_bind_int(s, 3, event_id);
+   retval = sqlite3_bind_text(s, 2, act->getName().c_str(), act->getName().size(), SQLITE_STATIC);
 
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
-        return;
+        return NULL;
     }
     //needs to return pointer to the activity created
     Checkin* myCheckin = new Checkin();
@@ -65,7 +64,7 @@ size_t Checkin::getUserId()
     return userID;
 }
 
-void Checkin::setActivity(size_t aid)
+void Checkin::setActId(size_t aid)
 {
     actID = aid;
 }
