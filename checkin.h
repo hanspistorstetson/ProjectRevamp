@@ -1,10 +1,21 @@
 #ifndef CHECKIN_H
 #define CHECKIN_H
-
 #include <vector>
+#include <QDialog>
 
-class checkin {
-    public:
-        //TODO: Stub out methods for controller to access database
+namespace Ui {
+class checkIn;
+}
+
+class checkIn : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit checkIn(QWidget *parent = 0);
+    ~checkIn();
+
+private:
+    Ui::checkIn *ui;
 };
-#endif
+#endif // CHECKIN_H
