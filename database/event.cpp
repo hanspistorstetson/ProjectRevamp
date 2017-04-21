@@ -4,90 +4,122 @@
 #include <cstdlib>
 #include <string>
 #include <cstring>
+#include "database.h"
 
 using namespace std;
 
-Event::Event() {
-    int retval;
-    
-    retval = sqlite3_open("qrlogger.db", &db);
-    if (retval != 0) {
-        cout << "Cannot open qrlogger.db: " << sqlite3_errcode(db) << endl;
-        exit(1);
-    }
-    
-    cout << "Database opened." << endl;
-
-    char* errmsg;
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS events (eventid integer primary key, event_name text, description text, org_name text, event_status text);", NULL, NULL, &errmsg);
-    if (retval != SQLITE_OK) {
-        cout << "Error creating event table: " << errmsg << endl;
-        sqlite3_free(errmsg);
-    }
-    
-    retval = sqlite3_exec(db, "INSERT INTO events (event_name, description, org_name, event_status) values (\"Constructor Test\", \"Blah blah\", \"blah\", \"blah\");", NULL, NULL, &errmsg);
-    if (retval != SQLITE_OK) {
-        cout << "Error creating test event in constructor: " << errmsg << endl;
-        sqlite3_free(errmsg);
-    }
+Event::Event(size_t id, string event_name, string _desc, string org_name, string _status) {
+    this->eventid = id;
+    this->name = event_name;
+    this->desc = _desc;
+    this->org = org_name;
+    this->status = _status;
 }
 
-void Event::createEvent(string event_name, string desc, string organizer_name, string event_status) {
+Event* Event::createEvent(string event_name, string desc, string organizer_name, string event_status) {
+    sqlite3 *db = Database::openDatabase();
     int retval;
-
+    
     sqlite3_stmt *s;
     const char *sql = "INSERT INTO events (event_name, description, org_name, event_status) VALUES (?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for events " << sqlite3_errcode(db) << endl;
-        return;
+        return NULL;
     }
     retval = sqlite3_bind_text(s, 1, event_name.c_str(), event_name.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
-        return;
+        return NULL;
     }
     retval = sqlite3_bind_text(s, 2, desc.c_str(), desc.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
-        return;
+        return NULL;
     }
     retval = sqlite3_bind_text(s, 3, organizer_name.c_str(), organizer_name.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
-        return;
+        return NULL;
     }
     retval = sqlite3_bind_text(s, 4, event_status.c_str(), event_status.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
-        return;
+        return NULL;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << ": " << sqlite3_errcode(db) << endl;
-        return;
+        return NULL;
     }
-}
-
-void Event::selectExample() {
-    int retval;
-
-    sqlite3_stmt *s;
-    const char* sql = "SELECT * FROM events ORDER BY eventid";
+    
+    //select statement to get the event id
+    sql = "SELECT eventid FROM events WHERE event_name = ?, description = ?, org_name = ?, event_status = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error in select statment: " << sqlite3_errmsg(db) << endl;
+        cout << "Error preparing select statement for events " << sqlite3_errcode(db) << endl;
+        return NULL;
     }
-    while (sqlite3_step(s) == SQLITE_ROW) {
-        int id = sqlite3_column_int(s, 0);
-        const unsigned char* event_name = sqlite3_column_text(s, 1);
-        const unsigned char* desc = sqlite3_column_text(s, 2);
-        const unsigned char* org_name = sqlite3_column_text(s, 3);
-        const unsigned char* status = sqlite3_column_text(s, 4);
+    retval = sqlite3_bind_text(s, 1, event_name.c_str(), event_name.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding SQL statement " << sql << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_text(s, 2, desc.c_str(), desc.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding SQL statement " << sql << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_text(s, 3, organizer_name.c_str(), organizer_name.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding SQL statement " << sql << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_text(s, 4, event_status.c_str(), event_status.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding SQL statement " << sql << endl;
+        return NULL;
+    }
+    //TODO: Remember to write a test case for this! Should only get one row from the select statement...
+    size_t id = 0;
+    if (sqlite3_step(s) == SQLITE_ROW) {
+        id = sqlite3_column_int(s, 0);
+    }
 
-        cout << "ID = " << id << " NAME = " << event_name << " DESC = " << desc << " ORG = " << org_name << " STATUS = " << status << endl;
+    Event *e = new Event(id, event_name, desc, organizer_name, event_status);
+    return e;
+}
+
+Event* Event::loadEventById(size_t id) {
+    sqlite3 *db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    //const unsigned char* name;
+    //const unsigned char* desc;
+    //const unsigned char* org;
+    //const unsigned char* status;
+    string name, desc, org, status;
+
+    const char *sql = "SELECT * FROM events WHERE eventid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for events " << sqlite3_errcode(db) << endl;
+        return NULL;
     }
+    retval = sqlite3_bind_int(s, 1, id);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding value to SQL statement " << sql << endl;
+        return NULL;
+    }
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        name = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        desc = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        org = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 4)));
+    }
+
+    Event *e = new Event(id, name, desc, org, status);
+    return e;
 }
 
 Event::~Event() {
-    sqlite3_close(db);
 }

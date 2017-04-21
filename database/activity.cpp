@@ -9,24 +9,6 @@
 using namespace std;
 
 Activity::Activity() {
-    int retval;
-    sqlite3* db = Database::openDatabase();
-
-    
-    cout << "Database opened." << endl;
-
-    char* errmsg;
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activityTable (activity_id int, name text, eventid int, status text);", NULL, NULL, &errmsg);
-    if (retval != SQLITE_OK) {
-        cout << "Error creating event table: " << errmsg << endl;
-        sqlite3_free(errmsg);
-    }
-    
-    retval = sqlite3_exec(db, "INSERT INTO activityTable (\"test\", \"active\", 1);", NULL, NULL, &errmsg);
-    if (retval != SQLITE_OK) {
-        cout << "Error creating test event in constructor: " << errmsg << endl;
-        sqlite3_free(errmsg);
-    }
 }
 
  Activity* Activity::createActivity(string activity_name, size_t event_id, string activity_status) {

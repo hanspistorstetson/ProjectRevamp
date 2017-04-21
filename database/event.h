@@ -9,7 +9,6 @@ class Event {
         ~Event();
         static Event* createEvent(std::string event_name, std::string desc, std::string organizer_name, std::string event_status);
         static Event* loadEventById(size_t eventid);
-        void selectExample();
         std::string getEventName();
         std::string getEventDesc();
         std::string getOrgName();
@@ -21,8 +20,7 @@ class Event {
         void setStatus(std::string status);
         
     private:
-        sqlite3 *db;
-        Event();
+        Event(size_t id, std::string event_name, std::string _desc, std::string org_name, std::string _status);
         size_t eventid;
         std::string name;
         std::string desc;
