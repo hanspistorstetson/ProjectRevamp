@@ -1,4 +1,4 @@
-#include "activitycreatewindow.h"
+#include "gui/activitycreatewindow.h"
 #include "ui_activitycreatewindow.h"
 
 ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :

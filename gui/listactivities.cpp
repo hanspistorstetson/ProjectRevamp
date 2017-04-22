@@ -1,4 +1,4 @@
-#include "listactivities.h"
+#include "gui/listactivities.h"
 #include "ui_listactivities.h"
 
 ListActivities::ListActivities(QWidget *parent) :

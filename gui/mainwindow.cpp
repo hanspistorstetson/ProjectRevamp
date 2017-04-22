@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
 #include "ui_mainwindow.h"
-#include "eventcreatewindow.h"
-#include "eventadminwindow.h"
+#include "gui/eventcreatewindow.h"
+#include "gui/eventadminwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :

@@ -1,6 +1,6 @@
 #include <iostream>
-#include "sqlite3.h"
-#include "event.h"
+#include "database/sqlite3.h"
+#include "database/event.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #include <iostream>
-#include "sqlite3.h"
-#include "checkin.h"
-#include "activity.h"
+#include "database/sqlite3.h"
+#include "database/checkin.h"
+#include "database/activity.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
@@ -11,13 +11,6 @@ using namespace std;
 Checkin::Checkin()
 {
 }
-
-/*
-Checkin::~Checkin()
-{
-    delete cin;
-}
-*/
 
 Checkin* Checkin::createCheckin(User* user, Activity* act)
 {

@@ -1,4 +1,4 @@
-#include "qrnotfound.h"
+#include "gui/qrnotfound.h"
 #include "ui_qrnotfound.h"
 
 QrnotFound::QrnotFound(QWidget *parent) :

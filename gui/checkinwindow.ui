@@ -1,6 +1,6 @@
 <ui version="4.0">
- <class>Activity</class>
- <widget class="QDialog" name="Activity">
+ <class>CheckInWindow</class>
+ <widget class="QDialog" name="checkIn">
   <property name="geometry">
    <rect>
     <x>0</x>

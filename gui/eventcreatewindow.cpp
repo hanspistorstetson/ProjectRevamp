@@ -1,6 +1,6 @@
-#include "eventcreatewindow.h"
+#include "gui/eventcreatewindow.h"
 #include "ui_eventcreatewindow.h"
-#include "eventadminwindow.h"
+#include "gui/eventadminwindow.h"
 #include <iostream>
 
 /*

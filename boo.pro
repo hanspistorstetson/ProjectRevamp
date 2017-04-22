@@ -1,9 +1,3 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-04-16T19:40:22
-#
-#-------------------------------------------------
-
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -24,64 +18,53 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    eventcreatewindow.cpp \
-    eventadminwindow.cpp \
-    usercreatewindow.cpp \
-    activitycreatewindow.cpp \
-    listactivities.cpp \
-    activitysearch.cpp \
-    activity.cpp \
-    checkin.cpp \
-    qrcodefound.cpp \
-    qrnotfound.cpp
-
-HEADERS  += mainwindow.h \
-    eventcreatewindow.h \
-    eventadminwindow.h \
-    usercreatewindow.h \
-    activitycreatewindow.h \
-    listactivities.h \
-    activitysearch.h \
-    activity.h \
-    checkin.h \
-    qrcodefound.h \
-    qrnotfound.h \
-    event.h \
-    user.h
-
-FORMS    += mainwindow.ui \
-    eventcreatewindow.ui \
-    eventadminwindow.ui \
-    usercreatewindow.ui \
-    activitycreatewindow.ui \
-    listactivities.ui \
-    activitysearch.ui \
-    activity.ui \
-    checkin.ui \
-    qrcodefound.ui \
-    qrnotfound.ui \
+    gui/mainwindow.cpp \
+    gui/eventcreatewindow.cpp \
+    gui/eventadminwindow.cpp \
+    gui/usercreatewindow.cpp \
+    gui/activitycreatewindow.cpp \
+    gui/listactivities.cpp \
+    gui/activitysearch.cpp \
+    gui/activitywindow.cpp \
+    gui/checkinwindow.cpp \
+    gui/qrcodefound.cpp \
+    gui/qrnotfound.cpp \
     database/activity.cpp \
-    database/dbtest.cpp \
+    database/checkin.cpp \
+    database/database.cpp \
     database/event.cpp \
     database/user.cpp \
-    database/sqlite3.c \
-    database/database.cpp\
-    database/dbtest.cpp\
-    database/checkin.cpp
+    database/sqlite3.c
 
-HEADERS  += mainwindow.h \
+HEADERS  += gui/mainwindow.h \
+    gui/eventcreatewindow.h \
+    gui/eventadminwindow.h \
+    gui/usercreatewindow.h \
+    gui/activitycreatewindow.h \
+    gui/listactivities.h \
+    gui/activitysearch.h \
+    gui/activitywindow.h \
+    gui/checkinwindow.h \
+    gui/qrcodefound.h \
+    gui/qrnotfound.h \
     database/activity.h \
     database/checkin.h \
+    database/database.h \
     database/event.h \
-    database/sqlite3.h \
-    database/user.h\
-    database/database.h\
-    database/activity.h
+    database/user.h \
+    database/sqlite3.h
 
-FORMS    += mainwindow.ui
+FORMS    += gui/mainwindow.ui \
+    gui/eventcreatewindow.ui \
+    gui/eventadminwindow.ui \
+    gui/usercreatewindow.ui \
+    gui/activitycreatewindow.ui \
+    gui/listactivities.ui \
+    gui/activitysearch.ui \
+    gui/activitywindow.ui \
+    gui/checkinwindow.ui \
+    gui/qrcodefound.ui \
+    gui/qrnotfound.ui
 
-DISTFILES += \
-    README.txt \
-    qrlogger.db \
-    untitled2.pro.user
+DISTFILES += README.txt
+

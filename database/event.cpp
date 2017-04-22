@@ -1,10 +1,10 @@
+#include "database/sqlite3.h"
+#include "database/event.h"
+#include "database/database.h"
 #include <iostream>
-#include "sqlite3.h"
-#include "event.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
-#include "database.h"
 
 using namespace std;
 

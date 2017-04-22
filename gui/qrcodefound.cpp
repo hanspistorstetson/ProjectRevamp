@@ -1,4 +1,4 @@
-#include "qrcodefound.h"
+#include "gui/qrcodefound.h"
 #include "ui_qrcodefound.h"
 
 QrCodeFound::QrCodeFound(QWidget *parent) :

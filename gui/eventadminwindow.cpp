@@ -1,8 +1,8 @@
-#include "eventadminwindow.h"
+#include "gui/eventadminwindow.h"
 #include "ui_eventadminwindow.h"
-#include "usercreatewindow.h"
-#include "activitycreatewindow.h"
-#include "listactivities.h"
+#include "gui/usercreatewindow.h"
+#include "gui/activitycreatewindow.h"
+#include "gui/listactivities.h"
 
 EventAdminWindow::EventAdminWindow(QWidget *parent) :
     QDialog(parent),

@@ -2,9 +2,9 @@
 #define CHECKIN_H
 
 #include <vector>
-#include "user.h"
-#include "event.h"
-#include "database.h"
+#include "database/user.h"
+#include "database/event.h"
+#include "database/database.h"
 
 class Activity;
 
