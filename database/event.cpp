@@ -137,6 +137,10 @@ string Event::getStatus() {
     return this->status;
 }
 
+size_t Event::getEventId() {
+    return this->eventid;
+}
+
 void Event::setEventName(string _name) {
     this->name = _name;
     sqlite3* db = Database::openDatabase();

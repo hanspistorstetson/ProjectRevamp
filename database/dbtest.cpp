@@ -1,6 +1,7 @@
 #include <iostream>
 #include "sqlite3.h"
 #include "event.h"
+#include "user.h"
 #include "dbtest.h"
 
 using namespace std;
@@ -14,6 +15,7 @@ void dbtest::test() {
     cout << event->getOrgName() << endl;
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
-    //User* user_model = User::createUser("test id", "test@test.test", "test", "test", "12345");
+    cout << event->getEventId() << endl;
+    User* user = User::createUser("test id", "test@test.test", "test", "test", event->getEventId());
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 }
