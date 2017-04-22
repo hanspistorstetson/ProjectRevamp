@@ -32,9 +32,13 @@ User* User::createUser(string uuid, string username, string fname, string lname,
         cout << "Error binding int to SQL statement " << sql << endl;
         return NULL;
     }
-    if (sqlite3_step(s) != SQLITE_DONE) {
+    if (sqlite3_step(s) == SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << " with error code " << sqlite3_errcode(db) << endl;
         cout << "Check to make sure that the event exists in the database." << endl;
+        return NULL;
+    }
+    if (eventid != sqlite3_column_int(s, 0)) {
+        cout << "Something strange happened... " << endl;
         return NULL;
     }
     
@@ -79,7 +83,55 @@ User* User::createUser(string uuid, string username, string fname, string lname,
     return u;
 }
 
+User* User::loadUserById(string uuid) {
+    sqlite3* db = Database::openDatabase();
+    sqlite3_stmt* s;
+    int retval;
 
+    string username, fname, lname;
+    size_t eventid;
+    
+    const char* sql = "SELECT * FROM users WHERE uuid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC); 
+    if (retval != SQLITE_OK) {
+        cout << "Error binding text to SQL statement " << sql << endl;
+        return NULL;
+    }
+    if (sqlite3_step(s) == SQLITE_ROW) {
+        username = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        eventid = sqlite3_column_int(s, 4);
+    }
+
+    User* u = new User(uuid, username, fname, lname, eventid);
+    return u;
+}
+
+string User::getUserId() {
+    return uuid;
+}
+
+string User::getUsername() {
+    return username;
+}
+
+string User::getUserFname() {
+    return fname;
+}
+
+string User::getUserLname() {
+    return lname;
+}
+
+size_t User::getEventID() {
+    return eventid;
+}
 
 User::~User() {
 }

@@ -93,10 +93,6 @@ Event* Event::loadEventById(size_t id) {
     sqlite3 *db = Database::openDatabase();
     int retval;
     sqlite3_stmt *s;
-    //const unsigned char* name;
-    //const unsigned char* desc;
-    //const unsigned char* org;
-    //const unsigned char* status;
     string name, desc, org, status;
 
     const char *sql = "SELECT * FROM events WHERE eventid = ?";

@@ -3,6 +3,7 @@
 
 class dbtest {
     public:
-        static void test();
+        static void testCreating();
+        static void testLoading();
 };
 #endif
