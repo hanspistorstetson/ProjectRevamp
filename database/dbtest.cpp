@@ -15,7 +15,7 @@ void dbtest::testCreating() {
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
     cout << event->getEventId() << endl;
-    User* user = User::createUser(1, "test@test.test", "test", "test", event->getEventId());
+    User* user = User::createUser("test@test.test", "test", "test", event->getEventId());
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");

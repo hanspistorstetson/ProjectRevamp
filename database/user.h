@@ -7,7 +7,7 @@
 class User {
     public:
         ~User();
-        static User* createUser(size_t uuid, std::string username, std::string fname, std::string lname, size_t eventid);
+        static User* createUser(std::string username, std::string fname, std::string lname, size_t eventid);
         static User* loadUserById(size_t userid);
         size_t getUserId();
         std::string getUsername();
