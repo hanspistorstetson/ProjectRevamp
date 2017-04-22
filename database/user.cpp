@@ -1,6 +1,6 @@
+#include "database/sqlite3.h"
+#include "database/user.h"
 #include <iostream>
-#include "sqlite3.h"
-#include "user.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
@@ -8,7 +8,7 @@
 
 using namespace std;
 
-User::User(string _uuid, string _username, string _fname, string _lname, size_t _eventid) {
+User::User(size_t _uuid, string _username, string _fname, string _lname, size_t _eventid) {
     this->uuid = _uuid;
     this->username = _username;
     this->fname = _fname;
@@ -16,7 +16,7 @@ User::User(string _uuid, string _username, string _fname, string _lname, size_t 
     this->eventid = _eventid;
 }
 
-User* User::createUser(string uuid, string username, string fname, string lname, size_t eventid) {
+User* User::createUser(size_t uuid, string username, string fname, string lname, size_t eventid) {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt* s;
@@ -37,7 +37,7 @@ User* User::createUser(string uuid, string username, string fname, string lname,
         cout << "Check to make sure that the event exists in the database." << endl;
         return NULL;
     }
-    if (eventid != sqlite3_column_int(s, 0)) {
+    if (eventid != (size_t)sqlite3_column_int(s, 0)) {
         cout << "Something strange happened... " << endl;
         return NULL;
     }
@@ -48,9 +48,9 @@ User* User::createUser(string uuid, string username, string fname, string lname,
         cout << "Error in preparing insert statement for users: error code " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_int(s, 1, uuid);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        cout << "Error binding uuid int to SQL statement " << sql << endl;
         return NULL;
     }
     retval = sqlite3_bind_text(s, 2, username.c_str(), username.size(), SQLITE_STATIC);
@@ -83,13 +83,13 @@ User* User::createUser(string uuid, string username, string fname, string lname,
     return u;
 }
 
-User* User::loadUserById(string uuid) {
+User* User::loadUserById(size_t uuid) {
     sqlite3* db = Database::openDatabase();
     sqlite3_stmt* s;
     int retval;
 
     string username, fname, lname;
-    size_t eventid;
+    size_t eventid = 0;
     
     const char* sql = "SELECT * FROM users WHERE uuid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -97,9 +97,9 @@ User* User::loadUserById(string uuid) {
         cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC); 
+    retval = sqlite3_bind_int(s, 1, uuid);
     if (retval != SQLITE_OK) {
-        cout << "Error binding text to SQL statement " << sql << endl;
+        cout << "Error binding int to SQL statement " << sql << endl;
         return NULL;
     }
     if (sqlite3_step(s) == SQLITE_ROW) {
@@ -111,26 +111,6 @@ User* User::loadUserById(string uuid) {
 
     User* u = new User(uuid, username, fname, lname, eventid);
     return u;
-}
-
-string User::getUserId() {
-    return uuid;
-}
-
-string User::getUsername() {
-    return username;
-}
-
-string User::getUserFname() {
-    return fname;
-}
-
-string User::getUserLname() {
-    return lname;
-}
-
-size_t User::getEventID() {
-    return eventid;
 }
 
 void User::setUsername(string _username) {
@@ -151,9 +131,9 @@ void User::setUsername(string _username) {
         cout << "Error binding username text to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_int(s, 2, uuid);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        cout << "Error binding uuid int to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -180,9 +160,9 @@ void User::setUserFname(string _fname) {
         cout << "Error binding fname text to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_int(s, 2, uuid);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        cout << "Error binding uuid int to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -209,9 +189,9 @@ void User::setUserLname(string _lname) {
         cout << "Error binding lname text to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_int(s, 2, uuid);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        cout << "Error binding uuid int to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -223,3 +203,25 @@ void User::setUserLname(string _lname) {
 
 User::~User() {
 }
+
+size_t User::getUserId() {
+    return uuid;
+}
+
+string User::getUsername() {
+    return username;
+}
+
+string User::getUserFname() {
+    return fname;
+}
+
+string User::getUserLname() {
+    return lname;
+}
+
+size_t User::getEventID() {
+    return eventid;
+}
+
+

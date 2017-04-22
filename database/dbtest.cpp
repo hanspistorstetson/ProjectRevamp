@@ -1,8 +1,7 @@
 #include <iostream>
-#include "sqlite3.h"
-#include "event.h"
-#include "user.h"
-#include "dbtest.h"
+#include "database/user.h"
+#include "database/dbtest.h"
+#include "database/event.h"
 
 using namespace std;
 
@@ -16,7 +15,7 @@ void dbtest::testCreating() {
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
     cout << event->getEventId() << endl;
-    User* user = User::createUser("test id", "test@test.test", "test", "test", event->getEventId());
+    User* user = User::createUser(1, "test@test.test", "test", "test", event->getEventId());
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");
@@ -29,7 +28,7 @@ void dbtest::testCreating() {
 void dbtest::testLoading() {
     Event* event = Event::loadEventById(1);
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
-    User* user = User::loadUserById("test id");
+    User* user = User::loadUserById(1);
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
 
     delete event;

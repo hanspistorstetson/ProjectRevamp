@@ -1,8 +1,8 @@
-#include "mainwindow.h"
+#include "gui/mainwindow.h"
+#include "database/database.h"
 #include <QApplication>
 #include <cstdlib>
 #include <iostream>
-#include "database/sqlite3.h"
 #include <cstring>
 #include "database/dbtest.h"
 
@@ -11,11 +11,15 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    Database::openDatabase();
     MainWindow w;
     w.show();
 
     //Testing database
-    dbtest::test();
+    dbtest::testCreating();
+    dbtest::testLoading();
 
-    return a.exec();
+    int retval = a.exec();
+    Database::closeDatabase();
+    return retval;
 }

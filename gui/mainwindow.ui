@@ -6,26 +6,39 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>532</width>
+    <height>386</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>130</y>
-      <width>80</width>
-      <height>22</height>
+      <x>50</x>
+      <y>120</y>
+      <width>421</width>
+      <height>101</height>
      </rect>
     </property>
-    <property name="text">
-     <string>TestButton</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="eventOpenButton">
+       <property name="text">
+        <string>Open Event</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="eventCreateButton">
+       <property name="text">
+        <string>Create New Event</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -33,7 +46,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>532</width>
      <height>21</height>
     </rect>
    </property>

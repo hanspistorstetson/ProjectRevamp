@@ -1,7 +1,7 @@
 #include <iostream>
-#include "sqlite3.h"
-#include "activity.h"
-#include "database.h"
+#include "database/sqlite3.h"
+#include "database/activity.h"
+#include "database/database.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
@@ -17,7 +17,7 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
 
  Activity* Activity::createActivity(string activity_name, size_t event_id, string activity_status) {
     int retval;
-     sqlite3* db = Database::openDatabase();
+    sqlite3* db = Database::openDatabase();
     sqlite3_stmt *s;
     const char *sql = "INSERT INTO activityTable (activity_name, event_id, activity_status) VALUES (?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);

@@ -2,14 +2,14 @@
 #define USER_H
 
 #include <vector>
+#include <string>
 
 class User {
     public:
-        //TODO: Stub out methods for the controller to access the database
         ~User();
-        static User* createUser(std::string uuid, std::string username, std::string fname, std::string lname, size_t eventid);
-        static User* loadUserById(std::string userid);
-        std::string getUserId();
+        static User* createUser(size_t uuid, std::string username, std::string fname, std::string lname, size_t eventid);
+        static User* loadUserById(size_t userid);
+        size_t getUserId();
         std::string getUsername();
         std::string getUserFname();
         std::string getUserLname();
@@ -19,9 +19,8 @@ class User {
         void setUserLname(std::string);
         
     private:
-        sqlite3 *db;
-        User(std::string, std::string, std::string, std::string, size_t);
-        std::string uuid;
+        User(size_t, std::string, std::string, std::string, size_t);
+        size_t uuid;
         size_t eventid;
         std::string username;
         std::string fname;

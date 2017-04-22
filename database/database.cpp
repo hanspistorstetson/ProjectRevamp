@@ -1,5 +1,5 @@
-#include "sqlite3.h"
-#include "database.h"
+#include "database/sqlite3.h"
+#include "database/database.h"
 #include <iostream>
 #include <cstdlib>
 
@@ -8,9 +8,9 @@ Database* Database::instance = 0;
 
 Database::Database() {
     int retval;
-    retval = sqlite3_open("qrlogger.db", &db);
+    retval = sqlite3_open("boo.db", &db);
     if (retval != 0) {
-        cout << "Cannot open qrlogger.db: " << sqlite3_errcode(db) << endl;
+        cout << "Cannot open boo.db: " << sqlite3_errcode(db) << endl;
         exit(1);
     }
     
@@ -47,6 +47,7 @@ Database::Database() {
         sqlite3_free(errmsg);
     }
 }
+
 sqlite3* Database::openDatabase() {
     if (!instance) {
         instance = new Database();
@@ -54,7 +55,12 @@ sqlite3* Database::openDatabase() {
     return instance->db;
 }
 
+void Database::closeDatabase() {
+    if(instance) { delete instance; }
+}
+
 Database::~Database() {
     sqlite3_close(db);
-    delete instance;
 }
+
+
