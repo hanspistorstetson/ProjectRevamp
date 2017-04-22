@@ -79,11 +79,21 @@ string QR_Handler::read(Mat img) {
 }
 
 string QR_Handler::readFromFile(string dir) {
-	// NOT IMPLEMENTED
-	return "not implemented";
+	Mat image = imread(dir, CV_LOAD_IMAGE_COLOR);
+	if (!image.data) return "ERROR";
+	else {
+		string retVal = read(image);
+		return retVal;
+	}
 }
 
-bool QR_Handler::generateToFile(string dir) {
-	// NOT IMPLEMENTED
-	return false;
+bool QR_Handler::generateToFile(string data) {
+	gdImagePtr ptr = generate(data);
+	string path = "./img/" + data + ".png";
+	FILE* out = fopen(path.c_str(), "w+");
+	if (out == NULL) return false;
+	gdImagePng(ptr, out);
+	gdImageDestroy(ptr);
+	fclose(out);
+	return true;
 }
