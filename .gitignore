@@ -1,5 +1,8 @@
-*.user
-untitled2.pro.user
+# Ignored Files #
+Makefile
+*.o
+*.sql
+*.sqlite
 *.user
 \#*
 *~
@@ -10,3 +13,6 @@ ui_*
 .qmake.stash
 *.pro.user.*
 Makefile
+*.db
+.DS_Store
+.DS_Store?

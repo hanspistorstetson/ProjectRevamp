@@ -58,4 +58,28 @@ FORMS    += mainwindow.ui \
     activity.ui \
     checkin.ui \
     qrcodefound.ui \
-    qrnotfound.ui
+    qrnotfound.ui \
+    database/activity.cpp \
+    database/dbtest.cpp \
+    database/event.cpp \
+    database/user.cpp \
+    database/sqlite3.c \
+    database/database.cpp\
+    database/dbtest.cpp\
+    database/checkin.cpp
+
+HEADERS  += mainwindow.h \
+    database/activity.h \
+    database/checkin.h \
+    database/event.h \
+    database/sqlite3.h \
+    database/user.h\
+    database/database.h\
+    database/activity.h
+
+FORMS    += mainwindow.ui
+
+DISTFILES += \
+    README.txt \
+    qrlogger.db \
+    untitled2.pro.user
