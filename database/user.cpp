@@ -133,5 +133,93 @@ size_t User::getEventID() {
     return eventid;
 }
 
+void User::setUsername(string _username) {
+    username = _username;
+
+    sqlite3* db = Database::openDatabase();
+    sqlite3_stmt* s;
+    int retval;
+
+    const char* sql = "UPDATE users SET username = ? WHERE uuid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 1, _username.c_str(), _username.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding username text to SQL statement " << sql << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        return;
+    }
+    if (sqlite3_step(s) != SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+}
+
+void User::setUserFname(string _fname) {
+    fname = _fname;
+
+    sqlite3* db = Database::openDatabase();
+    sqlite3_stmt* s;
+    int retval;
+
+    const char* sql = "UPDATE users SET fname = ? WHERE uuid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 1, _fname.c_str(), _fname.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding fname text to SQL statement " << sql << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        return;
+    }
+    if (sqlite3_step(s) != SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+}
+
+void User::setUserLname(string _lname) {
+    lname = _lname;
+
+    sqlite3* db = Database::openDatabase();
+    sqlite3_stmt* s;
+    int retval;
+
+    const char* sql = "UPDATE users SET lname = ? WHERE uuid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 1, _lname.c_str(), _lname.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding lname text to SQL statement " << sql << endl;
+        return;
+    }
+    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        return;
+    }
+    if (sqlite3_step(s) != SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+}
+ 
+
 User::~User() {
 }

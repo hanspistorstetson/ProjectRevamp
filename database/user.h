@@ -14,9 +14,9 @@ class User {
         std::string getUserFname();
         std::string getUserLname();
         size_t getEventID();
-        void setUsername();
-        void setUserFname();
-        void setUserLname();
+        void setUsername(std::string);
+        void setUserFname(std::string);
+        void setUserLname(std::string);
         
     private:
         sqlite3 *db;

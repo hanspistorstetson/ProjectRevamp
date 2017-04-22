@@ -17,6 +17,9 @@ void dbtest::testCreating() {
     cout << event->getStatus() << endl;
     cout << event->getEventId() << endl;
     User* user = User::createUser("test id", "test@test.test", "test", "test", event->getEventId());
+    user->setUsername("John Cena");
+    user->setUserFname("John");
+    user->setUserLname("Cena");
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;
