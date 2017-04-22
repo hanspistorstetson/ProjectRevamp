@@ -46,7 +46,9 @@ HEADERS  += mainwindow.h \
     activity.h \
     checkin.h \
     qrcodefound.h \
-    qrnotfound.h
+    qrnotfound.h \
+    event.h \
+    user.h
 
 FORMS    += mainwindow.ui \
     eventcreatewindow.ui \
