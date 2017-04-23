@@ -8,6 +8,13 @@
 
 using namespace std;
 
+/**
+  * Built as part of the Boo QR Logger Project, a class project from the Spring 2017 Software Development I at Stetson University.
+  * User model class that creates a row in the users table and loads values into memory in an instance of this class.
+  *
+  * @author Hayden Estey
+  */
+
 User::User(size_t _uuid, string _username, string _fname, string _lname, size_t _eventid) {
     this->uuid = _uuid;
     this->username = _username;

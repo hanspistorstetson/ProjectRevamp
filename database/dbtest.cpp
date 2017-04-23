@@ -5,6 +5,13 @@
 
 using namespace std;
 
+/**
+  * Built for the Boo QR Logger Project, a class project from the Spring 2017 Software Development I class at Stetson University.
+  * Database & Model testing class.
+  * 
+  * @author Hayden Estey
+  */
+
 void dbtest::testCreating() {
     Event* event = Event::createEvent("Test Name", "Test Description", "Test Org", "Test Status");
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
