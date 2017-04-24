@@ -15,6 +15,9 @@ public:
     explicit QrCodeFound(QWidget *parent = 0);
     ~QrCodeFound();
 
+private slots:
+    void on_Back_released();
+
 private:
     Ui::QrCodeFound *ui;
 };
