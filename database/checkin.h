@@ -10,24 +10,19 @@ class Activity;
 
 class Checkin {
     public:
-        static Checkin* createCheckin(User*, Activity*);
-        static Checkin* loadCheckin(size_t);
-        size_t getUserId();
-        void setUserId(size_t);
+        static Checkin* createCheckin(std::string, size_t);
+        static Checkin* loadCheckinById(size_t);
+        std::string getUserId();
         size_t getActId();
-        void setActId(size_t);
-        User* getAttendee();
-        Activity* getActivity();
         bool isCheckedIn();
+        void setUser_ID(std::string);
+        void setActivity_ID(size_t);
         ~Checkin();
     private:
+        size_t id;
         bool checkedIn;
-        User* attendee;
-        Activity* activity;
-        size_t userID;
+        std::string userID;
         size_t actID;
-        Checkin();
-
-
+        Checkin(size_t, std::string, size_t);
 };
 #endif
