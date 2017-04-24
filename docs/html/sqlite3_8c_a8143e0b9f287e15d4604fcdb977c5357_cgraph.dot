@@ -1,0 +1,14 @@
+digraph "computeNumericType"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node66559 [label="computeNumericType",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node66559 -> Node66560 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node66560 [label="sqlite3AtoF",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad2a961fc08942417d977510a1384b6d2"];
+  Node66560 -> Node66561 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node66561 [label="sqlite3Atoi64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5b13083911b3dc0a0b54f43acc686a39"];
+  Node66561 -> Node66562 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node66562 [label="compare2pow63",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#adcbebdd3f570175519922276b83132e0"];
+  Node66559 -> Node66561 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

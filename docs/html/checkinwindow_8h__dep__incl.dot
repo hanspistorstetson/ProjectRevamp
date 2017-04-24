@@ -1,0 +1,10 @@
+digraph "gui/checkinwindow.h"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node2 [label="gui/checkinwindow.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="gui/activitywindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$activitywindow_8cpp.html"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="gui/checkinwindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$checkinwindow_8cpp.html"];
+}

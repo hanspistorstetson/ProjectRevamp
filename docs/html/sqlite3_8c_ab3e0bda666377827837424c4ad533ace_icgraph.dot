@@ -1,0 +1,24 @@
+digraph "whereOrName"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node916623 [label="whereOrName",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node916623 -> Node916624 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916624 [label="whereForeignKeys",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a37258f841843e967585d277711322659"];
+  Node916624 -> Node916625 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916625 [label="sqlite3AlterRenameTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa5cfdb507ff74e559f2efb0318c96d2c"];
+  Node916625 -> Node916626 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916626 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node916626 -> Node916627 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916627 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node916623 -> Node916628 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916628 [label="whereTempTriggers",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a40e4a7245d888167b53b1de07fa6d217"];
+  Node916628 -> Node916629 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916629 [label="reloadTableSchema",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aec12bc2a95741e915fbe82b98fb1f8c6"];
+  Node916629 -> Node916625 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916629 -> Node916630 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916630 [label="sqlite3AlterFinishAddColumn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a392e1e5be904b01216faae16a77c2c31"];
+  Node916630 -> Node916626 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node916628 -> Node916625 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

@@ -1,0 +1,9 @@
+digraph "sqlite3_memory_used"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node343795 [label="sqlite3_memory_used",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node343795 -> Node343796 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node343796 [label="sqlite3_status",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac74c51c2111f457b2cd463f0bdf88f86"];
+}

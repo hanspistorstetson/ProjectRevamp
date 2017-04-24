@@ -1,0 +1,42 @@
+digraph "sqlite3SrcListIndexedBy"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node706533 [label="sqlite3SrcListIndexedBy",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node706533 -> Node706534 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706534 [label="sqlite3NameFromToken",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a6ba4248ee912d7f5a7a898c5ae46e808"];
+  Node706534 -> Node706535 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706535 [label="sqlite3DbStrNDup",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a48e8c757f70cba60fe83ce00ad8de713"];
+  Node706535 -> Node706536 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706536 [label="sqlite3DbMallocRaw",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#abbe8be0cf7175e11ddc3e2218fad924e"];
+  Node706536 -> Node706537 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706537 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node706536 -> Node706538 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706538 [label="sqlite3Malloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a361a2eaa846b1885f123abe46f5d8b2b"];
+  Node706538 -> Node706539 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706539 [label="sqlite3_mutex_enter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1c12cde690bd89f104de5cbad12a6bf5"];
+  Node706538 -> Node706540 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706540 [label="mallocWithAlarm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab070d5cf8e48ec8a6a43cf025d48598b"];
+  Node706540 -> Node706537 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706540 -> Node706541 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706541 [label="sqlite3StatusSet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#afec7586c01fcb5ea17dc9d7725a589d9"];
+  Node706540 -> Node706542 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706542 [label="sqlite3StatusValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a30b8ac296c6e200c1fa57708d52c6ef6"];
+  Node706540 -> Node706543 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706543 [label="sqlite3MallocAlarm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ada66988e8471d1198f3219c062377508"];
+  Node706543 -> Node706542 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706543 -> Node706544 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706544 [label="sqlite3_mutex_leave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5838d235601dbd3c1fa993555c6bcc93"];
+  Node706544 -> Node706537 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706544 -> Node706545 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706545 [label="sqlite3_mutex_notheld",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83967c837c1c000d3b5adcfaa688f5dc"];
+  Node706543 -> Node706539 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706540 -> Node706546 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706546 [label="sqlite3MallocSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf5d2a5f35270bafb050bd2def576955"];
+  Node706540 -> Node706547 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706547 [label="sqlite3StatusAdd",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#afa029f93586aeab4cc85360905dae9cd"];
+  Node706538 -> Node706544 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706534 -> Node706548 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node706548 [label="sqlite3Dequote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7b0ccb71d60de662cbb09755454dee5d"];
+}

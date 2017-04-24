@@ -1,0 +1,11 @@
+digraph "sqlite3PcacheOpen"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node655957 [label="sqlite3PcacheOpen",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node655957 -> Node655958 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node655958 [label="sqlite3PcacheSetPageSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa8f59bcc736613514103517d86dd4b28"];
+  Node655958 -> Node655959 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node655959 [label="numberOfCachePages",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0b88ce0be99c4ea2b2098317162fb590"];
+}

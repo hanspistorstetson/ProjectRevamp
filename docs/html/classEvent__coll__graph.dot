@@ -1,0 +1,6 @@
+digraph "Event"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Event\n||+ ~Event()\l+ getEventName()\l+ getEventDesc()\l+ getOrgName()\l+ getStatus()\l+ getEventId()\l+ setEventName()\l+ setEventDesc()\l+ setOrgName()\l+ setStatus()\l+ createEvent()\l+ loadEventById()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+}

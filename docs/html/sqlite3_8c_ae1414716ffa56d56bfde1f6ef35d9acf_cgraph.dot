@@ -1,0 +1,9 @@
+digraph "findCreateFileMode"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node110399 [label="findCreateFileMode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node110399 -> Node110400 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node110400 [label="sqlite3Strlen30",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3dcd80ba41f1a308193dee74857b62a7"];
+}

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['databaseisunmoved',['databaseIsUnmoved',['../sqlite3_8c.html#a25aec96ef7cef0d1999b492b4b74a767',1,'sqlite3.c']]],
+  ['datefunc',['dateFunc',['../sqlite3_8c.html#a0895a9abec96efb62b3c986a3c14ee32',1,'sqlite3.c']]],
+  ['datetimefunc',['datetimeFunc',['../sqlite3_8c.html#a9755493e1c5c377b5ea7078b4029c24a',1,'sqlite3.c']]],
+  ['decodeflags',['decodeFlags',['../sqlite3_8c.html#acb168e46383706f31cefd555da235eae',1,'sqlite3.c']]],
+  ['decodeintarray',['decodeIntArray',['../sqlite3_8c.html#a5e8b60c7b00918beb59b76e5ed837b01',1,'sqlite3.c']]],
+  ['defragmentpage',['defragmentPage',['../sqlite3_8c.html#a47dc01495c37a948842e1fd7f5ffd98f',1,'sqlite3.c']]],
+  ['destroyrootpage',['destroyRootPage',['../sqlite3_8c.html#a117f2ef54e18f018369a4da17d1a0881',1,'sqlite3.c']]],
+  ['destroytable',['destroyTable',['../sqlite3_8c.html#af9dd6dd5525753fa1319b280d8280b1e',1,'sqlite3.c']]],
+  ['detachfunc',['detachFunc',['../sqlite3_8c.html#a2b3dd04cb87abd088926ab0082a60b77',1,'sqlite3.c']]],
+  ['disableterm',['disableTerm',['../sqlite3_8c.html#a50a51e3dca3d19babeb17d2577889492',1,'sqlite3.c']]],
+  ['disconnectallvtab',['disconnectAllVtab',['../sqlite3_8c.html#a1ac4084324211c352cb91da6cc84c5e4',1,'sqlite3.c']]],
+  ['displayp4',['displayP4',['../sqlite3_8c.html#a213d2242690998ca991f734ee4d4dce9',1,'sqlite3.c']]],
+  ['dotlockcheckreservedlock',['dotlockCheckReservedLock',['../sqlite3_8c.html#a319775afa4e91e8a63440f1de55212f2',1,'sqlite3.c']]],
+  ['dotlockclose',['dotlockClose',['../sqlite3_8c.html#aa72eaafaa850f2889e15af7cfb08fa1b',1,'sqlite3.c']]],
+  ['dotlocklock',['dotlockLock',['../sqlite3_8c.html#ac84e37c57dd74a6abf3cc32b06be303c',1,'sqlite3.c']]],
+  ['dotlockunlock',['dotlockUnlock',['../sqlite3_8c.html#afa0b76d80da5199e7f47f6a2c4e4eb3a',1,'sqlite3.c']]],
+  ['doubletoint64',['doubleToInt64',['../sqlite3_8c.html#a85975c48e5a38f9b8c99b72eb72ebc44',1,'sqlite3.c']]],
+  ['dowalcallbacks',['doWalCallbacks',['../sqlite3_8c.html#a001bcb6c83dac39b83d3a95e1f6194d1',1,'sqlite3.c']]],
+  ['downgradeallsharedcachetablelocks',['downgradeAllSharedCacheTableLocks',['../sqlite3_8c.html#a190cd892d7b1636800149aa2fb20f4ef',1,'sqlite3.c']]],
+  ['dropcell',['dropCell',['../sqlite3_8c.html#a46eeeb6aebf363bd16265d696612b852',1,'sqlite3.c']]],
+  ['dup8bytes',['dup8bytes',['../sqlite3_8c.html#aa8a28a87183e14ed0537d56c51fd2dee',1,'sqlite3.c']]],
+  ['dupedexprnodesize',['dupedExprNodeSize',['../sqlite3_8c.html#ad2b8ec81910e74d2a6a73250a7d82801',1,'sqlite3.c']]],
+  ['dupedexprsize',['dupedExprSize',['../sqlite3_8c.html#a9c79c04ad08e45cf19c143c6de3b634c',1,'sqlite3.c']]],
+  ['dupedexprstructsize',['dupedExprStructSize',['../sqlite3_8c.html#ac6b4cf7bb7f9249aa2e5d311fe2e4998',1,'sqlite3.c']]]
+];
