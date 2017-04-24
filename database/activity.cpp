@@ -19,7 +19,7 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
     int retval;
     sqlite3* db = Database::openDatabase();
     sqlite3_stmt *s;
-    const char *sql = "INSERT INTO activityTable (activity_name, event_id, activity_status) VALUES (?, ?, ?)";
+    const char *sql = "INSERT INTO activities (name, eventid, status) VALUES (?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for activity " << sqlite3_errcode(db) << endl;
@@ -48,10 +48,10 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
     }
 
     //select statement to get the event id
-    sql = "SELECT activityid FROM activities WHERE activity_name = ? AND event_id = ? AND activity_status = ?";
+    sql = "SELECT activityid FROM activities WHERE name = ? AND eventid = ? AND status = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error preparing select statement for events " << sqlite3_errcode(db) << endl;
+        cout << "Error preparing select statement for activity " << sqlite3_errcode(db) << endl;
         return NULL;
     }
     retval = sqlite3_bind_text(s, 1, activity_name.c_str(), activity_name.size(), SQLITE_STATIC);
@@ -92,7 +92,7 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
      const char *sql = "SELECT * FROM activities WHERE activityid = ?";
      retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
      if (retval != SQLITE_OK) {
-         cout << "Error preparing select statement for events " << sqlite3_errcode(db) << endl;
+         cout << "Error preparing select statement for activities " << sqlite3_errcode(db) << endl;
          return NULL;
      }
      retval = sqlite3_bind_int(s, 1, _id);
@@ -117,10 +117,10 @@ void Activity:: setEventId(size_t newid) {
     int retval;
 
     sqlite3_stmt* s;
-    const char* sql = "UPDATE activities SET eventId = ? WHERE activityid = ?";
+    const char* sql = "UPDATE activities SET eventid = ? WHERE activityid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error in preparing update statement for updating event_name field in events table " << sqlite3_errcode(db) << endl;
+        cout << "Error in preparing update statement for updating event id field in activity table " << sqlite3_errcode(db) << endl;
         return;
     }
     retval = sqlite3_bind_int(s, 2, this->id);
@@ -128,7 +128,7 @@ void Activity:: setEventId(size_t newid) {
         cout << "Error in binding int to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_int(s, 1, eventId);
+    retval = sqlite3_bind_int(s, 1, this->eventId);
     if (retval != SQLITE_OK) {
         cout << "Error in binding text to SQL statment " << sql << endl;
         return;
@@ -145,20 +145,20 @@ void Activity:: setActivityName(string newname) {
     int retval;
 
     sqlite3_stmt* s;
-    const char* sql = "UPDATE activities SET activity_name = ? WHERE activityid = ?";
+    const char* sql = "UPDATE activities SET name = ? WHERE activityid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error in preparing update statement for updating event_name field in events table " << sqlite3_errcode(db) << endl;
-        return;
-    }
-    retval = sqlite3_bind_int(s, 2, this->id);
-    if (retval != SQLITE_OK) {
-        cout << "Error in binding int to SQL statement " << sql << endl;
+        cout << "Error in preparing update statement for updating activity name field in activity table " << sqlite3_errcode(db) << endl;
         return;
     }
     retval = sqlite3_bind_text(s, 1, name.c_str(), name.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error in binding text to SQL statment " << sql << endl;
+        return;
+    }
+    retval = sqlite3_bind_int(s, 2, this->id);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding int to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -178,7 +178,7 @@ void Activity::setStatus(string _status) {
     const char* sql = "UPDATE activities SET status = ? WHERE activityid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error in preparing update statement for event_status field in events: error code " << sqlite3_errcode(db) << endl;
+        cout << "Error in preparing update statement for activity status field in activities: error code " << sqlite3_errcode(db) << endl;
         return;
     }
     retval = sqlite3_bind_text(s, 1, status.c_str(), status.size(), SQLITE_STATIC);
