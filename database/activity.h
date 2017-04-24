@@ -22,6 +22,8 @@ class Activity {
 	std::string getStatus();	
         std::string getActivityName();
         void setActivityName(std::string);
+        ~Activity();
+
     private:
 	size_t id;
 	std::vector<Checkin*> myAttendees;
@@ -29,7 +31,6 @@ class Activity {
 	std::vector<Activity*> myPreReqs;//where are we declaring these?
 	std::string status;
 	std::string name;
-    ~Activity();
 };
 
 #endif

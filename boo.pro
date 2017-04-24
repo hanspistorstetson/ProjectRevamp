@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
-    database/dbtest.cpp
+    database/dbtest.cpp \
+    main.cpp
 
 HEADERS  += gui/mainwindow.h \
     gui/eventcreatewindow.h \

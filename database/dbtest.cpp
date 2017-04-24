@@ -2,7 +2,7 @@
 #include "database/user.h"
 #include "database/dbtest.h"
 #include "database/event.h"
-
+#include "database/activity.h"
 using namespace std;
 
 /**
@@ -26,10 +26,22 @@ void dbtest::testCreating() {
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");
+
+    Activity* act = Activity::createActivity("Test Name", event->getEventId(), "Test Status");
+    cout << act->getActivityName() << " "<< act->getEventId() << " " << act->getStatus() << endl;
+    act->setActivityName("Spit distance contest");
+    cout << act->getActivityName() << endl;
+    act->setEventId(15);
+    cout << act->getEventId() << endl;
+    act->setStatus("Exhibiting now!");
+    cout << act->getStatus() << endl;
+    cout << act->getId() << endl;
+
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;
     delete user;
+    delete act;
 }
 
 void dbtest::testLoading() {
@@ -37,7 +49,9 @@ void dbtest::testLoading() {
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
     User* user = User::loadUserById(1);
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
-
+    Activity* act = Activity::loadActivityById(1);
+    cout << act->getActivityName() << " " << " " << act->getEventId() << " " << act->getStatus() << endl;
     delete event;
+    delete act;
     delete user;
 }
