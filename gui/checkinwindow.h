@@ -14,6 +14,11 @@ public:
     explicit CheckInWindow(QWidget *parent = 0);
     ~CheckInWindow();
 
+private slots:
+    void on_Back_released();
+
+    void on_Scan_released();
+
 private:
     Ui::CheckInWindow *ui;
 };
