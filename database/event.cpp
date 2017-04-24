@@ -8,6 +8,13 @@
 
 using namespace std;
 
+/**
+  * Part of the Boo QR Logger Project, a class project for the Spring 2017 Software Development I Class at Stetson University.
+  * Event model class creates a row inside of the event table in the database, and then loads the field values into memory in an instance of this class.
+  * 
+  * @author Hayden Estey
+  */
+
 Event::Event(size_t id, string event_name, string _desc, string org_name, string _status) {
     this->eventid = id;
     this->name = event_name;

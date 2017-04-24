@@ -4,6 +4,13 @@
 #include <vector>
 #include <string>
 
+/**
+  * Built as part of the Boo QR Logger Project, a class project from the Spring 2017 Software Development I class at Stetson University.
+  * User model class that creates a row in the users table and loads values into memory in an instance of this class.
+  *
+  * @author Hayden Estey
+  */
+
 class User {
     public:
         ~User();

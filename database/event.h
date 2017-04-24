@@ -4,9 +4,15 @@
 #include <string>
 #include <vector>
 
+/**
+  * Part of the Boo QR Logger Project, a class project for the Spring 2017 Software Development I class at Stetson University.
+  * Event model class creates a row inside of the events table in the database, and then loads the field values into memory in an instance of this class.
+  *
+  * @author Hayden Estey
+  */
+
 class Event {
     public:
-        //TODO: Stub out all the methods for the controller to access the database
         ~Event();
         static Event* createEvent(std::string event_name, std::string desc, std::string organizer_name, std::string event_status);
         static Event* loadEventById(size_t eventid);

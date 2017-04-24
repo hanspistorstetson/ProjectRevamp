@@ -35,7 +35,7 @@ Checkin* Checkin::createCheckin(User* user, Activity* act)
         return NULL;
     }
     
-    retval = sqlite3_bind_text(s, 2, act->getName().c_str(), act->getName().size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 2, act->getActivityName().c_str(), act->getActivityName().size(), SQLITE_STATIC);
 
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;

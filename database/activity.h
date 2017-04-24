@@ -11,16 +11,19 @@ class Activity {
     static Activity* loadActivityById(size_t activityid);
     size_t getId();
 	size_t getEventId();
-	void setId(size_t);
+//	void setId(size_t);
 	void setEventId(size_t);
 	std::vector<Checkin*> getCheckins();
 	void addCheckins(Checkin* checkin);
 	void setPreReq(Activity*);
-	void setActive();
-	void setInactive();
+    //void setActive();
+    //void setInactive();
+    void setStatus(std::string);
 	std::string getStatus();	
-        std::string getName();
-        void setName(std::string);
+        std::string getActivityName();
+        void setActivityName(std::string);
+        ~Activity();
+
     private:
 	size_t id;
 	std::vector<Checkin*> myAttendees;
@@ -28,7 +31,6 @@ class Activity {
 	std::vector<Activity*> myPreReqs;//where are we declaring these?
 	std::string status;
 	std::string name;
-    ~Activity();
 };
 
 #endif
