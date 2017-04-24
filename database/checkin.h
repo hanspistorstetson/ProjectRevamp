@@ -15,6 +15,7 @@ class Checkin {
         std::string getUserId();
         size_t getActId();
         bool isCheckedIn();
+        size_t getID();
         void setUser_ID(std::string);
         void setActivity_ID(size_t);
         ~Checkin();

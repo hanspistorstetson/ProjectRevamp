@@ -1,7 +1,6 @@
 #include <iostream>
 #include "database/sqlite3.h"
 #include "database/checkin.h"
-#include "database/activity.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
@@ -158,6 +157,6 @@ size_t Checkin::getActId()
     return actID;
 }
 
-size_t Activity:: getId() {
+size_t Checkin:: getID() {
     return id;
 }
