@@ -17,6 +17,9 @@ public:
 private slots:
     void on_QR_released();
 
+
+    void on_back_released();
+
 private:
     Ui::ActivityWindow *ui;
 };

@@ -15,6 +15,9 @@ public:
     explicit QrnotFound(QWidget *parent = 0);
     ~QrnotFound();
 
+private slots:
+    void on_pushButton_released();
+
 private:
     Ui::QrnotFound *ui;
 };
