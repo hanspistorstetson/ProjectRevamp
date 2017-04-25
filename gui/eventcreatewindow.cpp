@@ -1,6 +1,7 @@
-#include "eventcreatewindow.h"
+#include "gui/eventcreatewindow.h"
 #include "ui_eventcreatewindow.h"
-#include "eventadminwindow.h"
+#include "gui/eventadminwindow.h"
+#include "database/activity.h"
 #include <iostream>
 
 /*
@@ -36,7 +37,17 @@ void eventCreateWindow::on_createButton_released()
     std::string name = ui->nameTF->text().toStdString();
     std::string desc = ui->descrTextEdit->toPlainText().toStdString();
     std::string org = ui->orgTF->text().toStdString();
+    std::string status;
     //get event status from radio buttons -- TODO
+    if(ui->activeRadioButton->isChecked())
+    {
+        status="active";
+    }
+    if(ui->upcomingRadioButton->isChecked())
+    {
+        status="upcoming";
+    }
+    Activity::createActivity(name,1,status);
 
     EventAdminWindow eaw;
 

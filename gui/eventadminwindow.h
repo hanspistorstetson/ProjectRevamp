@@ -26,6 +26,10 @@ private slots:
 
     void on_deactEventButton_released();
 
+    void on_listActsButton_released();
+
+    void on_listUsersButton_clicked();
+
 private:
     Ui::EventAdminWindow *ui;
 };

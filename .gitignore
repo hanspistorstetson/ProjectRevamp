@@ -1,3 +1,18 @@
+# Ignored Files #
+Makefile
+*.o
+*.sql
+*.sqlite
 *.user
-untitled2.pro.user
-*.user
+\#*
+*~
+*.o
+moc_*
+ui_*
+*.swp
+.qmake.stash
+*.pro.user.*
+Makefile
+*.db
+.DS_Store
+.DS_Store?
