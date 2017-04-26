@@ -73,7 +73,7 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
 
     size_t act_id = 0;
     if (sqlite3_step(s) == SQLITE_ROW) {
-        act_id = sqlite3_column_int(s, 0);
+        act_id = (size_t)sqlite3_column_int(s, 0);
     }
 
 	//needs to return pointer to the activity created
