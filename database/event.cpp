@@ -1,4 +1,5 @@
 #include "database/sqlite3.h"
+#include "database/sqlite3.h"
 #include "database/event.h"
 #include "database/database.h"
 #include <iostream>
@@ -89,7 +90,7 @@ Event* Event::createEvent(string event_name, string desc, string organizer_name,
     //TODO: Remember to write a test case for this! Should only get one row from the select statement...
     size_t id = 0;
     if (sqlite3_step(s) == SQLITE_ROW) {
-        id = sqlite3_column_int(s, 0);
+        id = (size_t)sqlite3_column_int(s, 0);
     }
 
     Event *e = new Event(id, event_name, desc, organizer_name, event_status);

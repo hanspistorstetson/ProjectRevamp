@@ -1,4 +1,6 @@
 # Ignored Files #
+*.Release
+*.Debug
 Makefile
 *.o
 *.sql
@@ -12,7 +14,6 @@ ui_*
 *.swp
 .qmake.stash
 *.pro.user.*
-Makefile
 *.db
 .DS_Store
 .DS_Store?
