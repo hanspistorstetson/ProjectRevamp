@@ -206,16 +206,6 @@ void Activity::addCheckins(Checkin *checkin) {
      myAttendees.push_back(checkin);
 }
 
-/*
-void Activity::setActive() {
-    status = "active";
-}
-
-void Activity::setInactive() {
-    status = "inactive";
-}
-*/
-
 string Activity::getStatus() {
     return this->status;
 }
@@ -234,11 +224,6 @@ vector<Checkin*> Activity:: getCheckins() {
 string Activity:: getActivityName() {
     return this->name;
 }
-/*
-void  Activity:: setId(size_t newid) {
-    id = newid;
-}
-*/
 
 Activity::~Activity() {
 
