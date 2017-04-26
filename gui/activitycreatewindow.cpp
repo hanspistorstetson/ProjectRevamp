@@ -38,8 +38,8 @@ void ActivityCreateWindow::on_createActivityButton_released()
 
 void ActivityCreateWindow::on_preReqSelectButton_released()
 {
-    PrereqSelectWindow psw;
-    psw.setModal(true);
-    psw.exec();
-    cout << "its working" << endl;
+//    PrereqSelectWindow psw;
+//    psw.setModal(true);
+//    psw.exec();
+//    cout << "its working" << endl;
 }

@@ -21,11 +21,7 @@ user_list::~user_list()
 
 void user_list::on_pushButton_clicked()
 {
-    EventAdminWindow eAW;
-    this->hide();
-    eAW.setModal(true);
-    eAW.exec();
-    this->show();
+   this->close();
 }
 
 void user_list::on_pushButton_2_clicked()
