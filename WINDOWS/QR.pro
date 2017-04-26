@@ -1,7 +1,8 @@
 CONFIG += console c++11
 INCLUDEPATH += "C:/Users/DevelVM/Desktop/OpenCV/install/include/"
 INCLUDEPATH += "C:/Program Files (x86)/ZBar/include/"
-INCLUDEPATH += "C:/qrencode/include/"
+
+QT += core gui
 
 TEMPLATE = app
 
@@ -12,14 +13,15 @@ LIBS += C:\Users\DevelVM\Desktop\OpenCV\install\x86\mingw\bin\libopencv_imgproc3
 LIBS += C:\Users\DevelVM\Desktop\OpenCV\install\x86\mingw\bin\libopencv_features2d320.dll
 LIBS += C:\Users\DevelVM\Desktop\OpenCV\install\x86\mingw\bin\libopencv_calib3d320.dll
 LIBS += C:\Users\DevelVM\Desktop\OpenCV\install\x86\mingw\bin\libopencv_videoio320.dll
-
-LIBS += -LC:/qrencode/dll \
-    -lqrcodelib
+LIBS += 'C:\Program Files (x86)\ZBar\bin\libzbar-0.dll'
 
 SOURCES += \
     qr_handler.cpp \
     qr_camscan.cpp \
-    test.cpp
+    test.cpp \
+    BitBuffer.cpp \
+    QrCode.cpp \
+    QrSegment.cpp
 
 INCLUDEPATH += include\
 
@@ -27,16 +29,5 @@ HEADERS += \
         include\qr_handler.h \
         include\qr_camscan.h
 
-LIBS += -L$$PWD/'../../../../../Program Files (x86)/ZBar/lib/' -llibzbar-0
 INCLUDEPATH += $$PWD/'../../../../../Program Files (x86)/ZBar/include'
 DEPENDPATH += $$PWD/'../../../../../Program Files (x86)/ZBar/include'
-
-
-
-INCLUDEPATH += $$PWD/../../GnuWin32/GetGnuWin32/gnuwin32/include
-DEPENDPATH += $$PWD/../../GnuWin32/GetGnuWin32/gnuwin32/include
-
-LIBS += -L$$PWD/../../GnuWin32/GetGnuWin32/gnuwin32/lib/ -llibgd
-
-INCLUDEPATH += $$PWD/../../GnuWin32/GetGnuWin32/gnuwin32/include
-DEPENDPATH += $$PWD/../../GnuWin32/GetGnuWin32/gnuwin32/include
