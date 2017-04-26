@@ -1,0 +1,9 @@
+digraph "sqlite3WalReadFrame"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node814182 [label="sqlite3WalReadFrame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node814182 -> Node814183 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node814183 [label="sqlite3OsRead",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a98ef6b5ed82299d2efc0b5f9e41c877d"];
+}

@@ -49,7 +49,7 @@ Database::Database() {
         sqlite3_free(errmsg);
     }
 
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer primary key, uuid text, status text);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer primary key, userid text, activityid int);", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating checkins table: " << errmsg << endl;
         sqlite3_free(errmsg);

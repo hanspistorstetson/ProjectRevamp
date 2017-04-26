@@ -3,6 +3,7 @@
 #include "database/dbtest.h"
 #include "database/event.h"
 #include "database/activity.h"
+#include "database/checkin.h"
 using namespace std;
 
 /**
@@ -22,6 +23,7 @@ void dbtest::testCreating() {
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
     cout << event->getEventId() << endl;
+
     User* user = User::createUser("test@test.test", "test", "test", event->getEventId());
     user->setUsername("John Cena");
     user->setUserFname("John");
@@ -36,6 +38,16 @@ void dbtest::testCreating() {
     act->setStatus("Exhibiting now!");
     cout << act->getStatus() << endl;
     cout << act->getId() <<"---activtity id"<< endl;
+
+
+    Checkin* checkin = Checkin::createCheckin("Brando", 23456);
+    cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
+    checkin->setActivity_ID(12345);
+    cout << checkin->getActId() << endl;
+    checkin->setUser_ID("Ruqui");
+    cout << checkin->getUserId() << endl;
+    cout << checkin->getID() << endl;
+
 
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 

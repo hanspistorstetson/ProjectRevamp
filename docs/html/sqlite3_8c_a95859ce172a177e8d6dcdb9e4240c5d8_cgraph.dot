@@ -1,0 +1,9 @@
+digraph "sqlite3PagerWalCallback"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node643182 [label="sqlite3PagerWalCallback",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node643182 -> Node643183 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node643183 [label="sqlite3WalCallback",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a97bb6f7499eaf81da881e3c508998995"];
+}

@@ -20,7 +20,51 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
     int retval;
     sqlite3_stmt* s;
 
-    const char* sql = "INSERT INTO checkins (user_id, act_id) VALUES (?, ?)";
+    /*
+    const char* sql = "SELECT uuid FROM users WHERE uuid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error in preparing select statement for users: error code " << sqlite3_errcode(db) << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_int(s, 1, user_id);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding int to SQL statement " << sql << endl;
+        return NULL;
+    }
+    if (sqlite3_step(s) == SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << " with error code " << sqlite3_errcode(db) << endl;
+        cout << "Check to make sure that the user exists in the database." << endl;
+        return NULL;
+    }
+    if (user_id !=  (size_t)sqlite3_column_int(s, 0)) {
+        cout << "Something strange happened... " << endl;
+        return NULL;
+    }
+
+    sql = "SELECT activityid FROM activities WHERE activityid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error in preparing select statement for activities: error code " << sqlite3_errcode(db) << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_int(s, 1, act_id);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding int to SQL statement " << sql << endl;
+        return NULL;
+    }
+    if (sqlite3_step(s) == SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << " with error code " << sqlite3_errcode(db) << endl;
+        cout << "Check to make sure that the act_id exists in the database." << endl;
+        return NULL;
+    }
+    if (act_id != (size_t)sqlite3_column_int(s, 0)) {
+        cout << "Something strange happened... " << endl;
+        return NULL;
+    }
+    */
+
+    const char* sql = "INSERT INTO checkins (userid, activityid) values (?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for checkin " << sqlite3_errcode(db) << endl;
@@ -72,7 +116,7 @@ Checkin* Checkin::loadCheckinById(size_t _id)
         return NULL;
     }
     if(sqlite3_step(s) == SQLITE_ROW) {
-        user_id = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        user_id = sqlite3_column_int(s, 1);
         act_id = sqlite3_column_int(s, 2);
     }
 
@@ -80,7 +124,7 @@ Checkin* Checkin::loadCheckinById(size_t _id)
     return ci;
 }
 
-void Checkin:: setUser_ID(string usr)
+void Checkin:: setUser_ID(std::string usr)
 {
     userID = usr;
 
@@ -88,13 +132,13 @@ void Checkin:: setUser_ID(string usr)
     sqlite3_stmt* s;
     int retval;
 
-    const char* sql = "UPDATE chekins SET user = ? WHERE checkinid = ?";
+    const char* sql = "UPDATE checkins SET user = ? WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing update statement for user field in checkins: error code " << sqlite3_errcode(db) << endl;
         return;
     }
-    retval = sqlite3_bind_text(s, 1, usr.c_str(), usr.size(), SQLITE_STATIC);
+    retval =  retval = sqlite3_bind_text(s, 1, usr.c_str(), usr.size(), SQLITE_STATIC);;
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
         return;
@@ -119,7 +163,7 @@ void Checkin:: setActivity_ID(size_t act)
     int retval;
 
 
-    const char* sql = "UPDATE chekins SET act = ? WHERE checkinid = ?";
+    const char* sql = "UPDATE checkins SET act = ? WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing update statement for activity field in checkins: error code " << sqlite3_errcode(db) << endl;
@@ -148,7 +192,7 @@ Checkin::~Checkin()
 
 string Checkin::getUserId()
 {
-    return userID;
+    return this->userID;
 }
 
 

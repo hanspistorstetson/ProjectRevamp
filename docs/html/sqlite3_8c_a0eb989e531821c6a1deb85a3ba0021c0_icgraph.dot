@@ -1,0 +1,21 @@
+digraph "robust_open"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node279147 [label="robust_open",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node279147 -> Node279148 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279148 [label="openDirectory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a34c67a19bf6632f4c0f362ec5f2d2a1b"];
+  Node279148 -> Node279149 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279149 [label="posixFchown",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a817f654b26d87167baa6d42a71b75b7e"];
+  Node279147 -> Node279150 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279150 [label="unixOpenSharedMemory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a30775afa2e08ca6ddc7853326afed7c7"];
+  Node279150 -> Node279151 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279151 [label="unixShmMap",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aeaa77f0ab08a4f4ee5f86e8c9727e974"];
+  Node279147 -> Node279152 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279152 [label="unixOpen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a8ed5efc47b6e14f7805cd1bb9b215775"];
+  Node279147 -> Node279153 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279153 [label="unixRandomness",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a9006328b44a687fe13c07acc7aab68da"];
+  Node279147 -> Node279154 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node279154 [label="unixGetLastError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aed1e42f49d74b419c3c85b559dd61240"];
+}

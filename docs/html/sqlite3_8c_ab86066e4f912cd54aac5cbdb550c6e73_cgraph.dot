@@ -1,0 +1,9 @@
+digraph "vdbePmaWriteBlob"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node874231 [label="vdbePmaWriteBlob",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node874231 -> Node874232 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node874232 [label="sqlite3OsWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eea7ec327af84c05b4dd4cc075a537f"];
+}
