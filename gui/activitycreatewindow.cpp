@@ -1,10 +1,14 @@
 #include "gui/activitycreatewindow.h"
 #include "ui_activitycreatewindow.h"
+<<<<<<< HEAD
 #include "prereqselectwindow.h"
 #include "database/activity.h"
 #include <iostream>
 using namespace std;
 
+=======
+#include "gui/prereqselectwindow.h"
+>>>>>>> 8e5d9a735a8ce9749385e879a64c5855560ee8a1
 
 ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :
     QDialog(parent),
@@ -46,8 +50,10 @@ void ActivityCreateWindow::on_createActivityButton_released()
 
 void ActivityCreateWindow::on_preReqSelectButton_released()
 {
-//    PrereqSelectWindow psw;
-//    psw.setModal(true);
-//    psw.exec();
-//    cout << "its working" << endl;
+
+    PrereqSelectWindow psw;
+    psw.setModal(true);
+    psw.exec();
+
+
 }
