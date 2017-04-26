@@ -40,20 +40,20 @@ void dbtest::testCreating() {
     cout << act->getId() <<"---activtity id"<< endl;
 
 
-    Checkin* checkin = Checkin::createCheckin("Brando", 23456);
+    Checkin* checkin = Checkin::createCheckin("Brando", 2);
     cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
-    checkin->setActivity_ID(12345);
+    checkin->setActivity_ID(2);
     cout << checkin->getActId() << endl;
-    checkin->setUser_ID("Ruqui");
+    checkin->setUser_ID("Plante");
     cout << checkin->getUserId() << endl;
     cout << checkin->getID() << endl;
-
 
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;
     delete user;
     delete act;
+    delete checkin;
 }
 
 void dbtest::testLoading() {
@@ -61,9 +61,12 @@ void dbtest::testLoading() {
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
     User* user = User::loadUserById(1);
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
-    Activity* act = Activity::loadActivityById(14);
+    Activity* act = Activity::loadActivityById(1);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
+    Checkin* checkin = Checkin::loadCheckinById(1);
+    cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
     delete event;
     delete act;
     delete user;
+    delete checkin;
 }
