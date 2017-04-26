@@ -22,7 +22,7 @@ void dbtest::testCreating() {
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
     cout << event->getEventId() << endl;
-    User* user = User::createUser("test@test.test", "test", "test", event->getEventId());
+    User* user = User::createUser("test", "test@test.test", "test", "test", event->getEventId());
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");
@@ -47,7 +47,7 @@ void dbtest::testCreating() {
 void dbtest::testLoading() {
     Event* event = Event::loadEventById(1);
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
-    User* user = User::loadUserById(1);
+    User* user = User::loadUserById("test");
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
     Activity* act = Activity::loadActivityById(14);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;

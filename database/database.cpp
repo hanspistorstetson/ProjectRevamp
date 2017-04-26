@@ -2,6 +2,7 @@
 #include "database/database.h"
 #include <iostream>
 #include <cstdlib>
+#include "database/event.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ Database::Database() {
         sqlite3_free(errmsg);
     }
     
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS users (uuid int PRIMARY KEY, username text, fname text, lname text, eventid int, FOREIGN KEY(eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS users (uuid text, username text, fname text, lname text, eventid int, FOREIGN KEY(eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating users table: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -54,6 +55,22 @@ Database::Database() {
         cout << "Error creating checkins table: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
+
+    //Make a default event if it does not exist
+    
+    sqlite3_stmt* s;
+    const char* sql = "SELECT eventid FROM events";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << " (to create default event): error code " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    if (sqlite3_step(s) == SQLITE_DONE) {
+        cout << "Creating a default event." << endl;
+        Event::createEvent("Naked Mole Rat Exhibition", "An exhibition of the glories of naked mole rats.", "The Joshua Eckroth Foundation for Naked Mole Rat Research", "Upcoming");
+    }
+
+    this->instance = this;
 }
 
 sqlite3* Database::openDatabase() {
