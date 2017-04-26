@@ -64,7 +64,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
     }
     */
 
-    const char* sql = "INSERT INTO checkins (userid, activityid) values (?, ?)";
+    const char* sql = "INSERT INTO checkins(userid, activityid) values (?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for checkin " << sqlite3_errcode(db) << endl;
@@ -132,25 +132,21 @@ void Checkin:: setUser_ID(std::string usr)
     sqlite3_stmt* s;
     int retval;
 
-    const char* sql = "UPDATE checkins SET user = ? WHERE checkinid = ?";
+    const char* sql = "UPDATE checkins SET userid = ? WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing update statement for user field in checkins: error code " << sqlite3_errcode(db) << endl;
-        return;
     }
     retval =  retval = sqlite3_bind_text(s, 1, usr.c_str(), usr.size(), SQLITE_STATIC);;
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return;
     }
     retval = sqlite3_bind_int(s, 2, id);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
-        return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << endl;
-        return;
     }
 }
 
@@ -163,25 +159,21 @@ void Checkin:: setActivity_ID(size_t act)
     int retval;
 
 
-    const char* sql = "UPDATE checkins SET act = ? WHERE checkinid = ?";
+    const char* sql = "UPDATE checkins SET activityid = ? WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing update statement for activity field in checkins: error code " << sqlite3_errcode(db) << endl;
-        return;
     }
     retval = sqlite3_bind_int(s, 1, act);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return;
     }
     retval = sqlite3_bind_int(s, 2, id);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
-        return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << endl;
-        return;
     }
 }
 
