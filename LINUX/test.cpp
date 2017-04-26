@@ -5,7 +5,7 @@ using namespace std;
 
 int testGenerator() {
 	QR_Handler* handle = new QR_Handler();
-	handle->generateToFile("HelloWorld");
+	handle->generateToFile(QString("HelloWorld"));
 	cout << handle->readFromFile("./img/HelloWorld.png") << endl;
 	delete handle;
 	return 1;

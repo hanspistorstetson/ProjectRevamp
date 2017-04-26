@@ -1,6 +1,11 @@
+/**
+ *	qr_handler.cpp
+ *	Responsible for generation of QR Codes. Relies on a library written by
+ *	Nayuki (github.com/nayuki) to do so. Original versions of this code relied on
+ *	qrencode, however, it does not port well to Windows.
+**/
 #include <string>
 #include <iostream>
-#include <gd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -9,56 +14,63 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <boost/lexical_cast.hpp>
 #include <zbar.h>
-#include <qrencode.h>
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include "qr_handler.h"
+#include "QrCode.hpp"
+#include <QPainter>
+#include <QString>
+
 using namespace std;
 using namespace zbar;
 using namespace cv;
+using namespace qrcodegen;
 
-gdImagePtr QR_Handler::generate(string message) {
-	int version = 3;
-	QRecLevel level = QR_ECLEVEL_Q;
-	QRencodeMode hint = QR_MODE_8;
-	int casesensitive =1;
-	int int_bg_color[3] = {255,255,255};
-	int int_fg_color [3] = {0,0,0};
-	int size = 100;
-	int margin = 2;
-	QRcode* code = QRcode_encodeString(message.c_str(),version,level,hint,casesensitive);
-	if (code == NULL) {
-		printf("An unknown error occured when encoding the string.\n");
-		return NULL;
-	}
-	gdImagePtr im = qrcode_png(code,int_fg_color,int_bg_color,size,margin);
-	QRcode_free(code);
-	return im;
+bool QR_Handler::generateToFile(QString data) {
+	QString path = "./img/" + data + ".png";
+	if (path.isEmpty()) return false;
+	QImage img(400, 400, QImage::Format_ARGB32);
+	QPainter* painter = new QPainter();
+	painter->begin(&img);
+	qrcode_png(painter, QSize(400,400), data, QColor("black"), QColor("white"));
+	painter->end();
+	img.save(path);
+	delete painter;
+	return true;
 }
 
-gdImagePtr QR_Handler::qrcode_png(QRcode* code, int fg_color[3], int bg_color[3], int size, int margin) {
-	int code_size = size / code->width;
-	code_size = (code_size == 0)  ? 1 : code_size;
-	int img_width = code->width * code_size + 2 * margin;
-	gdImagePtr img = gdImageCreate(img_width,img_width);
-	int img_fgcolor = gdImageColorAllocate(img, fg_color[0],fg_color[1], fg_color[2]);
-	int img_bgcolor = gdImageColorAllocate(img, bg_color[0], bg_color[1], bg_color[2]);
-	gdImageFill(img, 0, 0, img_bgcolor);
-	unsigned char *p = code->data;
-	int x, y, posx, posy;
-	for (y = 0; y < code->width; y++) {
-		for (x = 0; x < code->width; x++) {
-			if (*p & 1) {
-				posx = x * code_size + margin;
-				posy = y * code_size + margin;
-				gdImageFilledRectangle(img,posx,posy,posx + code_size,posy + code_size,img_fgcolor);
-			}
-			p++;
+QPainter* QR_Handler::qrcode_png(QPainter *painter, QSize sz, QString data, QColor fg, QColor bg)
+{
+	char *str=data.toUtf8().data();
+	QrCode qr = QrCode::encodeText(str, QrCode::Ecc::HIGH);
+	const int s=qr.size>0?qr.size:1;
+	const double w=sz.width();
+	const double h=sz.height();
+	const double aspect=w/h;
+	const double size=((aspect>1.0)?h:w);
+	const double scale=size/(s+2);
+	painter->setPen(Qt::NoPen);
+	painter->setBrush(bg);
+	for(int y=0; y<400; y++) {
+		for(int x=0; x<400; x++) {
+			QRectF r(x, y, 1, 1);
+			painter->drawRects(&r,1);
 		}
 	}
-	return img;
+	painter->setBrush(fg);
+	for(int y=0; y<s; y++) {
+		for(int x=0; x<s; x++) {
+			const int color=qr.getModule(x, y);  // 0 for white, 1 for black
+			if(0!=color) {
+				const double rx1=(x+1)*scale, ry1=(y+1)*scale;
+				QRectF r(rx1, ry1, scale, scale);
+				painter->drawRects(&r,1);
+			}
+		}
+	}
+	return painter;
 }
 
 string QR_Handler::read(Mat img) {
@@ -85,15 +97,4 @@ string QR_Handler::readFromFile(string dir) {
 		string retVal = read(image);
 		return retVal;
 	}
-}
-
-bool QR_Handler::generateToFile(string data) {
-	gdImagePtr ptr = generate(data);
-	string path = "./img/" + data + ".png";
-	FILE* out = fopen(path.c_str(), "w+");
-	if (out == NULL) return false;
-	gdImagePng(ptr, out);
-	gdImageDestroy(ptr);
-	fclose(out);
-	return true;
 }

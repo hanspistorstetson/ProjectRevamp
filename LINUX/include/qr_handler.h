@@ -3,7 +3,8 @@
 
 #include <opencv2/core/core.hpp>
 #include <string>
-#include <gd.h>
+#include <QPainter>
+#include <QString>
 
 using namespace std;
 using namespace cv;
@@ -11,12 +12,11 @@ using namespace cv;
 class QR_Handler {
 	public:
 		QR_Handler() {}
-		gdImagePtr generate(string);
 		string read(Mat);
 		string readFromFile(string);
-		bool generateToFile(string);
+		bool generateToFile(QString);
 	private:
-		gdImagePtr qrcode_png(QRcode*, int[], int[], int, int);
+		QPainter* qrcode_png(QPainter*, QSize, QString, QColor, QColor);
 };
 
 #endif
