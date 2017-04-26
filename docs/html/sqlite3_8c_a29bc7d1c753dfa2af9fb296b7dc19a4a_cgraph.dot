@@ -1,0 +1,25 @@
+digraph "unlockBtreeMutex"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node851186 [label="unlockBtreeMutex",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node851186 -> Node851187 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851187 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node851186 -> Node851188 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851188 [label="sqlite3_mutex_leave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5838d235601dbd3c1fa993555c6bcc93"];
+  Node851188 -> Node851187 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851188 -> Node851189 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851189 [label="sqlite3_mutex_notheld",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83967c837c1c000d3b5adcfaa688f5dc"];
+  Node851186 -> Node851190 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851190 [label="btreeLockCarefully",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a796746b1c1e4d6926960636bd74c79d7"];
+  Node851190 -> Node851191 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851191 [label="sqlite3_mutex_try",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a196f84b09bdfda96ae5ae23189be1ec8"];
+  Node851190 -> Node851186 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851190 -> Node851192 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851192 [label="lockBtreeMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab1714bc62ac8a451c7b17bc53053ca53"];
+  Node851192 -> Node851189 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851192 -> Node851187 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851192 -> Node851193 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node851193 [label="sqlite3_mutex_enter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1c12cde690bd89f104de5cbad12a6bf5"];
+}

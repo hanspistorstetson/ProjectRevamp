@@ -1,0 +1,13 @@
+digraph "sqlite3BtreeEnterCursor"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node449675 [label="sqlite3BtreeEnterCursor",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node449675 -> Node449676 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node449676 [label="blobReadWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a6c1d57e4337ee1b8655215c06dea4046"];
+  Node449676 -> Node449677 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node449677 [label="sqlite3_blob_read",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#ae63f397da378931a64a597069ce3532a"];
+  Node449676 -> Node449678 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node449678 [label="sqlite3_blob_write",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a0dd24c2ce4bfd36279ed96e8266b1d87"];
+}

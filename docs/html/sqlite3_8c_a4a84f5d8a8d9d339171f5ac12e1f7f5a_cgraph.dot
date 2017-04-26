@@ -1,0 +1,15 @@
+digraph "sqlite3_commit_hook"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node321137 [label="sqlite3_commit_hook",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node321137 -> Node321138 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node321138 [label="sqlite3_mutex_enter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1c12cde690bd89f104de5cbad12a6bf5"];
+  Node321137 -> Node321139 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node321139 [label="sqlite3_mutex_leave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5838d235601dbd3c1fa993555c6bcc93"];
+  Node321139 -> Node321140 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node321140 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node321139 -> Node321141 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node321141 [label="sqlite3_mutex_notheld",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83967c837c1c000d3b5adcfaa688f5dc"];
+}

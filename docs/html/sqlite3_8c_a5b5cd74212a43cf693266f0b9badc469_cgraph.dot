@@ -1,0 +1,11 @@
+digraph "sqlite3VdbeSerialGet"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node788816 [label="sqlite3VdbeSerialGet",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node788816 -> Node788817 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node788817 [label="serialGet",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a07f82bd181d15c1e1ba90a79c78dfd37"];
+  Node788817 -> Node788818 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node788818 [label="sqlite3IsNaN",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aed4d78203877c3486765ccbc7feebb50"];
+}

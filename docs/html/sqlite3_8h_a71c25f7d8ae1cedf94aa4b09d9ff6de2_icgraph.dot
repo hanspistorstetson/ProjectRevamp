@@ -1,0 +1,9 @@
+digraph "sqlite3_value_bytes16"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node92049 [label="sqlite3_value_bytes16",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node92049 -> Node92050 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node92050 [label="sqlite3_column_bytes16",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#ac861525fa4d70b48a46eabaa75130439"];
+}

@@ -1,0 +1,11 @@
+digraph "columnTypeImpl"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node60070 [label="columnTypeImpl",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node60070 -> Node60071 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node60071 [label="sqlite3SchemaToIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad9ef77a42022f1f8c8ab71b5761f5134"];
+  Node60071 -> Node60072 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node60072 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+}

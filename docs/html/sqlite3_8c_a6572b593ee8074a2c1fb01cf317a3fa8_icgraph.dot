@@ -1,0 +1,25 @@
+digraph "sqlite3VdbeAddOpList"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node743946 [label="sqlite3VdbeAddOpList",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node743946 -> Node743947 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743947 [label="sqlite3_blob_open",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#adb8ad839a5bdd62a43785132bc7dd518"];
+  Node743946 -> Node743948 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743948 [label="sqlite3Pragma",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a111391370f58f8e6a6eca51fd34d62ed"];
+  Node743948 -> Node743949 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743949 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node743949 -> Node743950 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743950 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node743946 -> Node743951 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743951 [label="sqlite3DropTriggerPtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa3a84617bfc76be1c61c27fc2b6d0b17"];
+  Node743951 -> Node743952 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743952 [label="sqlite3CodeDropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aaf9a8d65346dc15bfcd60bc48e885f46"];
+  Node743952 -> Node743953 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743953 [label="sqlite3DropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5534f77364b5568783c0e50db3c9defb"];
+  Node743953 -> Node743949 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743951 -> Node743954 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node743954 [label="sqlite3DropTrigger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#affdf1dd65e331b06feaef6ff8636305f"];
+  Node743954 -> Node743949 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

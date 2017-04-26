@@ -1,0 +1,16 @@
+digraph "isSystemTable"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node151295 [label="isSystemTable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node151295 -> Node151296 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node151296 [label="sqlite3AlterRenameTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa5cfdb507ff74e559f2efb0318c96d2c"];
+  Node151296 -> Node151297 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node151297 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node151297 -> Node151298 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node151298 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node151295 -> Node151299 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node151299 [label="sqlite3AlterBeginAddColumn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a884f7bc342f8753d938ae1f1b9157d2d"];
+  Node151299 -> Node151297 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

@@ -1,0 +1,9 @@
+digraph "sqlite3Utf8CharLen"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node734295 [label="sqlite3Utf8CharLen",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node734295 -> Node734296 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node734296 [label="sqlite3Utf8Read",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ae25f70650fcf02236868220f5ebd2d79"];
+}

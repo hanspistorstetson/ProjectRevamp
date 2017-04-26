@@ -1,0 +1,16 @@
+digraph "sqlite3WalEndReadTransaction"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node810857 [label="sqlite3WalEndReadTransaction",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node810857 -> Node810858 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node810858 [label="sqlite3WalEndWriteTransaction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0ae58a14b40600fb21130cc4d595acc9"];
+  Node810858 -> Node810859 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node810859 [label="walUnlockExclusive",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7ef6fcadaaeb9b36d1b9eaaf7e8f3311"];
+  Node810859 -> Node810860 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node810860 [label="sqlite3OsShmLock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1832b805275450abac06bf8da21489f3"];
+  Node810857 -> Node810861 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node810861 [label="walUnlockShared",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a766d6112d5beb2d9a4fb6e007b591514"];
+  Node810861 -> Node810860 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

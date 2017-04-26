@@ -1,0 +1,9 @@
+digraph "sqlite3_uri_parameter"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node88270 [label="sqlite3_uri_parameter",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node88270 -> Node88271 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node88271 [label="sqlite3Strlen30",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3dcd80ba41f1a308193dee74857b62a7"];
+}

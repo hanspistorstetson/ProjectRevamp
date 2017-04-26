@@ -1,0 +1,15 @@
+digraph "openSubJournal"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node188509 [label="openSubJournal",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node188509 -> Node188510 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188510 [label="sqlite3MemJournalOpen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad464be0cdcbcfad82c33db47ba916bf4"];
+  Node188510 -> Node188511 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188511 [label="sqlite3MemJournalSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a467faa8c56423e1d71f1edcdf788ea01"];
+  Node188509 -> Node188512 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188512 [label="pagerOpentemp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aebcb4ac28e13fcb66454bb555327c331"];
+  Node188512 -> Node188513 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188513 [label="sqlite3OsOpen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a12a1f3451e28f9cecd19cf0bb4f8f416"];
+}

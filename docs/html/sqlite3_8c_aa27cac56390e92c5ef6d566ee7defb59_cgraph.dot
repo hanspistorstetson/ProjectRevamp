@@ -1,0 +1,35 @@
+digraph "pageReinit"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node199652 [label="pageReinit",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node199652 -> Node199653 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199653 [label="sqlite3PagerGetExtra",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a48e879a6d20f06f27390973ab8d59bd7"];
+  Node199652 -> Node199654 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199654 [label="sqlite3PagerPageRefcount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a02362e6744d4431e328d760bef635a19"];
+  Node199654 -> Node199655 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199655 [label="sqlite3PcachePageRefcount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a4010b85eb18d6cc834f0f9ced4f6a274"];
+  Node199654 -> Node199656 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199656 [label="sqlite3PcacheRefCount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#adee2536d23ec9628e0883ccab03b3429"];
+  Node199654 -> Node199657 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199657 [label="sqlite3PcachePagecount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5d5e74b7acdd0ab46b5caaea93b9b8d4"];
+  Node199657 -> Node199658 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199658 [label="numberOfCachePages",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0b88ce0be99c4ea2b2098317162fb590"];
+  Node199652 -> Node199659 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199659 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node199652 -> Node199660 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199660 [label="btreeInitPage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3fbef3abda22e9a3f72c2873ec0b26a3"];
+  Node199660 -> Node199659 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199660 -> Node199653 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199660 -> Node199661 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199661 [label="sqlite3PagerGetData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a9dd340e56fb4b7fad4df339595b8d8a2"];
+  Node199660 -> Node199662 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199662 [label="decodeFlags",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acb168e46383706f31cefd555da235eae"];
+  Node199662 -> Node199659 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199660 -> Node199663 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199663 [label="cellSizePtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a6c95c9aac1c8a00490e36674f43e76ec"];
+  Node199663 -> Node199664 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node199664 [label="btreeParseCellPtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eba22ca0ddf563de0b29c64551c759f"];
+  Node199664 -> Node199659 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

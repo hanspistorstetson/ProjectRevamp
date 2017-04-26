@@ -1,0 +1,14 @@
+digraph "whereUsablePartialIndex"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node923594 [label="whereUsablePartialIndex",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node923594 -> Node923595 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node923595 [label="sqlite3ExprImpliesExpr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a9b79d679ebefcf1e7c638c0ccdae84bb"];
+  Node923595 -> Node923596 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node923596 [label="sqlite3ExprCompare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0062379db3318d71048a461297c31598"];
+  Node923596 -> Node923597 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node923597 [label="sqlite3ExprListCompare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a2ec8c2311e6547386e5f60e251ebabc7"];
+  Node923597 -> Node923596 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

@@ -1,0 +1,9 @@
+digraph "vdbeSorterMapFile"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node883164 [label="vdbeSorterMapFile",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node883164 -> Node883165 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node883165 [label="sqlite3OsFetch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab5b9137b375d5d8a8c216a644056cba7"];
+}
