@@ -19,6 +19,8 @@ public:
 private slots:
     void on_listWidget_itemClicked(QListWidgetItem *item);
 
+    void on_back_released();
+
 private:
     Ui::ActivitySearch *ui;
 };
