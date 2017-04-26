@@ -1,9 +1,10 @@
 #include "gui/activitycreatewindow.h"
 #include "ui_activitycreatewindow.h"
 #include "prereqselectwindow.h"
+#include "database/activity.h"
 #include <iostream>
 using namespace std;
-
+#include "gui/prereqselectwindow.h"
 
 ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :
     QDialog(parent),
@@ -29,17 +30,26 @@ void ActivityCreateWindow::on_createActivityButton_released()
      * then close window
      */
     std::string name = ui->actNameTF->text().toStdString();
-    //get activity status
-
-//    std::vector<Activity*> preReqs;
-
+    std::string status;
+   //get activity status
+   if(ui->activeRadioButton->isChecked())
+   {
+       status="active";
+   }
+   if(ui->upcomingRadioButton->isChecked())
+   {
+       status="upcoming";
+   }
+   Activity::createActivity(name,1,status);
     this->close();
 }
 
 void ActivityCreateWindow::on_preReqSelectButton_released()
 {
-//    PrereqSelectWindow psw;
-//    psw.setModal(true);
-//    psw.exec();
-//    cout << "its working" << endl;
+
+    PrereqSelectWindow psw;
+    psw.setModal(true);
+    psw.exec();
+
+
 }
