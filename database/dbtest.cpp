@@ -4,6 +4,7 @@
 #include "database/event.h"
 #include "database/activity.h"
 #include "database/checkin.h"
+#include <vector>
 using namespace std;
 
 /**
@@ -67,6 +68,12 @@ void dbtest::testLoading() {
 
     Checkin* checkin = Checkin::loadCheckinById(1);
     cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
+
+    std::vector<Activity*> matches = Activity::searchByName("Spit");
+        for(i = 0; i < matches.size();i++) {
+            cout<<matches[i]->getName()<<endl;
+        }
+
 
     delete event;
     delete act;

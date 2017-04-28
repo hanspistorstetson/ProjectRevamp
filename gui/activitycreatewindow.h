@@ -20,6 +20,8 @@ private slots:
 
     void on_createActivityButton_released();
 
+    void on_preReqSelectButton_released();
+
 private:
     Ui::ActivityCreateWindow *ui;
 };

@@ -3,6 +3,7 @@
 #include "gui/usercreatewindow.h"
 #include "gui/activitycreatewindow.h"
 #include "gui/listactivities.h"
+#include "gui/user_list.h"
 
 EventAdminWindow::EventAdminWindow(QWidget *parent) :
     QDialog(parent),
@@ -56,4 +57,11 @@ void EventAdminWindow::on_listActsButton_released()
     la.setModal(true);
     la.exec();
    // this->show();
+}
+
+void EventAdminWindow::on_listUsersButton_clicked()
+{
+  user_list userList;
+  userList.setModal(true);
+  userList.exec();
 }
