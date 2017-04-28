@@ -50,7 +50,7 @@ Database::Database() {
         sqlite3_free(errmsg);
     }
 
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer primary key, userid text, activityid int);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer primary key, uuid text, status text);", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating checkins table: " << errmsg << endl;
         sqlite3_free(errmsg);
@@ -67,15 +67,21 @@ Database::Database() {
     }
     if (sqlite3_step(s) == SQLITE_DONE) {
         cout << "Creating a default event." << endl;
-        Event::createEvent("Naked Mole Rat Exhibition", "An exhibition of the glories of naked mole rats.", "The Joshua Eckroth Foundation for Naked Mole Rat Research", "Upcoming");
+        sqlite3_reset(s);
+        sql = "INSERT INTO events (event_name, description, org_name, event_status) values (\"Naked Mole Rat Exhibition\", \"An exhibition on Naked Mole Rats\", \"The Joshua Eckroth Foundation\", \"Upcoming\")";
+        retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+        if (retval != SQLITE_OK) {
+            cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+            return;
+        }
+    } else {
+        sqlite3_reset(s);
     }
-
-    this->instance = this;
 }
 
 sqlite3* Database::openDatabase() {
     if (!instance) {
-        instance = new Database();
+        instance = new Database;
     }
     return instance->db;
 }
