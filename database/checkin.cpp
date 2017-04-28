@@ -64,7 +64,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
     }
     */
 
-    const char* sql = "INSERT INTO checkins (userid, activityid) values (?, ?)";
+    const char* sql = "INSERT INTO checkins(userid, activityid) values (?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for checkin " << sqlite3_errcode(db) << endl;
@@ -87,7 +87,9 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
     }
     sqlite3_reset(s);
 
-    size_t checkin_id = (size_t)sqlite3_last_insert_rowid(db);
+    if (sqlite3_step(s) == SQLITE_ROW) {
+        checkin_id = (size_t)sqlite3_column_int(s, 0);
+    }
     
     Checkin* myCheckin = new Checkin(checkin_id, user_id, act_id);
     return myCheckin;
@@ -96,7 +98,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
 
 Checkin* Checkin::loadCheckinById(size_t _id)
 {
-    sqlite3 *db = Database::openDatabase();
+    sqlite3* db = Database::openDatabase();
     sqlite3_stmt *s;
     int retval;
 
@@ -116,11 +118,11 @@ Checkin* Checkin::loadCheckinById(size_t _id)
         return NULL;
     }
     if(sqlite3_step(s) == SQLITE_ROW) {
-        user_id = sqlite3_column_int(s, 1);
+        user_id = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
         act_id = sqlite3_column_int(s, 2);
     }
 
-    Checkin* ci = new Checkin(_id, user_id, act_id);
+    Checkin *ci = new Checkin(_id, user_id, act_id);
     return ci;
 }
 
@@ -132,25 +134,21 @@ void Checkin:: setUser_ID(std::string usr)
     sqlite3_stmt* s;
     int retval;
 
-    const char* sql = "UPDATE checkins SET user = ? WHERE checkinid = ?";
+    const char* sql = "UPDATE checkins SET userid = ? WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing update statement for user field in checkins: error code " << sqlite3_errcode(db) << endl;
-        return;
     }
-    retval =  retval = sqlite3_bind_text(s, 1, usr.c_str(), usr.size(), SQLITE_STATIC);;
+    retval = sqlite3_bind_text(s, 1, usr.c_str(), usr.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return;
     }
     retval = sqlite3_bind_int(s, 2, id);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
-        return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << endl;
-        return;
     }
 }
 
@@ -163,25 +161,21 @@ void Checkin:: setActivity_ID(size_t act)
     int retval;
 
 
-    const char* sql = "UPDATE checkins SET act = ? WHERE checkinid = ?";
+    const char* sql = "UPDATE checkins SET activityid = ? WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing update statement for activity field in checkins: error code " << sqlite3_errcode(db) << endl;
-        return;
     }
     retval = sqlite3_bind_int(s, 1, act);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return;
     }
     retval = sqlite3_bind_int(s, 2, id);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
-        return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << endl;
-        return;
     }
 }
 
@@ -192,7 +186,7 @@ Checkin::~Checkin()
 
 string Checkin::getUserId()
 {
-    return this->userID;
+    return userID;
 }
 
 
