@@ -48,7 +48,6 @@ void dbtest::testCreating() {
     checkin->setUser_ID("Plante");
     cout << checkin->getUserId() << endl;
     cout << checkin->getID() << endl;
-    cout << "CHECKIN STUFF: " << endl;
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;

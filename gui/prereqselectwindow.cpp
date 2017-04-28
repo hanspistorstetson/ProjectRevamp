@@ -12,3 +12,4 @@ PrereqSelectWindow::~PrereqSelectWindow()
 {
     delete ui;
 }
+
