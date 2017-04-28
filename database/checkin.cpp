@@ -106,7 +106,7 @@ Checkin* Checkin::loadCheckinById(size_t _id)
     size_t act_id = 0;
 
 
-    const char* sql = "SELECT * FROM checkins WHERE checkinid = ?";
+    const char* sql = "SELECT userid, activityid FROM checkins WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for checkins " << sqlite3_errcode(db) << endl;
@@ -117,11 +117,17 @@ Checkin* Checkin::loadCheckinById(size_t _id)
         cout << "Error in binding value to SQL statement " << sql << endl;
         return NULL;
     }
+
+    cout << "USER ID: " << user_id << endl;
+    cout << "ACTIVITY ID: " << activity_id << endl;
+
     if(sqlite3_step(s) == SQLITE_ROW) {
         user_id = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
         act_id = sqlite3_column_int(s, 2);
     }
 
+    cout << "USER ID: " << user_id << endl;
+    cout << "ACTIVITY ID: " << activity_id << endl;
     Checkin *ci = new Checkin(_id, user_id, act_id);
     return ci;
 }
