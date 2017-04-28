@@ -62,8 +62,10 @@ void dbtest::testLoading() {
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
     User* user = User::loadUserById("test");
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
+    cout << "CHECKIN STUFF: " << endl;
     Activity* act = Activity::loadActivityById(1);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
+
     Checkin* checkin = Checkin::loadCheckinById(1);
     cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
 
