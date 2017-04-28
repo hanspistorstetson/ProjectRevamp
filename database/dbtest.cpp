@@ -47,7 +47,7 @@ void dbtest::testCreating() {
     checkin->setUser_ID("Plante");
     cout << checkin->getUserId() << endl;
     cout << checkin->getID() << endl;
-
+    cout << "CHECKIN STUFF: " << endl;
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;
@@ -61,7 +61,7 @@ void dbtest::testLoading() {
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
     User* user = User::loadUserById("test");
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
-    cout << "CHECKIN STUFF: " << endl;
+
     Activity* act = Activity::loadActivityById(1);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
 

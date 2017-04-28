@@ -119,16 +119,11 @@ Checkin* Checkin::loadCheckinById(size_t _id)
         return NULL;
     }
 
-    cout << "USER ID: " << user_id << endl;
-    cout << "ACTIVITY ID: " << activity_id << endl;
-
     if(sqlite3_step(s) == SQLITE_ROW) {
         user_id = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
         act_id = sqlite3_column_int(s, 2);
     }
 
-    cout << "USER ID: " << user_id << endl;
-    cout << "ACTIVITY ID: " << activity_id << endl;
     Checkin *ci = new Checkin(_id, user_id, act_id);
     return ci;
 }
