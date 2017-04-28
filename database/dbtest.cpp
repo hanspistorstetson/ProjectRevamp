@@ -65,6 +65,7 @@ void dbtest::testLoading() {
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
     Checkin* checkin = Checkin::loadCheckinById(1);
     cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
+
     delete event;
     delete act;
     delete user;
