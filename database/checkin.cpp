@@ -9,9 +9,9 @@ using namespace std;
 
 Checkin::Checkin(size_t _id, string user_id, size_t act_id)
 {
-    this->id = _id;
-    this->actID = act_id;
-    this->userID = user_id;
+    id = _id;
+    actID = act_id;
+    userID = user_id;
 }
 
 Checkin* Checkin::createCheckin(string user_id, size_t act_id)
@@ -20,7 +20,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
     int retval;
     sqlite3_stmt* s;
 
-    /*
+
     const char* sql = "SELECT uuid FROM users WHERE uuid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
@@ -62,9 +62,9 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         cout << "Something strange happened... " << endl;
         return NULL;
     }
-    */
 
-    const char* sql = "INSERT INTO checkins(userid, activityid) values (?, ?)";
+
+    sql = "INSERT INTO checkins(userid, activityid) values (?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for checkin " << sqlite3_errcode(db) << endl;
@@ -86,7 +86,8 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         return NULL;
     }
     sqlite3_reset(s);
-
+    
+    size_t checkin_id;
     if (sqlite3_step(s) == SQLITE_ROW) {
         checkin_id = (size_t)sqlite3_column_int(s, 0);
     }
@@ -99,14 +100,14 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
 Checkin* Checkin::loadCheckinById(size_t _id)
 {
     sqlite3* db = Database::openDatabase();
-    sqlite3_stmt *s;
+    sqlite3_stmt* s;
     int retval;
 
     string user_id;
     size_t act_id = 0;
 
 
-    const char *sql = "SELECT * FROM checkins WHERE checkinid = ?";
+    const char* sql = "SELECT * FROM checkins WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for checkins " << sqlite3_errcode(db) << endl;

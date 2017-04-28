@@ -13,12 +13,16 @@ class Activity {
 	size_t getEventId();
 	void setEventId(size_t);
 	std::vector<Checkin*> getCheckins();
+
 	void addCheckins(Checkin* checkin);
 	void setPreReq(Activity*);
     void setStatus(std::string);
 	std::string getStatus();	
     std::string getActivityName();
     void setActivityName(std::string);
+    //Activity* searchById(size_t);
+    static std::vector<Activity*> searchByName(std::string);
+
     ~Activity();
 
     private:

@@ -106,6 +106,7 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
          status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
      }
 
+
      Activity *a = new Activity(_id, name, eventId, status);
      return a;
  }
@@ -196,6 +197,42 @@ void Activity::setStatus(string _status) {
         return;
     }
     sqlite3_reset(s);
+}
+Activity* Activity::searchByName(string  _name) {
+    sqlite3* db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    string __name, status;
+    size_t eventId = -1;
+    size_t act_id = -1;
+
+
+    const char *sql = "SELECT * FROM activities WHERE name LIKE '%' || ? || '%'";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for activities " << sqlite3_errcode(db) << endl;
+        return NULL;
+    }
+
+    retval = sqlite3_bind_text(s, 1, _name.c_str(), _name.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding text to SQL statement " << sql << endl;
+        return;
+    }
+
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        act_id = sqlite3_column_int(s, 0);
+        __name =  sqlite3_column_int(s, 1);
+        eventId = sqlite3_column_int(s, 2);
+        status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+    }else {
+        cout<<"couldn't find a match"<<endl;
+
+    }
+
+    Activity *a = new Activity(act_id, __name, eventId, status);
+    return a;
+
 }
 
 void Activity::setPreReq(Activity* pre) {

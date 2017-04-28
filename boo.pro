@@ -27,8 +27,9 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
-    database/dbtest.cpp \
     gui/prereqselectwindow.cpp
+    database/dbtest.cpp \
+
 
 HEADERS  += gui/mainwindow.h \
     gui/eventcreatewindow.h \
@@ -107,4 +108,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+SOURCES += \
+    gui/prereqselectwindow.cpp
 
