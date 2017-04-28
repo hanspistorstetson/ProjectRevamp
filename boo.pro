@@ -29,6 +29,9 @@ SOURCES += main.cpp\
     gui/checkinwindow.cpp \
     gui/qrcodefound.cpp \
     gui/qrnotfound.cpp \
+	gui/user_list.cpp \
+	gui/user_search.cpp \
+	gui/user_view.cpp\
     database/activity.cpp \
     database/checkin.cpp \
     database/database.cpp \
@@ -36,6 +39,7 @@ SOURCES += main.cpp\
     database/user.cpp \
     database/sqlite3.c \
     database/dbtest.cpp \
+    gui/prereqselectwindow.cpp
 
 HEADERS  += gui/mainwindow.h \
     gui/eventcreatewindow.h \
@@ -48,13 +52,17 @@ HEADERS  += gui/mainwindow.h \
     gui/checkinwindow.h \
     gui/qrcodefound.h \
     gui/qrnotfound.h \
+	gui/user_list.h \
+	gui/user_search.h \
+	gui/user_view.h \
     database/activity.h \
     database/checkin.h \
     database/database.h \
     database/event.h \
     database/user.h \
     database/sqlite3.h \
-    database/dbtest.h
+    database/dbtest.h \
+    gui/prereqselectwindow.h
 
 FORMS    += gui/mainwindow.ui \
     gui/eventcreatewindow.ui \
@@ -66,7 +74,12 @@ FORMS    += gui/mainwindow.ui \
     gui/activitywindow.ui \
     gui/checkinwindow.ui \
     gui/qrcodefound.ui \
-    gui/qrnotfound.ui
+    gui/qrnotfound.ui \
+	gui/user_list.ui \
+	gui/user_search.ui \
+	gui/user_view.ui \ 
+    gui/prereqselectwindow.ui
 
-DISTFILES += README.txt
+DISTFILES += README.txt \
+    boo.pro.user
 

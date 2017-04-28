@@ -79,33 +79,7 @@
     <string>Create Activity</string>
    </property>
   </widget>
-  <widget class="QLabel" name="emailLabel">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>160</y>
-     <width>111</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Pre-Reqs</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>145</y>
-     <width>231</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Table of Pre-Reqs TBD</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -139,6 +113,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="preReqSelectButton">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>161</y>
+     <width>145</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select Pre-Reqs</string>
+   </property>
   </widget>
  </widget>
  <resources/>
