@@ -1,14 +1,14 @@
-#ifdef __osx__
+#ifdef __linux__
 
 TEMPLATE = app
 CONFIG += console c++11
 CONFIG -= app_bundle
-CONFIG -= qt
+
 INCLUDEPATH += /usr/local/include
 INCLUDEPATH += /usr/local/Cellar/opencv3/3.2.0/include
-LIBS += -L/usr/local/lib -lzbar \
-    -lqrencode \
-    -lgd
+
+QT += core gui
+
 LIBS += -L/usr/local/Cellar/opencv3/3.2.0/lib \
     -lopencv_core \
     -lopencv_highgui \
@@ -16,10 +16,15 @@ LIBS += -L/usr/local/Cellar/opencv3/3.2.0/lib \
     -lopencv_imgproc \
     -lopencv_imgcodecs \
 
+LIBS += -L/usr/local/lib -lzbar
+
 SOURCES += \
     ./qr_handler.cpp \
     qr_camscan.cpp \
-    test.cpp
+	test.cpp \
+	BitBuffer.cpp \
+	QrCode.cpp \
+	QrSegment.cpp
 
 INCLUDEPATH += ./include/
 

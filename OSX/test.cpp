@@ -5,9 +5,9 @@ using namespace std;
 
 int testGenerator() {
 	QR_Handler* handle = new QR_Handler();
-	handle->generateToFile("HelloWorld");
-    cout << handle->readFromFile("./img/HelloWorld.png") << endl;
-    delete handle;
+	handle->generateToFile(QString("HelloWorld"));
+	cout << handle->readFromFile("./img/HelloWorld.png") << endl;
+	delete handle;
 	return 1;
 }
 
@@ -19,5 +19,5 @@ int testScanner() {
 }
 
 int main(int argc, char* argv[]) {
-    return testGenerator();
+	return testScanner();
 }
