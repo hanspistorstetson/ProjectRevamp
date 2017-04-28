@@ -86,7 +86,8 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         return NULL;
     }
     sqlite3_reset(s);
-
+    
+    size_t checkin_id;
     if (sqlite3_step(s) == SQLITE_ROW) {
         checkin_id = (size_t)sqlite3_column_int(s, 0);
     }
