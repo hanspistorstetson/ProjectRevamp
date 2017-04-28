@@ -2,11 +2,6 @@
 #include "ui_activitycreatewindow.h"
 #include "prereqselectwindow.h"
 #include "database/activity.h"
-<<<<<<< HEAD
-=======
-#include <iostream>
-using namespace std;
->>>>>>> 89dba38977700c57be3237640ab0ed3469e363c5
 #include "gui/prereqselectwindow.h"
 
 ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :
