@@ -39,7 +39,12 @@ void dbtest::testCreating() {
     act->setStatus("Exhibiting now!");
     cout << act->getStatus() << endl;
     cout << act->getId() <<"---activtity id"<< endl;
-
+    
+    vector<Activity*> prereqs;
+    prereqs.push_back(act);
+    Activity* act2 = Activity::createActivity("Activity with Prereqs", 1, "Active", prereqs);
+    vector<Activity*> act2Prereqs = act2->getPrereqs();
+    cout << act2Prereqs[0]->getActivityName() << endl;
 
     Checkin* checkin = Checkin::createCheckin("Brando", 2);
     cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;

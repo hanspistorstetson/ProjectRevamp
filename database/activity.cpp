@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <string>
 #include <cstring>
+#include <vector>
 
 using namespace std;
 
@@ -81,7 +82,14 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
 
 	return a;
 }
- Activity* Activity::loadActivityById(size_t _id) {
+
+Activity* Activity::createActivity(string name, size_t eventid, string _status, vector<Activity*> prereqs) {
+    Activity *a = Activity::createActivity(name, eventid, _status);
+    a->addPrereqs(prereqs);
+    return a;
+}
+
+Activity* Activity::loadActivityById(size_t _id) {
      sqlite3 *db = Database::openDatabase();
      int retval;
      sqlite3_stmt *s;
@@ -109,10 +117,9 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
 
      Activity *a = new Activity(_id, name, eventId, status);
      return a;
- }
+}
 
-
-void Activity:: setEventId(size_t newid) {
+void Activity::setEventId(size_t newid) {
     this->eventId = newid;
     sqlite3* db = Database::openDatabase();
     int retval;
@@ -140,6 +147,53 @@ void Activity:: setEventId(size_t newid) {
     }
     sqlite3_reset(s);
 }
+
+vector<Activity*> Activity::getPrereqs() {
+    return myPreReqs;
+}
+
+void Activity::addPrereq(Activity* prereq) {
+    sqlite3 *db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+
+    const char* sql = "INSERT INTO prerequisites (activityid, prereqid) values (?, ?)";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_int(s, 1, this->getId());
+    if (retval != SQLITE_OK) {
+        cout << "Error binding activityid int to SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_int(s, 2, prereq->getId());
+    if (retval != SQLITE_OK) {
+        cout << "Error binding prereqid int to SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    if (sqlite3_step(s) != SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    sqlite3_reset(s);
+}
+
+void Activity::addPrereqs(vector<Activity*> prereqs) {
+    if (myPreReqs.empty()) {
+        myPreReqs = prereqs;
+    } else {
+        for (int i = 0; i < (myPreReqs.size() + prereqs.size()); ++i) {
+            myPreReqs.push_back(prereqs[i]);
+        }
+    }
+
+    for (int i = 0; i < prereqs.size(); ++i) {
+        this->addPrereq(prereqs[i]);
+    }
+}
+
 void Activity:: setActivityName(string newname) {
     this->name = newname;
     sqlite3* db = Database::openDatabase();
@@ -237,10 +291,6 @@ vector<Activity*> Activity::searchByName(string _name) {
 
 }
 
-void Activity::setPreReq(Activity* pre) {
-
-    //TODO
-}
 void Activity::addCheckins(Checkin *checkin) {
      myAttendees.push_back(checkin);
 }
