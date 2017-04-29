@@ -74,6 +74,10 @@ Database::Database() {
             cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
             return;
         }
+        if (sqlite3_step(s) != SQLITE_DONE) {
+            cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+            return;
+        }
     } else {
         sqlite3_reset(s);
     }

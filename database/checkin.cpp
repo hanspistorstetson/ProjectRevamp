@@ -27,7 +27,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         cout << "Error in preparing select statement for users: error code " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_int(s, 1, user_id);
+    retval = sqlite3_bind_text(s, 1, user_id.c_str(), user_id.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
         return NULL;
@@ -37,7 +37,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         cout << "Check to make sure that the user exists in the database." << endl;
         return NULL;
     }
-    if (user_id !=  (size_t)sqlite3_column_int(s, 0)) {
+    if (user_id != (string)reinterpret_cast<const char*>(sqlite3_column_text(s, 0))) {
         cout << "Something strange happened... " << endl;
         return NULL;
     }
@@ -48,7 +48,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         cout << "Error in preparing select statement for activities: error code " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_int(s, 1, act_id);
+    retval = sqlite3_bind_int(s, 1, (int)act_id);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
         return NULL;

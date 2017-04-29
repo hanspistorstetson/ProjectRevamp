@@ -198,26 +198,28 @@ void Activity::setStatus(string _status) {
     }
     sqlite3_reset(s);
 }
-Activity* Activity::searchByName(string  _name) {
+
+vector<Activity*> Activity::searchByName(string _name) {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt *s;
     string __name, status;
     size_t eventId = -1;
     size_t act_id = -1;
+    vector<Activity*> results;
 
 
     const char *sql = "SELECT * FROM activities WHERE name LIKE '%' || ? || '%'";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for activities " << sqlite3_errcode(db) << endl;
-        return NULL;
+        return results;
     }
 
     retval = sqlite3_bind_text(s, 1, _name.c_str(), _name.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return;
+        return results;
     }
 
     if(sqlite3_step(s) == SQLITE_ROW) {
@@ -231,7 +233,7 @@ Activity* Activity::searchByName(string  _name) {
     }
 
     Activity *a = new Activity(act_id, __name, eventId, status);
-    return a;
+    return results;
 
 }
 
