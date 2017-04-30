@@ -7,8 +7,6 @@
 class QRHandler {
 	public:
 		QRHandler() {}
-		QString scan(QImage);
-		QString scanFromFile(QString);
 		QPainter* generate(QPainter*, QSize, QString, QColor, QColor);
 		bool generateToFile(QString, QString);
 };

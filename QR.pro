@@ -1,6 +1,7 @@
 TEMPLATE = app
 CONFIG += console c++11
 CONFIG -= app_bundle
+include(scan/QZXing.pri)
 
 QT += core gui multimedia widgets
 

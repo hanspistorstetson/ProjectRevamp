@@ -1,6 +1,6 @@
 /**
  * QRHandler.cpp
- * Responsible for the generation and decoding of QR Images.
+ * Responsible for the generation of QR Images.
 **/
 
 #include <QString>
@@ -13,16 +13,6 @@
 
 using namespace std;
 using namespace qrcodegen;
-
-QString QRHandler::scan(QImage data) {
-	// to be implemented with QZXing Port
-	return "NOT IMPLEMENTED";
-}
-
-QString QRHandler::scanFromFile(QString dir) {
-	// to be implemented with QZXing Port
-	return "NOT IMPLEMENTED";
-}
 
 QPainter* QRHandler::generate(QPainter* painter, QSize sz, QString data, QColor fg, QColor bg) {
 	char *str=data.toUtf8().data();
