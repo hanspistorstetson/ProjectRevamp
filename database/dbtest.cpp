@@ -69,6 +69,10 @@ void dbtest::testLoading() {
 
     Activity* act = Activity::loadActivityById(1);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
+    
+    Activity* act2 = Activity::loadActivityById(2);
+    vector<Activity*> prereqs = act2->getPrereqs();
+    cout << prereqs[0]->getActivityName() << endl;
 
     Checkin* checkin = Checkin::loadCheckinById(1);
     cout << checkin->getUserId() << ", " << checkin->getActId() << endl;

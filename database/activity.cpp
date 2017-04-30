@@ -114,8 +114,24 @@ Activity* Activity::loadActivityById(size_t _id) {
          status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
      }
 
-
      Activity *a = new Activity(_id, name, eventId, status);
+     
+     sql = "SELECT * FROM prerequisites WHERE activityid = ?";
+     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+     if (retval != SQLITE_OK) {
+         cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+         return NULL;
+     }
+     retval = sqlite3_bind_int(s, 1, _id);
+     if (retval != SQLITE_OK) {
+         cout << "Error binding id int to SQL statement " << sql << endl;
+         return NULL;
+     }
+     while (sqlite3_step(s) == SQLITE_ROW) {
+         size_t prereqid = (size_t)sqlite3_column_int(s, 1);
+         a->myPreReqs.push_back(Activity::loadActivityById(prereqid));
+     } 
+     
      return a;
 }
 
