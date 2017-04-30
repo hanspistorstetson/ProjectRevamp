@@ -24,6 +24,8 @@ class User {
         void setUsername(std::string);
         void setUserFname(std::string);
         void setUserLname(std::string);
+        static std::vector<User*> searchByLastName(std::string);
+        static std::vector<User*> getAllUsers();
         
     private:
         User(std::string, std::string, std::string, std::string, size_t);

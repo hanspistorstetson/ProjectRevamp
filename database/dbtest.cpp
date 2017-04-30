@@ -39,7 +39,7 @@ void dbtest::testCreating() {
     act->setStatus("Exhibiting now!");
     cout << act->getStatus() << endl;
     cout << act->getId() <<"---activtity id"<< endl;
-    
+
     vector<Activity*> prereqs;
     prereqs.push_back(act);
     Activity* act2 = Activity::createActivity("Activity with Prereqs", 1, "Active", prereqs);
@@ -77,14 +77,32 @@ void dbtest::testLoading() {
     Checkin* checkin = Checkin::loadCheckinById(1);
     cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
 
-    /*std::vector<Activity*> matches = Activity::searchByName("Spit");
-        for(int i = 0; i < matches.size();i++) {
-            cout<<matches[i]->getName()<<endl;
+    cout << "Matches to spit: "<<endl;
+    std::vector<Activity*> actmatches = Activity::searchByName("Spit");
+        for(int i = 0; i < actmatches.size();i++) {
+            cout<<actmatches[i]->getName()<<endl;
         }
-*/
+        cout<<"All Activities: "<<endl;
+    std::vector<Activity*> all_acts = Activity::getAllActivities();
+            for(int i = 0; i < all_acts.size();i++) {
+                cout<<all_acts[i]->getName()<<endl;
+        }
 
+       cout << "Matches to test: "<<endl;
+       std::vector<Activity*> usermatches = Activity::searchByName("test");
+            for(int i = 0; i < usermatches.size();i++) {
+                    cout<<usermatches[i]->getUserLname()<<endl;
+
+            }
+       cout<<"All Users for event: "<<endl;
+       std::vector<Activity*> all_users = Activity::getAllActivities();
+       for(int i = 0; i < all_users.size();i++) {
+                        cout<<all_users[i]->getUserFname()<<endl;
+                }
+    cout<<"ENDING"<<endl;
     delete event;
     delete act;
     delete user;
     delete checkin;
+
 }

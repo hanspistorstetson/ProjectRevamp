@@ -302,11 +302,44 @@ vector<Activity*> Activity::searchByName(string _name) {
 
     }
 
-    Activity *a = new Activity(act_id, __name, eventId, status);
+    Activity* a = new Activity(act_id, __name, eventId, status);
+    results.push_back(a);
     return results;
 
 }
 
+vector<Activity*> Activity::getAllActivities() {
+    sqlite3* db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    string __name, status;
+    size_t eventId = -1;
+    size_t act_id = -1;
+    vector<Activity*> results;
+
+
+    const char *sql = "SELECT * FROM activities";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for activities " << sqlite3_errcode(db) << endl;
+        return results;
+    }
+
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        act_id = sqlite3_column_int(s, 0);
+        __name =  sqlite3_column_int(s, 1);
+        eventId = sqlite3_column_int(s, 2);
+        status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+    }else {
+        cout<<"couldn't find a match"<<endl;
+
+    }
+
+    Activity* a = new Activity(act_id, __name, eventId, status);
+    results.push_back(a);
+    return results;
+
+}
 void Activity::addCheckins(Checkin *checkin) {
      myAttendees.push_back(checkin);
 }

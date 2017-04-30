@@ -20,8 +20,8 @@ class Activity {
 	std::string getStatus();	
     std::string getActivityName();
     void setActivityName(std::string);
-    //Activity* searchById(size_t);
     static std::vector<Activity*> searchByName(std::string);
+    static std::vector<Activity*> getAllActivities();
     ~Activity();
 
     private:
