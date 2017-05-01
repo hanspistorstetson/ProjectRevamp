@@ -1,0 +1,13 @@
+digraph "setSectorSize"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node293045 [label="setSectorSize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node293045 -> Node293046 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node293046 [label="sqlite3OsDeviceCharacteristics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a251e030ce1bd2e552bc2dd66b1ac36d0"];
+  Node293045 -> Node293047 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node293047 [label="sqlite3SectorSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa7a19cf4335c553ca8a39a706ad761b9"];
+  Node293047 -> Node293048 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node293048 [label="sqlite3OsSectorSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a6f3dc94b9e48b6973f57701ac10e695b"];
+}

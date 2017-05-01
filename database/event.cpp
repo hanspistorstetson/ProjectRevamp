@@ -1,4 +1,5 @@
 #include "database/sqlite3.h"
+#include "database/sqlite3.h"
 #include "database/event.h"
 #include "database/database.h"
 #include <iostream>
@@ -7,6 +8,13 @@
 #include <cstring>
 
 using namespace std;
+
+/**
+  * Part of the Boo QR Logger Project, a class project for the Spring 2017 Software Development I Class at Stetson University.
+  * Event model class creates a row inside of the event table in the database, and then loads the field values into memory in an instance of this class.
+  * 
+  * @author Hayden Estey
+  */
 
 Event::Event(size_t id, string event_name, string _desc, string org_name, string _status) {
     this->eventid = id;
@@ -82,7 +90,7 @@ Event* Event::createEvent(string event_name, string desc, string organizer_name,
     //TODO: Remember to write a test case for this! Should only get one row from the select statement...
     size_t id = 0;
     if (sqlite3_step(s) == SQLITE_ROW) {
-        id = sqlite3_column_int(s, 0);
+        id = (size_t)sqlite3_column_int(s, 0);
     }
 
     Event *e = new Event(id, event_name, desc, organizer_name, event_status);

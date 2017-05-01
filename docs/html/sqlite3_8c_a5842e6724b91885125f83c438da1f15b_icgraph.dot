@@ -1,0 +1,11 @@
+digraph "sqlite3Prepare16"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node665071 [label="sqlite3Prepare16",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node665071 -> Node665072 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node665072 [label="sqlite3_prepare16",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#ad1651e0e1c121ec4027dbd419eb8daca"];
+  Node665071 -> Node665073 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node665073 [label="sqlite3_prepare16_v2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#ad1768867c1e3f150ebafb122c244a228"];
+}

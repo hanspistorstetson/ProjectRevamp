@@ -1,0 +1,11 @@
+digraph "setDateTimeToCurrent"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node290579 [label="setDateTimeToCurrent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node290579 -> Node290580 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node290580 [label="sqlite3StmtCurrentTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ae1011d49964d4f1e38cebd95eab80802"];
+  Node290580 -> Node290581 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node290581 [label="sqlite3OsCurrentTimeInt64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a8fba11754c83b89782ef18af266f5ec2"];
+}

@@ -1,0 +1,22 @@
+digraph "sqlite3_uri_boolean"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node390505 [label="sqlite3_uri_boolean",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node390505 -> Node390506 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390506 [label="sqlite3_uri_parameter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac458a31f6d1ac77f3458747610fb05a0"];
+  Node390506 -> Node390507 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390507 [label="sqlite3Strlen30",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3dcd80ba41f1a308193dee74857b62a7"];
+  Node390505 -> Node390508 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390508 [label="sqlite3GetBoolean",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab0af800844fea07eb392dfcabd9b8b27"];
+  Node390508 -> Node390509 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390509 [label="getSafetyLevel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#af9872d15b4c16938e89be4066ec1c590"];
+  Node390509 -> Node390510 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390510 [label="sqlite3Atoi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a567fec0d8e10559f0f901f485158a9ad"];
+  Node390510 -> Node390511 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390511 [label="sqlite3GetInt32",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5f876209b4343549fc9224cd11c70928"];
+  Node390511 -> Node390512 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node390512 [label="sqlite3HexToInt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ae3802c77b18399c03c8c9f973ff47239"];
+  Node390509 -> Node390507 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

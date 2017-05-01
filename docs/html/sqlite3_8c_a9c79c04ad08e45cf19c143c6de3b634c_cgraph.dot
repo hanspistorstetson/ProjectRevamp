@@ -1,0 +1,13 @@
+digraph "dupedExprSize"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node92180 [label="dupedExprSize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node92180 -> Node92181 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node92181 [label="dupedExprNodeSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad2b8ec81910e74d2a6a73250a7d82801"];
+  Node92181 -> Node92182 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node92182 [label="dupedExprStructSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac6b4cf7bb7f9249aa2e5d311fe2e4998"];
+  Node92181 -> Node92183 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node92183 [label="sqlite3Strlen30",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3dcd80ba41f1a308193dee74857b62a7"];
+}

@@ -1,0 +1,6 @@
+digraph "WalIndexHdr"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{WalIndexHdr\n|+ iVersion\l+ unused\l+ iChange\l+ isInit\l+ bigEndCksum\l+ szPage\l+ mxFrame\l+ nPage\l+ aFrameCksum\l+ aSalt\l+ aCksum\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+}

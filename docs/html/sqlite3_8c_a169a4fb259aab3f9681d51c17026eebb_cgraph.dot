@@ -1,0 +1,9 @@
+digraph "sqlite3PagerLockingMode"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node630681 [label="sqlite3PagerLockingMode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node630681 -> Node630682 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node630682 [label="sqlite3WalHeapMemory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac199a8b76ee63c8aa51a5514b1b68158"];
+}
