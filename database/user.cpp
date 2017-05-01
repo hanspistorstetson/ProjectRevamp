@@ -5,6 +5,7 @@
 #include <string>
 #include <cstring>
 #include "database/database.h"
+#include "database/activity.h"
 
 using namespace std;
 
