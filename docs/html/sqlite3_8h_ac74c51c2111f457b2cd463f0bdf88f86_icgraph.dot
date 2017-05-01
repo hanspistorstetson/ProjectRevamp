@@ -1,0 +1,26 @@
+digraph "sqlite3_status"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node82857 [label="sqlite3_status",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node82857 -> Node82858 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82858 [label="sqlite3_memory_used",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#abedb79a850df1979a693632736616f3f"];
+  Node82858 -> Node82859 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82859 [label="sqlite3_soft_heap_limit64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#ab37b3a4d1652e3acb2c43d1252e6b852"];
+  Node82859 -> Node82860 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82860 [label="sqlite3_soft_heap_limit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a18c3472581de3072201723e798524fdc"];
+  Node82859 -> Node82861 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82861 [label="sqlite3Pragma",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a111391370f58f8e6a6eca51fd34d62ed"];
+  Node82861 -> Node82862 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82862 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node82862 -> Node82863 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82863 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node82858 -> Node82864 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82864 [label="sqlite3_os_end",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a2288c95881ecca13d994e42b6a958906"];
+  Node82864 -> Node82864 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82864 -> Node82865 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82865 [label="sqlite3_shutdown",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#aeaf9947fe863ba3d3aca061475e3af2e"];
+  Node82857 -> Node82866 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node82866 [label="sqlite3_memory_highwater",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a50dc92faaad5a39762ede980fa3ad933"];
+}

@@ -1,0 +1,29 @@
+digraph "sqlite3OpenMasterTable"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node604598 [label="sqlite3OpenMasterTable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node604598 -> Node604599 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604599 [label="sqlite3StartTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#af49b4395f39d9078a0dda2484c183012"];
+  Node604599 -> Node604600 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604600 [label="sqlite3CreateView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a9d85cb00ff71dee5cd9a019503a6982e"];
+  Node604600 -> Node604601 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604601 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node604601 -> Node604602 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604602 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node604599 -> Node604603 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604603 [label="sqlite3VtabBeginParse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a081b9e174ed9650ac90990d60cd36e96"];
+  Node604603 -> Node604601 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604599 -> Node604601 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604598 -> Node604604 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604604 [label="sqlite3DropTriggerPtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa3a84617bfc76be1c61c27fc2b6d0b17"];
+  Node604604 -> Node604605 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604605 [label="sqlite3CodeDropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aaf9a8d65346dc15bfcd60bc48e885f46"];
+  Node604605 -> Node604606 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604606 [label="sqlite3DropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5534f77364b5568783c0e50db3c9defb"];
+  Node604606 -> Node604601 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604604 -> Node604607 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node604607 [label="sqlite3DropTrigger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#affdf1dd65e331b06feaef6ff8636305f"];
+  Node604607 -> Node604601 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

@@ -1,4 +1,4 @@
-#include "prereqselectwindow.h"
+#include "gui/prereqselectwindow.h"
 #include "ui_prereqselectwindow.h"
 #include <iostream>
 
@@ -22,6 +22,7 @@ PrereqSelectWindow::~PrereqSelectWindow()
 {
     delete ui;
 }
+
 
 void PrereqSelectWindow::on_cancelButton_released()
 {

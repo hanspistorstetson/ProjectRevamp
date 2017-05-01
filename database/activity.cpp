@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <string>
 #include <cstring>
+#include <vector>
 
 using namespace std;
 
@@ -73,7 +74,7 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
 
     size_t act_id = 0;
     if (sqlite3_step(s) == SQLITE_ROW) {
-        act_id = sqlite3_column_int(s, 0);
+        act_id = (size_t)sqlite3_column_int(s, 0);
     }
 
 	//needs to return pointer to the activity created
@@ -81,7 +82,14 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
 
 	return a;
 }
- Activity* Activity::loadActivityById(size_t _id) {
+
+Activity* Activity::createActivity(string name, size_t eventid, string _status, vector<Activity*> prereqs) {
+    Activity *a = Activity::createActivity(name, eventid, _status);
+    a->addPrereqs(prereqs);
+    return a;
+}
+
+Activity* Activity::loadActivityById(size_t _id) {
      sqlite3 *db = Database::openDatabase();
      int retval;
      sqlite3_stmt *s;
@@ -107,11 +115,27 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
      }
 
      Activity *a = new Activity(_id, name, eventId, status);
+     
+     sql = "SELECT * FROM prerequisites WHERE activityid = ?";
+     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+     if (retval != SQLITE_OK) {
+         cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+         return NULL;
+     }
+     retval = sqlite3_bind_int(s, 1, _id);
+     if (retval != SQLITE_OK) {
+         cout << "Error binding id int to SQL statement " << sql << endl;
+         return NULL;
+     }
+     while (sqlite3_step(s) == SQLITE_ROW) {
+         size_t prereqid = (size_t)sqlite3_column_int(s, 1);
+         a->myPreReqs.push_back(Activity::loadActivityById(prereqid));
+     } 
+     
      return a;
- }
+}
 
-
-void Activity:: setEventId(size_t newid) {
+void Activity::setEventId(size_t newid) {
     this->eventId = newid;
     sqlite3* db = Database::openDatabase();
     int retval;
@@ -139,6 +163,53 @@ void Activity:: setEventId(size_t newid) {
     }
     sqlite3_reset(s);
 }
+
+vector<Activity*> Activity::getPrereqs() {
+    return myPreReqs;
+}
+
+void Activity::addPrereq(Activity* prereq) {
+    sqlite3 *db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+
+    const char* sql = "INSERT INTO prerequisites (activityid, prereqid) values (?, ?)";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_int(s, 1, this->getId());
+    if (retval != SQLITE_OK) {
+        cout << "Error binding activityid int to SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    retval = sqlite3_bind_int(s, 2, prereq->getId());
+    if (retval != SQLITE_OK) {
+        cout << "Error binding prereqid int to SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    if (sqlite3_step(s) != SQLITE_DONE) {
+        cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return;
+    }
+    sqlite3_reset(s);
+}
+
+void Activity::addPrereqs(vector<Activity*> prereqs) {
+    if (myPreReqs.empty()) {
+        myPreReqs = prereqs;
+    } else {
+        for (int i = 0; i < (myPreReqs.size() + prereqs.size()); ++i) {
+            myPreReqs.push_back(prereqs[i]);
+        }
+    }
+
+    for (int i = 0; i < prereqs.size(); ++i) {
+        this->addPrereq(prereqs[i]);
+    }
+}
+
 void Activity:: setActivityName(string newname) {
     this->name = newname;
     sqlite3* db = Database::openDatabase();
@@ -198,23 +269,80 @@ void Activity::setStatus(string _status) {
     sqlite3_reset(s);
 }
 
-void Activity::setPreReq(Activity* pre) {
+vector<Activity*> Activity::searchByName(string _name) {
+    sqlite3* db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    string __name, status;
+    size_t eventId = -1;
+    size_t act_id = -1;
+    vector<Activity*> results;
 
-    //TODO
+
+    const char *sql = "SELECT * FROM activities WHERE name LIKE '%' || ? || '%'";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for activities " << sqlite3_errcode(db) << endl;
+        return results;
+    }
+
+    retval = sqlite3_bind_text(s, 1, _name.c_str(), _name.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding text to SQL statement " << sql << endl;
+        return results;
+    }
+
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        act_id = sqlite3_column_int(s, 0);
+        __name =  sqlite3_column_int(s, 1);
+        eventId = sqlite3_column_int(s, 2);
+        status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+    }else {
+        cout<<"couldn't find a match"<<endl;
+
+    }
+
+    Activity* a = new Activity(act_id, __name, eventId, status);
+    results.push_back(a);
+    return results;
+
+}
+
+vector<Activity*> Activity::getAllActivities() {
+    sqlite3* db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    string __name, status;
+    size_t eventId = -1;
+    size_t act_id = -1;
+    vector<Activity*> results;
+
+
+    const char *sql = "SELECT * FROM activities";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for activities " << sqlite3_errcode(db) << endl;
+        return results;
+    }
+
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        act_id = sqlite3_column_int(s, 0);
+        __name =  sqlite3_column_int(s, 1);
+        eventId = sqlite3_column_int(s, 2);
+        status = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+    }else {
+        cout<<"couldn't find a match"<<endl;
+
+    }
+
+    Activity* a = new Activity(act_id, __name, eventId, status);
+    results.push_back(a);
+    return results;
+
 }
 void Activity::addCheckins(Checkin *checkin) {
      myAttendees.push_back(checkin);
 }
-
-/*
-void Activity::setActive() {
-    status = "active";
-}
-
-void Activity::setInactive() {
-    status = "inactive";
-}
-*/
 
 string Activity::getStatus() {
     return this->status;
@@ -234,11 +362,6 @@ vector<Checkin*> Activity:: getCheckins() {
 string Activity:: getActivityName() {
     return this->name;
 }
-/*
-void  Activity:: setId(size_t newid) {
-    id = newid;
-}
-*/
 
 Activity::~Activity() {
 

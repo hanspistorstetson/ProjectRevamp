@@ -3,6 +3,8 @@
 #include "database/dbtest.h"
 #include "database/event.h"
 #include "database/activity.h"
+#include "database/checkin.h"
+#include <vector>
 using namespace std;
 
 /**
@@ -22,7 +24,8 @@ void dbtest::testCreating() {
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
     cout << event->getEventId() << endl;
-    User* user = User::createUser("test@test.test", "test", "test", event->getEventId());
+    User* user = User::createUser("test", "test@test.test", "test", "test", event->getEventId());
+
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");
@@ -37,21 +40,69 @@ void dbtest::testCreating() {
     cout << act->getStatus() << endl;
     cout << act->getId() <<"---activtity id"<< endl;
 
+    vector<Activity*> prereqs;
+    prereqs.push_back(act);
+    Activity* act2 = Activity::createActivity("Activity with Prereqs", 1, "Active", prereqs);
+    vector<Activity*> act2Prereqs = act2->getPrereqs();
+    cout << act2Prereqs[0]->getActivityName() << endl;
+
+    Checkin* checkin = Checkin::createCheckin("Brando", 2);
+    cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
+    checkin->setActivity_ID(2);
+    cout << checkin->getActId() << endl;
+    checkin->setUser_ID("Plante");
+    cout << checkin->getUserId() << endl;
+    cout << checkin->getID() << endl;
     //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;
     delete user;
     delete act;
+    delete checkin;
 }
 
 void dbtest::testLoading() {
     Event* event = Event::loadEventById(1);
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
-    User* user = User::loadUserById(1);
+    User* user = User::loadUserById("test");
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
-    Activity* act = Activity::loadActivityById(14);
+
+    Activity* act = Activity::loadActivityById(1);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
+    
+    Activity* act2 = Activity::loadActivityById(2);
+    vector<Activity*> prereqs = act2->getPrereqs();
+    cout << prereqs[0]->getActivityName() << endl;
+
+    Checkin* checkin = Checkin::loadCheckinById(1);
+    cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
+
+    cout << "Matches to spit: "<<endl;
+    std::vector<Activity*> actmatches = Activity::searchByName("Spit");
+        for(int i = 0; i < actmatches.size();i++) {
+            cout<<actmatches[i]->getName()<<endl;
+        }
+        cout<<"All Activities: "<<endl;
+    std::vector<Activity*> all_acts = Activity::getAllActivities();
+            for(int i = 0; i < all_acts.size();i++) {
+                cout<<all_acts[i]->getName()<<endl;
+        }
+
+       cout << "Matches to test: "<<endl;
+       std::vector<Activity*> usermatches = Activity::searchByName("test");
+            for(int i = 0; i < usermatches.size();i++) {
+                    cout<<usermatches[i]->getUserLname()<<endl;
+
+            }
+       cout<<"All Users for event: "<<endl;
+       std::vector<Activity*> all_users = Activity::getAllActivities();
+       for(int i = 0; i < all_users.size();i++) {
+                        cout<<all_users[i]->getUserFname()<<endl;
+                }
+    cout<<"ENDING"<<endl;
     delete event;
     delete act;
     delete user;
+    delete checkin;
+
 }

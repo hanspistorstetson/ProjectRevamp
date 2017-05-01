@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <string>
 #include <cstring>
-#include "database.h"
+#include "database/database.h"
 
 using namespace std;
 
@@ -15,7 +15,7 @@ using namespace std;
   * @author Hayden Estey
   */
 
-User::User(size_t _uuid, string _username, string _fname, string _lname, size_t _eventid) {
+User::User(string _uuid, string _username, string _fname, string _lname, size_t _eventid) {
     this->uuid = _uuid;
     this->username = _username;
     this->fname = _fname;
@@ -23,7 +23,7 @@ User::User(size_t _uuid, string _username, string _fname, string _lname, size_t 
     this->eventid = _eventid;
 }
 
-User* User::createUser(string username, string fname, string lname, size_t eventid) {
+User* User::createUser(string uuid, string username, string fname, string lname, size_t eventid) {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt* s;
@@ -49,28 +49,33 @@ User* User::createUser(string username, string fname, string lname, size_t event
         return NULL;
     }
     
-    sql = "INSERT INTO users (username, fname, lname, eventid) values (?, ?, ?, ?)";
+    sql = "INSERT INTO users (uuid, username, fname, lname, eventid) values (?, ?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing insert statement for users: error code " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_text(s, 1, username.c_str(), username.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_text(s, 2, username.c_str(), username.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding username text to SQL statement " << sql << endl;
         return NULL;
     }
-    retval = sqlite3_bind_text(s, 2, fname.c_str(), fname.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 3, fname.c_str(), fname.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding fname text to SQL statement " << sql << endl;
         return NULL;
     }
-    retval = sqlite3_bind_text(s, 3, lname.c_str(), lname.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_text(s, 4, lname.c_str(), lname.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding lname text to SQL statement " << sql << endl;
         return NULL;
     }
-    retval = sqlite3_bind_int(s, 4, eventid);
+    retval = sqlite3_bind_int(s, 5, eventid);
     if (retval != SQLITE_OK) {
         cout << "Error binding int to SQL statement " << sql << endl;
         return NULL;
@@ -81,13 +86,11 @@ User* User::createUser(string username, string fname, string lname, size_t event
     }
     sqlite3_reset(s);
 
-    size_t uuid = (size_t)sqlite3_last_insert_rowid(db);
-
     User* u = new User(uuid, username, fname, lname, eventid);
     return u;
 }
 
-User* User::loadUserById(size_t uuid) {
+User* User::loadUserById(string uuid) {
     sqlite3* db = Database::openDatabase();
     sqlite3_stmt* s;
     int retval;
@@ -101,9 +104,9 @@ User* User::loadUserById(size_t uuid) {
         cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_int(s, 1, uuid);
+    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
-        cout << "Error binding int to SQL statement " << sql << endl;
+        cout << "Error binding text to SQL statement " << sql << endl;
         return NULL;
     }
     if (sqlite3_step(s) == SQLITE_ROW) {
@@ -135,9 +138,9 @@ void User::setUsername(string _username) {
         cout << "Error binding username text to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_int(s, 2, uuid);
+    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid int to SQL statement " << sql << endl;
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -164,9 +167,9 @@ void User::setUserFname(string _fname) {
         cout << "Error binding fname text to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_int(s, 2, uuid);
+    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid int to SQL statement " << sql << endl;
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -193,9 +196,9 @@ void User::setUserLname(string _lname) {
         cout << "Error binding lname text to SQL statement " << sql << endl;
         return;
     }
-    retval = sqlite3_bind_int(s, 2, uuid);
+    retval = sqlite3_bind_text(s, 2, uuid.c_str(), uuid.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
-        cout << "Error binding uuid int to SQL statement " << sql << endl;
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
         return;
     }
     if (sqlite3_step(s) != SQLITE_DONE) {
@@ -203,12 +206,84 @@ void User::setUserLname(string _lname) {
         return;
     }
 }
- 
+vector<User*> User::searchByLastName(string _name) {
+    sqlite3* db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    size_t _eventid = -1;
+\    string _username, _fname, _lname;
+    vector<User*> results;
+    string _uuid;
+
+
+    const char *sql = "SELECT * FROM users WHERE lname LIKE '%' || ? || '%'";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for users " << sqlite3_errcode(db) << endl;
+        return results;
+    }
+
+    retval = sqlite3_bind_text(s, 1, _name.c_str(), _name.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding text to SQL statement " << sql << endl;
+        return results;
+    }
+
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 0)));
+        _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        _eventid = sqlite3_column_int(s, 4);
+    }else {
+        cout<<"couldn't find a match"<<endl;
+
+    }
+
+    User* a = new User(_uuid, _username, _fname, _lname, _eventid);
+    results.push_back(a);
+    return results;
+
+}
+
+vector<Activity*> Activity::getAllUsers() {
+    sqlite3* db = Database::openDatabase();
+    int retval;
+    sqlite3_stmt *s;
+    size_t _eventid = -1;
+\    string _username, _fname, _lname;
+    vector<User*> results;
+    string _uuid;
+
+
+    const char *sql = "SELECT * FROM users";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for users " << sqlite3_errcode(db) << endl;
+        return results;
+    }
+
+
+    if(sqlite3_step(s) == SQLITE_ROW) {
+        _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 0)));
+        _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        _eventid = sqlite3_column_int(s, 4);
+    }else {
+        cout<<"couldn't find a match"<<endl;
+
+    }
+
+    User* a = new User(_uuid, _username, _fname, _lname, _eventid);
+    results.push_back(a);
+    return results;
+}
 
 User::~User() {
 }
 
-size_t User::getUserId() {
+string User::getUserId() {
     return uuid;
 }
 

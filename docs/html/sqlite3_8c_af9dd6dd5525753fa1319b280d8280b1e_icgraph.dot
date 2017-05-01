@@ -1,0 +1,15 @@
+digraph "destroyTable"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node87946 [label="destroyTable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node87946 -> Node87947 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node87947 [label="sqlite3CodeDropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aaf9a8d65346dc15bfcd60bc48e885f46"];
+  Node87947 -> Node87948 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node87948 [label="sqlite3DropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5534f77364b5568783c0e50db3c9defb"];
+  Node87948 -> Node87949 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node87949 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node87949 -> Node87950 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node87950 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+}

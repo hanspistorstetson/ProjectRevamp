@@ -1,0 +1,9 @@
+digraph "sqlite3PagerRef"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node635543 [label="sqlite3PagerRef",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node635543 -> Node635544 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node635544 [label="sqlite3PcacheRef",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a45716bc3d922bccb6d95e16e1ab828ec"];
+}

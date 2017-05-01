@@ -1,0 +1,6 @@
+digraph "Checkin"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Checkin\n||+ getUserId()\l+ getActId()\l+ isCheckedIn()\l+ getID()\l+ setUser_ID()\l+ setActivity_ID()\l+ ~Checkin()\l+ createCheckin()\l+ loadCheckinById()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+}

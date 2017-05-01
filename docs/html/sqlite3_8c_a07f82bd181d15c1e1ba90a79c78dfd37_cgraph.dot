@@ -1,0 +1,9 @@
+digraph "serialGet"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node289546 [label="serialGet",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node289546 -> Node289547 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node289547 [label="sqlite3IsNaN",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aed4d78203877c3486765ccbc7feebb50"];
+}
