@@ -21,6 +21,7 @@ INPUT(
 ./release\user.o
 ./release\sqlite3.o
 ./release\dbtest.o
+./release\prereqselectwindow.o
 ./release\moc_mainwindow.o
 ./release\moc_eventcreatewindow.o
 ./release\moc_eventadminwindow.o
@@ -35,4 +36,5 @@ INPUT(
 ./release\moc_user_list.o
 ./release\moc_user_search.o
 ./release\moc_user_view.o
+./release\moc_prereqselectwindow.o
 );
