@@ -211,7 +211,7 @@ vector<User*> User::searchByLastName(string _name) {
     int retval;
     sqlite3_stmt *s;
     size_t _eventid = -1;
-\    string _username, _fname, _lname;
+    string _username, _fname, _lname;
     vector<User*> results;
     string _uuid;
 
@@ -251,7 +251,7 @@ vector<Activity*> Activity::getAllUsers() {
     int retval;
     sqlite3_stmt *s;
     size_t _eventid = -1;
-\    string _username, _fname, _lname;
+    string _username, _fname, _lname;
     vector<User*> results;
     string _uuid;
 
