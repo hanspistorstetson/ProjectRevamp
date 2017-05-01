@@ -46,14 +46,13 @@ void dbtest::testCreating() {
     vector<Activity*> act2Prereqs = act2->getPrereqs();
     cout << act2Prereqs[0]->getActivityName() << endl;
 
-    Checkin* checkin = Checkin::createCheckin("Brando", 2);
+    Checkin* checkin = Checkin::createCheckin("test", 1);
     cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
-    checkin->setActivity_ID(2);
+    checkin->setActivity_ID(1);
     cout << checkin->getActId() << endl;
     checkin->setUser_ID("Plante");
     cout << checkin->getUserId() << endl;
     cout << checkin->getID() << endl;
-    //Activity* activity_model = Activity::createActivity("activity name", 1, "test status"); //add prereqs too
 
     delete event;
     delete user;
@@ -79,26 +78,27 @@ void dbtest::testLoading() {
 
     cout << "Matches to spit: "<<endl;
     std::vector<Activity*> actmatches = Activity::searchByName("Spit");
-        for(int i = 0; i < actmatches.size();i++) {
-            cout<<actmatches[i]->getName()<<endl;
+        for(size_t i = 0; i < actmatches.size();i++) {
+            cout<<actmatches[i]->getActivityName()<<endl;
         }
         cout<<"All Activities: "<<endl;
     std::vector<Activity*> all_acts = Activity::getAllActivities();
-            for(int i = 0; i < all_acts.size();i++) {
-                cout<<all_acts[i]->getName()<<endl;
+            for(size_t i = 0; i < all_acts.size();i++) {
+                cout<<all_acts[i]->getActivityName()<<endl;
         }
 
-       cout << "Matches to test: "<<endl;
-       std::vector<Activity*> usermatches = Activity::searchByName("test");
-            for(int i = 0; i < usermatches.size();i++) {
+       cout << "Matches to Cena: "<<endl;
+       std::vector<User*> usermatches = User::searchByLastName("Cena");
+            for(size_t i = 0; i < usermatches.size();i++) {
                     cout<<usermatches[i]->getUserLname()<<endl;
 
             }
        cout<<"All Users for event: "<<endl;
-       std::vector<Activity*> all_users = Activity::getAllActivities();
-       for(int i = 0; i < all_users.size();i++) {
+       std::vector<User*> all_users = User::getAllUsers();
+       for(size_t i = 0; i < all_users.size();i++) {
                         cout<<all_users[i]->getUserFname()<<endl;
-                }
+              }
+
     cout<<"ENDING"<<endl;
     delete event;
     delete act;

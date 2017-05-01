@@ -21,7 +21,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
     sqlite3_stmt* s;
 
 
-    const char* sql = "SELECT uuid FROM users WHERE uuid = ?";
+    const char* sql = "SELECT * FROM users WHERE uuid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing select statement for users: error code " << sqlite3_errcode(db) << endl;
@@ -33,7 +33,6 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         return NULL;
     }
     if (sqlite3_step(s) == SQLITE_DONE) {
-        cout << "Error executing SQL statement " << sql << " with error code " << sqlite3_errcode(db) << endl;
         cout << "Check to make sure that the user exists in the database." << endl;
         return NULL;
     }
@@ -42,7 +41,7 @@ Checkin* Checkin::createCheckin(string user_id, size_t act_id)
         return NULL;
     }
 
-    sql = "SELECT activityid FROM activities WHERE activityid = ?";
+    sql = "SELECT * FROM activities WHERE activityid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error in preparing select statement for activities: error code " << sqlite3_errcode(db) << endl;
