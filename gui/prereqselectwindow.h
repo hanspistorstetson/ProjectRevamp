@@ -15,6 +15,9 @@ public:
     explicit PrereqSelectWindow(QWidget *parent = 0);
     ~PrereqSelectWindow();
 
+private slots:
+    void on_cancelButton_released();
+
 private:
     Ui::PrereqSelectWindow *ui;
 };
