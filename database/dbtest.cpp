@@ -86,9 +86,9 @@ void dbtest::testLoading() {
             for(size_t i = 0; i < all_acts.size();i++) {
                 cout<<all_acts[i]->getActivityName()<<endl;
         }
-/*
-       cout << "Matches to test: "<<endl;
-       std::vector<User*> usermatches = User::searchByLastName("test");
+
+       cout << "Matches to Cena: "<<endl;
+       std::vector<User*> usermatches = User::searchByLastName("Cena");
             for(size_t i = 0; i < usermatches.size();i++) {
                     cout<<usermatches[i]->getUserLname()<<endl;
 
@@ -98,7 +98,7 @@ void dbtest::testLoading() {
        for(size_t i = 0; i < all_users.size();i++) {
                         cout<<all_users[i]->getUserFname()<<endl;
               }
-*/
+
     cout<<"ENDING"<<endl;
     delete event;
     delete act;

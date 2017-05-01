@@ -207,7 +207,7 @@ void User::setUserLname(string _lname) {
         return;
     }
 }
-/*
+
 vector<User*> User::searchByLastName(string _name) {
     sqlite3* db = Database::openDatabase();
     int retval;
@@ -231,24 +231,21 @@ vector<User*> User::searchByLastName(string _name) {
         return results;
     }
 
-    if(sqlite3_step(s) == SQLITE_ROW) {
+    while(sqlite3_step(s) == SQLITE_ROW) {
         _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 0)));
         _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
         _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
         _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
         _eventid = sqlite3_column_int(s, 4);
-    }else {
-        cout<<"couldn't find a match"<<endl;
-
-    }
 
     User* a = new User(_uuid, _username, _fname, _lname, _eventid);
     results.push_back(a);
+    }
     return results;
 
 }
 
-vector<Activity*> Activity::getAllUsers() {
+vector<User*> User::getAllUsers() {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt *s;
@@ -266,22 +263,20 @@ vector<Activity*> Activity::getAllUsers() {
     }
 
 
-    if(sqlite3_step(s) == SQLITE_ROW) {
+    while(sqlite3_step(s) == SQLITE_ROW) {
         _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 0)));
         _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
         _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
         _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
         _eventid = sqlite3_column_int(s, 4);
-    }else {
-        cout<<"couldn't find a match"<<endl;
 
-    }
 
     User* a = new User(_uuid, _username, _fname, _lname, _eventid);
     results.push_back(a);
+    }
     return results;
 }
-*/
+
 User::~User() {
 }
 
