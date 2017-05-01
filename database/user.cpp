@@ -207,6 +207,7 @@ void User::setUserLname(string _lname) {
         return;
     }
 }
+/*
 vector<User*> User::searchByLastName(string _name) {
     sqlite3* db = Database::openDatabase();
     int retval;
@@ -280,7 +281,7 @@ vector<Activity*> Activity::getAllUsers() {
     results.push_back(a);
     return results;
 }
-
+*/
 User::~User() {
 }
 
