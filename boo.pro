@@ -27,6 +27,7 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
+    database/guid.cpp \
     gui/prereqselectwindow.cpp\
     database/dbtest.cpp \
         ./QRHandler.cpp \
@@ -51,6 +52,7 @@ HEADERS  += gui/mainwindow.h \
     gui/user_search.h \
     gui/user_view.h \
     database/activity.h \
+    database/guid.h   \
     database/checkin.h \
     database/database.h \
     database/event.h \
@@ -96,7 +98,8 @@ test {
     database/checkin.cpp \
     database/activity.cpp \
     database/sqlite3.c \
-    database/dbtest.cpp
+    database/dbtest.cpp \
+    database/guid.cpp
 
     HEADERS += database/database.h \
     database/event.h \
@@ -104,7 +107,8 @@ test {
     database/checkin.h \
     database/activity.h \
     database/sqlite3.h \
-    database/dbtest.h
+    database/dbtest.h \
+    database/guid.h
 
 }
 
@@ -113,6 +117,9 @@ test {
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES += GUID_CFUUID
+LIBS += -framework CoreFoundation
+
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
