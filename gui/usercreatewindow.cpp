@@ -24,8 +24,9 @@ void UserCreateWindow::on_createUserButton_released()
     std::string firstName = ui->firstNameTF->text().toStdString();
     std::string lastName = ui->lastNameTF->text().toStdString();
     std::string userName = ui->userNameTF->text().toStdString();
+    std::string UUID = "odsajflkflkjfdalkjdsahfdsalkjhflkjdsaf";
 
-    User::createUser(userName, firstName, lastName, 1);
+    User::createUser(UUID, userName, firstName, lastName, 1);
 
     this->close();
 }

@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
     w.show();
 
     //Testing database
-    dbtest::testCreating();
-    dbtest::testLoading();
+    //dbtest::testCreating();
+    //dbtest::testLoading();
 
     int retval = a.exec();
     Database::closeDatabase();
