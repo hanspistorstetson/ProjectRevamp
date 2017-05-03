@@ -1,10 +1,15 @@
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+CONFIG += console c++11
+CONFIG -= app_bundle
+include(scan/QZXing.pri)
+QT       += core gui multimedia widgets
+INCLUDEPATH += ./include/
+INCLUDEPATH += ./include/gen/
 
 boo {
     TARGET = boo
     TEMPLATE = app
-    
+
 SOURCES += main.cpp\
     gui/mainwindow.cpp \
     gui/eventcreatewindow.cpp \
@@ -26,8 +31,14 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
-    gui/prereqselectwindow.cpp
+    gui/prereqselectwindow.cpp\
     database/dbtest.cpp \
+        ./QRHandler.cpp \
+        QRScanner.cpp \
+        gen/BitBuffer.cpp \
+        gen/QrCode.cpp \
+        gen/QrSegment.cpp
+
 
 
 HEADERS  += gui/mainwindow.h \
@@ -51,6 +62,12 @@ HEADERS  += gui/mainwindow.h \
     database/user.h \
     database/sqlite3.h \
     database/dbtest.h \
+    gui/prereqselectwindow.h\
+        include/QRHandler.h \
+        include/QRScanner.h \
+        include/gen/BitBuffer.hpp \
+        include/gen/QrCode.hpp \
+        include/gen/QrSegment.hpp
 
 FORMS    += gui/mainwindow.ui \
     gui/eventcreatewindow.ui \
