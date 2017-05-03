@@ -15,6 +15,7 @@ class ListActivities : public QDialog
 public:
     explicit ListActivities(QWidget *parent = 0);
     ~ListActivities();
+    int i=1;
 
 private slots:
     void on_pushButton_released();

@@ -10,7 +10,7 @@ int main() {
     return 0;
 
 // testing file for QRHandler & QRScanner
-
+/*
 #include <iostream>
 
 #include "QRHandler.h"
@@ -29,4 +29,5 @@ void testScanner() {
 int main(int argc, char** argv) {
 	testScanner();
 	return 0;
+*/
 }
