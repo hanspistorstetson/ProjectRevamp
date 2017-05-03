@@ -1,4 +1,3 @@
-QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -52,7 +51,6 @@ HEADERS  += gui/mainwindow.h \
     database/user.h \
     database/sqlite3.h \
     database/dbtest.h \
-    gui/prereqselectwindow.h
 
 FORMS    += gui/mainwindow.ui \
     gui/eventcreatewindow.ui \
