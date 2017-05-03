@@ -17,3 +17,5 @@ ui_*
 *.db
 .DS_Store
 .DS_Store?
+build*
+

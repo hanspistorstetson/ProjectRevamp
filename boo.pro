@@ -27,8 +27,13 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
-    gui/prereqselectwindow.cpp
+    gui/prereqselectwindow.cpp\
     database/dbtest.cpp \
+        ./QRHandler.cpp \
+        QRScanner.cpp \
+        gen/BitBuffer.cpp \
+        gen/QrCode.cpp \
+        gen/QrSegment.cpp
 
 
 HEADERS  += gui/mainwindow.h \
@@ -52,7 +57,12 @@ HEADERS  += gui/mainwindow.h \
     database/user.h \
     database/sqlite3.h \
     database/dbtest.h \
-    gui/prereqselectwindow.h
+    gui/prereqselectwindow.h\
+        include/QRHandler.h \
+        include/QRScanner.h \
+        include/gen/BitBuffer.hpp \
+        include/gen/QrCode.hpp \
+        include/gen/QrSegment.hpp
 
 FORMS    += gui/mainwindow.ui \
     gui/eventcreatewindow.ui \
