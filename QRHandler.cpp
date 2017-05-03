@@ -9,7 +9,7 @@
 #include <QSize>
 
 #include "QRHandler.h"
-#include "QrCode.hpp"
+#include "QrCodeGen.hpp"
 
 using namespace std;
 using namespace qrcodegen;

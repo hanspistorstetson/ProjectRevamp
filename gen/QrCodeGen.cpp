@@ -26,7 +26,7 @@
 #include <cstddef>
 #include <sstream>
 #include "BitBuffer.hpp"
-#include "QrCode.hpp"
+#include "QrCodeGen.hpp"
 
 
 namespace qrcodegen {

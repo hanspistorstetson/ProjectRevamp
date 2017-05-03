@@ -16,6 +16,6 @@ void testScanner() {
 }
 
 int main(int argc, char** argv) {
-	testScanner();
+    testScanner();
 	return 0;
 }
