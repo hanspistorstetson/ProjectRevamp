@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "database/event.h"
+#include <cstring>
 
 using namespace std;
 /** 

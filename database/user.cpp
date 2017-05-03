@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <string>
 #include <cstring>
+#include <sstream>
+#include "guid.h"
 #include "database/database.h"
 #include "database/activity.h"
 
@@ -24,10 +26,16 @@ User::User(string _uuid, string _username, string _fname, string _lname, size_t 
     this->eventid = _eventid;
 }
 
-User* User::createUser(string uuid, string username, string fname, string lname, size_t eventid) {
+User* User::createUser(string username, string fname, string lname, size_t eventid) {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt* s;
+
+    GuidGenerator generator;
+    Guid g = generator.newGuid();
+    stringstream guidss;
+    guidss << g;
+    string uuid = guidss.str();
 
     const char* sql = "SELECT eventid FROM events WHERE eventid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
