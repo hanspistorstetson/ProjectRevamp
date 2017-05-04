@@ -12,7 +12,6 @@ ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :
 
 ActivityCreateWindow::~ActivityCreateWindow()
 {
-    delete act;
     delete ui;
 }
 
@@ -37,17 +36,34 @@ void ActivityCreateWindow::on_createActivityButton_released()
    {
        status="upcoming";
    }
-    act = Activity::createActivity(name,1,status);
+
+   // populates left list with all existing activities, and adds them to a map
+
+   totalActs = Activity::getAllActivities();
+   for(unsigned int i = 0; i<totalActs.size();i++)
+   {
+       QString name = QString::fromStdString(totalActs.at(i)->getActivityName());
+       actMap[i] = totalActs.at(i);
+       ui->prereqSelectList->addItem(name);
+   }
+
+    if(prereqs.size()>0)
+    {
+        Activity::createActivity(name,1,status, prereqs);
+    } else
+    {
+        Activity::createActivity(name,1,status);
+    }
     this->close();
 
 }
 
-void ActivityCreateWindow::on_preReqSelectButton_released()
-{
+//when an item is double clicked, the activity that exists in the map at that int location is added to the prereq vector
+//then the activity name is added to the right-hand list
 
-    PrereqSelectWindow* psw = new PrereqSelectWindow(this, act);
-    psw->setModal(true);
-    psw->exec();
-    delete psw;
+void ActivityCreateWindow::on_prereqSelectList_itemDoubleClicked(QListWidgetItem *item)
+{
+    prereqs.push_back(actMap[ui->prereqSelectList->row(item)]);
+    ui->prereqAddedList->addItem(item);
 
 }

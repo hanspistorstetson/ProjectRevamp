@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,7 +83,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>230</y>
+     <y>360</y>
      <width>381</width>
      <height>24</height>
     </rect>
@@ -114,18 +114,36 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="preReqSelectButton">
+  <widget class="QLabel" name="prereqLabel">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>161</y>
-     <width>145</width>
+     <x>140</x>
+     <y>140</y>
+     <width>251</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Select Pre-Reqs</string>
+    <string>Double Click to Add Pre-Reqs</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>173</y>
+     <width>381</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QListWidget" name="prereqSelectList"/>
+    </item>
+    <item>
+     <widget class="QListWidget" name="prereqAddedList"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
