@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <string>
 #include <cstring>
+#include <sstream>
+#include "guid.h"
 #include "database/database.h"
 #include "database/activity.h"
 
@@ -16,7 +18,8 @@ using namespace std;
   * @author Hayden Estey
   */
 
-User::User(string _uuid, string _username, string _fname, string _lname, size_t _eventid) {
+User::User(size_t _userid, string _uuid, string _username, string _fname, string _lname, size_t _eventid) {
+    this->userid = _userid;
     this->uuid = _uuid;
     this->username = _username;
     this->fname = _fname;
@@ -24,10 +27,16 @@ User::User(string _uuid, string _username, string _fname, string _lname, size_t 
     this->eventid = _eventid;
 }
 
-User* User::createUser(string uuid, string username, string fname, string lname, size_t eventid) {
+User* User::createUser(string username, string fname, string lname, size_t eventid) {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt* s;
+
+    GuidGenerator generator;
+    Guid g = generator.newGuid();
+    stringstream guidss;
+    guidss << g;
+    string uuid = guidss.str();
 
     const char* sql = "SELECT eventid FROM events WHERE eventid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -49,7 +58,8 @@ User* User::createUser(string uuid, string username, string fname, string lname,
         cout << "Something strange happened... " << endl;
         return NULL;
     }
-    
+    sqlite3_reset(s);
+
     sql = "INSERT INTO users (uuid, username, fname, lname, eventid) values (?, ?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
@@ -86,38 +96,56 @@ User* User::createUser(string uuid, string username, string fname, string lname,
         return NULL;
     }
     sqlite3_reset(s);
+    
+    size_t id = 0;    
+    sql = "SELECT userid FROM users WHERE uuid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error in preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding uuid text to SQL statement " << sql << endl;
+        return NULL;
+    }
+    if (sqlite3_step(s) == SQLITE_ROW){
+        id = (size_t)sqlite3_column_int(s, 0);
+    }
+    sqlite3_reset(s);
 
-    User* u = new User(uuid, username, fname, lname, eventid);
+    User* u = new User(id, uuid, username, fname, lname, eventid);
     return u;
 }
 
-User* User::loadUserById(string uuid) {
+User* User::loadUserById(size_t id) {
     sqlite3* db = Database::openDatabase();
     sqlite3_stmt* s;
     int retval;
 
-    string username, fname, lname;
+    string uuid, username, fname, lname;
     size_t eventid = 0;
     
-    const char* sql = "SELECT * FROM users WHERE uuid = ?";
+    const char* sql = "SELECT * FROM users WHERE userid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    retval = sqlite3_bind_text(s, 1, uuid.c_str(), uuid.size(), SQLITE_STATIC);
+    retval = sqlite3_bind_int(s, 1, id);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
         return NULL;
     }
     if (sqlite3_step(s) == SQLITE_ROW) {
-        username = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
-        fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
-        lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        username = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 4)));
         eventid = sqlite3_column_int(s, 4);
     }
 
-    User* u = new User(uuid, username, fname, lname, eventid);
+    User* u = new User(id, uuid, username, fname, lname, eventid);
     return u;
 }
 
@@ -212,7 +240,8 @@ vector<User*> User::searchByLastName(string _name) {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt *s;
-    size_t _eventid = -1;
+    size_t id = 0;
+    size_t _eventid = 0;
     string _username, _fname, _lname;
     vector<User*> results;
     string _uuid;
@@ -232,13 +261,14 @@ vector<User*> User::searchByLastName(string _name) {
     }
 
     while(sqlite3_step(s) == SQLITE_ROW) {
-        _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 0)));
-        _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
-        _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
-        _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
-        _eventid = sqlite3_column_int(s, 4);
+        id = (size_t)sqlite3_column_int(s, 0);
+        _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 4)));
+        _eventid = sqlite3_column_int(s, 5);
 
-    User* a = new User(_uuid, _username, _fname, _lname, _eventid);
+    User* a = new User(id, _uuid, _username, _fname, _lname, _eventid);
     results.push_back(a);
     }
     return results;
@@ -249,7 +279,8 @@ vector<User*> User::getAllUsers() {
     sqlite3* db = Database::openDatabase();
     int retval;
     sqlite3_stmt *s;
-    size_t _eventid = -1;
+    size_t id = 0;
+    size_t _eventid = 0;
     string _username, _fname, _lname;
     vector<User*> results;
     string _uuid;
@@ -264,14 +295,15 @@ vector<User*> User::getAllUsers() {
 
 
     while(sqlite3_step(s) == SQLITE_ROW) {
-        _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 0)));
-        _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
-        _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
-        _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
-        _eventid = sqlite3_column_int(s, 4);
+        id = (size_t)sqlite3_column_int(s, 0);
+        _uuid = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 1)));
+        _username =  string(reinterpret_cast<const char*>(sqlite3_column_text(s, 2)));
+        _fname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 3)));
+        _lname = string(reinterpret_cast<const char*>(sqlite3_column_text(s, 4)));
+        _eventid = sqlite3_column_int(s, 5);
 
 
-    User* a = new User(_uuid, _username, _fname, _lname, _eventid);
+    User* a = new User(id, _uuid, _username, _fname, _lname, _eventid);
     results.push_back(a);
     }
     return results;
@@ -280,7 +312,10 @@ vector<User*> User::getAllUsers() {
 User::~User() {
 }
 
-string User::getUserId() {
+size_t User::getUserId() {
+    return userid;
+}
+string User::getUUID() {
     return uuid;
 }
 

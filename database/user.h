@@ -14,9 +14,10 @@
 class User {
     public:
         ~User();
-        static User* createUser(std::string uuid, std::string username, std::string fname, std::string lname, size_t eventid);
-        static User* loadUserById(std::string userid);
-        std::string getUserId();
+        static User* createUser(std::string username, std::string fname, std::string lname, size_t eventid);
+        static User* loadUserById(size_t id);
+        size_t getUserId();
+        std::string getUUID();
         std::string getUsername();
         std::string getUserFname();
         std::string getUserLname();
@@ -28,7 +29,8 @@ class User {
         static std::vector<User*> getAllUsers();
         
     private:
-        User(std::string, std::string, std::string, std::string, size_t);
+        User(size_t, std::string, std::string, std::string, std::string, size_t);
+        size_t userid;
         std::string uuid;
         size_t eventid;
         std::string username;

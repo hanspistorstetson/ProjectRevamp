@@ -59,7 +59,8 @@ Event* Event::createEvent(string event_name, string desc, string organizer_name,
         cout << "Error executing SQL statement " << sql << ": " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    
+    sqlite3_reset(s);
+
     //select statement to get the event id
     sql = "SELECT eventid FROM events WHERE event_name = ? AND description = ? AND org_name = ? AND event_status = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -87,7 +88,6 @@ Event* Event::createEvent(string event_name, string desc, string organizer_name,
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-    //TODO: Remember to write a test case for this! Should only get one row from the select statement...
     size_t id = 0;
     if (sqlite3_step(s) == SQLITE_ROW) {
         id = (size_t)sqlite3_column_int(s, 0);

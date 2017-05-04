@@ -6,8 +6,7 @@
 #include <cstring>
 
 using namespace std;
-
-/**
+/** 
   * Built as part of the Boo QR Logger Project, a class project from the Spring 2017 Software Development I class at Stetson University.
   * Singleton Database class that opens a .db file through a static method, creates 5 tables inside of the file.
   *
@@ -33,25 +32,25 @@ Database::Database() {
         sqlite3_free(errmsg);
     }
     
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS users (uuid text, username text, fname text, lname text, eventid int, FOREIGN KEY(eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS users (userid integer primary key, uuid text, username text, fname text, lname text, eventid int, FOREIGN KEY(eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating users table: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
 
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activities (activityid integer primary key, name text, eventid int, status text);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS activities (activityid integer primary key, name text, eventid int, status text, FOREIGN KEY (eventid) REFERENCES events(eventid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating activites table: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
 
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS prerequisites (activityid integer, prereqid integer);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS prerequisites (activityid integer, prereqid integer, FOREIGN KEY(activityid) REFERENCES activities(activityid), FOREIGN KEY(prereqid) REFERENCES activities(activityid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating prereq table: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
 
-    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer PRIMARY KEY, userid text, activityid int);", NULL, NULL, &errmsg);
+    retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer PRIMARY KEY, userid int, activityid int, FOREIGN KEY(userid) REFERENCES users(userid), FOREIGN KEY(activityid) REFERENCES activities(activityid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
         cout << "Error creating checkins table: " << errmsg << endl;
         sqlite3_free(errmsg);
