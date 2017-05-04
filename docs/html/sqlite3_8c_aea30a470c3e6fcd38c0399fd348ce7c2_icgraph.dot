@@ -1,9 +1,0 @@
-digraph "sqlite3_create_function_v2"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node327035 [label="sqlite3_create_function_v2",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node327035 -> Node327036 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node327036 [label="sqlite3_create_function",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a4532ad3e2f9ee8707fe66d8b7065ad0f"];
-}

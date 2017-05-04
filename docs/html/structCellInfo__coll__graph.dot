@@ -1,6 +1,0 @@
-digraph "CellInfo"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  Node1 [label="{CellInfo\n|+ nKey\l+ pPayload\l+ nPayload\l+ nLocal\l+ iOverflow\l+ nSize\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-}

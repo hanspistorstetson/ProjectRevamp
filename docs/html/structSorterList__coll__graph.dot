@@ -1,9 +1,0 @@
-digraph "SorterList"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  Node1 [label="{SorterList\n|+ aMemory\l+ szPMA\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +pList" ,arrowhead="odiamond",fontname="FreeSans"];
-  Node2 [label="{SorterRecord\n|+ nVal\l+ iNext\l+ u\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSorterRecord.html"];
-  Node2 -> Node2 [color="grey25",fontsize="10",style="solid",label=" +pNext" ,arrowhead="odiamond",fontname="FreeSans"];
-}

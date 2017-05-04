@@ -1,9 +1,0 @@
-digraph "sqlite3PagerJournalSizeLimit"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node630675 [label="sqlite3PagerJournalSizeLimit",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node630675 -> Node630676 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node630676 [label="sqlite3WalLimit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a91fe2ad3be0f329266551b7162e8ba55"];
-}

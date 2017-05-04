@@ -1,9 +1,0 @@
-digraph "sqlite3_unlock_notify"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node390497 [label="sqlite3_unlock_notify",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node390497 -> Node390498 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node390498 [label="sqlite3_db_readonly",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a96c378e7022e7a8a375e23f7fc662cdd"];
-}

@@ -1,9 +1,0 @@
-digraph "sqlite3SubInt64"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node720991 [label="sqlite3SubInt64",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node720991 -> Node720992 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node720992 [label="sqlite3AddInt64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3a8d0bd2168f97a58e0205410aac197a"];
-}
