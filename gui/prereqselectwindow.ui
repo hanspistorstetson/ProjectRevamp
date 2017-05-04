@@ -61,7 +61,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -72,7 +72,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QListWidget" name="preregSelectList"/>
+     <widget class="QListWidget" name="prereqSelectList"/>
     </item>
     <item>
      <widget class="QListWidget" name="prereqAddedList"/>
