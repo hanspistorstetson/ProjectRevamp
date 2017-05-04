@@ -27,9 +27,5 @@ void CheckInWindow::on_Back_released()
 
 void CheckInWindow::on_Scan_released()
 {
-    QrCodeFound la;
-    this->hide();
-    la.setModal(true);
-    la.exec();
-    this->show();
+
 }
