@@ -94,7 +94,7 @@ void dbtest::testLoading() {
     cout << prereqs[0]->getActivityName() << endl;
 
     Checkin* checkin = Checkin::loadCheckinById(1);
-    cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
+    cout << "USERID " << checkin->getUserId() << ", ACTID " << checkin->getActId() << endl;
 
     cout << "Matches to spit: "<<endl;
     std::vector<Activity*> actmatches = Activity::searchByName("Spit");

@@ -71,19 +71,36 @@ Checkin* Checkin::createCheckin(size_t user_id, size_t act_id)
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-    size_t checkin_id;
-    if (sqlite3_step(s) == SQLITE_DONE) {
-        checkin_id = (size_t)sqlite3_column_int(s, 0);
-    } else {
+    if (sqlite3_step(s) != SQLITE_DONE) {
         cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    cout << "RESULTCODE: " << sqlite3_errcode(db) << endl;
+    sqlite3_reset(s);
+    
+    sql = "SELECT checkinid FROM checkins WHERE userid = ? and activityid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error in preparing select statement to get checkinid, error code " << sqlite3_errcode(db) << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_int(s, 1, user_id);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding userid int to SQL statement " << sql << endl;
+        return NULL;
+    }
+    retval = sqlite3_bind_int(s, 2, act_id);
+    if (retval != SQLITE_OK) {
+        cout << "Error binding activitid int to SQL statement " << sql << endl;
+        return NULL;
+    }
+    size_t checkin_id;
+    if (sqlite3_step(s) == SQLITE_ROW) {
+        checkin_id = (size_t)sqlite3_column_int(s, 0);
+    }
     sqlite3_reset(s);
 
     Checkin* myCheckin = new Checkin(checkin_id, user_id, act_id);
     return myCheckin;
-
 }
 
 Checkin* Checkin::loadCheckinById(size_t _id)
@@ -96,7 +113,7 @@ Checkin* Checkin::loadCheckinById(size_t _id)
     size_t act_id = 0;
 
 
-    const char* sql = "SELECT userid, activityid FROM checkins WHERE checkinid = ?";
+    const char* sql = "SELECT * FROM checkins WHERE checkinid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for checkins " << sqlite3_errcode(db) << endl;
@@ -109,8 +126,8 @@ Checkin* Checkin::loadCheckinById(size_t _id)
     }
 
     if(sqlite3_step(s) == SQLITE_ROW) {
-        user_id = sqlite3_column_int(s, 1);
-        act_id = sqlite3_column_int(s, 2);
+        user_id = (size_t)sqlite3_column_int(s, 1);
+        act_id = (size_t)sqlite3_column_int(s, 2);
     }
 
     Checkin *ci = new Checkin(_id, user_id, act_id);
