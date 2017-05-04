@@ -21,3 +21,4 @@ void testScanner() {
 	QRScanner myScanner;
 	std::cout << myScanner.decodeFromFile("./img/HelloWorld.png").toUtf8().data();
 }
+
