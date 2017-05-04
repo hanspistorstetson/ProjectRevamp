@@ -48,13 +48,13 @@ void dbtest::testCreating() {
     vector<Activity*> act2Prereqs = act2->getPrereqs();
     cout << act2Prereqs[0]->getActivityName() << endl;
 
-    Checkin* checkin = Checkin::createCheckin("test", 1);
-    cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
-    checkin->setActivity_ID(1);
+    Checkin* checkin = Checkin::createCheckin(1, 1);
+    cout << "USERID: " << checkin->getUserId() << " , ACTIVITYID: " << checkin->getActId()<< endl;
+    checkin->setActivity_ID(2);
     cout << checkin->getActId() << endl;
-    checkin->setUser_ID("Plante");
+    checkin->setUserId(2);
     cout << checkin->getUserId() << endl;
-    cout << checkin->getID() << endl;
+    cout << "CHECKINID: " << checkin->getID() << endl;
 
     delete event;
     delete user;
