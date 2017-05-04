@@ -9,9 +9,9 @@ SOURCES += \
 	./QRHandler.cpp \
 	QRScanner.cpp \
 	gen/BitBuffer.cpp \
-	gen/QrCode.cpp \
 	gen/QrSegment.cpp \
-    test.cpp
+    test.cpp \
+    gen/QrCodeGen.cpp
 
 INCLUDEPATH += ./include/
 INCLUDEPATH += ./include/gen/
@@ -20,5 +20,5 @@ HEADERS += \
 	include/QRHandler.h \
 	include/QRScanner.h \
 	include/gen/BitBuffer.hpp \
-	include/gen/QrCode.hpp \
-	include/gen/QrSegment.hpp
+	include/gen/QrSegment.hpp \
+    include/gen/QrCodeGen.hpp

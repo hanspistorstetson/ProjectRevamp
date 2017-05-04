@@ -1,10 +1,11 @@
 
-CONFIG += console c++11
+CONFIG += c++11
 CONFIG -= app_bundle
 include(scan/QZXing.pri)
 QT       += core gui multimedia widgets
 INCLUDEPATH += ./include/
 INCLUDEPATH += ./include/gen/
+win32:QMAKE_LFLAGS += -shared
 
 boo {
     TARGET = boo
@@ -36,7 +37,7 @@ SOURCES += main.cpp\
         ./QRHandler.cpp \
         QRScanner.cpp \
         gen/BitBuffer.cpp \
-        gen/QrCode.cpp \
+        gen/QrCodeGen.cpp \
         gen/QrSegment.cpp
 
 
@@ -66,7 +67,7 @@ HEADERS  += gui/mainwindow.h \
         include/QRHandler.h \
         include/QRScanner.h \
         include/gen/BitBuffer.hpp \
-        include/gen/QrCode.hpp \
+        include/gen/QrCodeGen.hpp \
         include/gen/QrSegment.hpp
 
 FORMS    += gui/mainwindow.ui \
