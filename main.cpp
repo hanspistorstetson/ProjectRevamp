@@ -27,12 +27,7 @@ int main(int argc, char *argv[])
 
     int retval = a.exec();
     Database::closeDatabase();
-
-<<<<<<< HEAD
     return 0;
-=======
-    return retval;
->>>>>>> cb5c307bb75efedd56ff68cc1bab54b13e4eda98
 }
 
 

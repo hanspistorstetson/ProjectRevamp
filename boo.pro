@@ -63,7 +63,7 @@ HEADERS  += gui/mainwindow.h \
     database/user.h \
     database/sqlite3.h \
     database/dbtest.h \
-    gui/prereqselectwindow.h\
+    gui/prereqselectwindow.h \
         include/QRHandler.h \
         include/QRScanner.h \
         include/gen/BitBuffer.hpp \

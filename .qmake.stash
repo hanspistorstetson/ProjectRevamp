@@ -69,3 +69,17 @@ QMAKE_CXX.COMPILER_MACROS = \
     QT_GCC_MAJOR_VERSION \
     QT_GCC_MINOR_VERSION \
     QT_GCC_PATCH_VERSION
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_CC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_CXX = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_FIX_RPATH = \
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/install_name_tool \
+    -id
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_AR = \
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar \
+    cq
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_RANLIB = \
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib \
+    -s
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_LINK = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_LINK_SHLIB = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
+QMAKE_MAC_SDK.macx-clang-32.macosx.QMAKE_ACTOOL = /Applications/Xcode.app/Contents/Developer/usr/bin/actool
