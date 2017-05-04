@@ -15,6 +15,10 @@ using namespace std;
   */
 
 void dbtest::testCreating() {
+
+    cout << "TEST CREATING: " << endl;
+    cout << endl;
+
     Event* event = Event::createEvent("Test Name", "Test Description", "Test Org", "Test Status");
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
     event->setEventName("Naked Mole Rate Exhibition");
@@ -23,19 +27,22 @@ void dbtest::testCreating() {
     cout << event->getOrgName() << endl;
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
-    cout << event->getEventId() << endl;
-    User* user = User::createUser("test", "test@test.test", "test", "test", event->getEventId());
+    cout << "EVENTID: " << event->getEventId() << endl;
+    User* user = User::createUser("test@test.test", "test", "test", event->getEventId());
+
 
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");
+    cout << "USERID: " << user->getUserId() << endl;
+    cout<<"UUID: "<<user->getUUID()<<endl;
 
     Activity* act = Activity::createActivity("Test Activity Name", 1, "Test Activity Status");
     cout << act->getActivityName() << " ,"<< act->getEventId() << ", " << act->getStatus() << endl;
     act->setActivityName("Spit distance contest");
     cout << act->getActivityName() << endl;
     act->setEventId(15);
-    cout << act->getEventId() << endl;
+    cout << "NEW EVENTID: " << act->getEventId() << endl;
     act->setStatus("Exhibiting now!");
     cout << act->getStatus() << endl;
     cout << act->getId() <<"---activtity id"<< endl;
@@ -46,13 +53,13 @@ void dbtest::testCreating() {
     vector<Activity*> act2Prereqs = act2->getPrereqs();
     cout << act2Prereqs[0]->getActivityName() << endl;
 
-    Checkin* checkin = Checkin::createCheckin("test", 1);
-    cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
-    checkin->setActivity_ID(1);
+    Checkin* checkin = Checkin::createCheckin(1, 1);
+    cout << "USERID: " << checkin->getUserId() << " , ACTIVITYID: " << checkin->getActId()<< endl;
+    checkin->setActivity_ID(2);
     cout << checkin->getActId() << endl;
-    checkin->setUser_ID("Plante");
+    checkin->setUserId(2);
     cout << checkin->getUserId() << endl;
-    cout << checkin->getID() << endl;
+    cout << "CHECKINID: " << checkin->getID() << endl;
 
     delete event;
     delete user;
@@ -61,11 +68,15 @@ void dbtest::testCreating() {
 }
 
 void dbtest::testLoading() {
+     
+    cout << "TEST LOADING: " << endl;
+    cout << endl;
+
     Event* event = Event::loadEventById(1);
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
-    User* user = User::loadUserById("test");
+   /* User* user = User::loadUserById();
     cout << user->getUsername() << " " << user->getUserFname() << " " << user->getUserLname() << endl;
-
+*/
     Activity* act = Activity::loadActivityById(1);
     cout << act->getActivityName() << ", " << act->getEventId() << ", " << act->getStatus() << endl;
     
@@ -74,7 +85,7 @@ void dbtest::testLoading() {
     cout << prereqs[0]->getActivityName() << endl;
 
     Checkin* checkin = Checkin::loadCheckinById(1);
-    cout << checkin->getUserId() << ", " << checkin->getActId() << endl;
+    cout << "USERID " << checkin->getUserId() << ", ACTID " << checkin->getActId() << endl;
 
     cout << "Matches to spit: "<<endl;
     std::vector<Activity*> actmatches = Activity::searchByName("Spit");
@@ -102,7 +113,7 @@ void dbtest::testLoading() {
     cout<<"ENDING"<<endl;
     delete event;
     delete act;
-    delete user;
+    //delete user;
     delete checkin;
 
 }

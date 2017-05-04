@@ -20,10 +20,10 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
     int retval;
     sqlite3* db = Database::openDatabase();
     sqlite3_stmt *s;
-    const char *sql = "INSERT INTO activities (name, eventid, status) VALUES (?, ?, ?)";
+    const char *sql = "INSERT INTO activities (name, eventid, status) VALUES (?, (select eventid from events where eventid = ?), ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error in preparing insert statement for activity " << sqlite3_errcode(db) << endl;
+        cout << "Error in preparing SQL statement " << sql << ", error code " << sqlite3_errcode(db) << endl;
         return NULL;
     }
     retval = sqlite3_bind_text(s, 1, activity_name.c_str(), activity_name.size(), SQLITE_STATIC);
@@ -31,9 +31,11 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-
    retval = sqlite3_bind_int(s, 2, event_id);
-
+   if (retval != SQLITE_OK) {
+       cout << "Error binding int to SQL statement " << sql << endl;
+       return NULL;
+   }
    retval = sqlite3_bind_text(s, 3, activity_status.c_str(), activity_status.size(), SQLITE_STATIC);
    if (retval != SQLITE_OK) {
        cout << "Error in binding SQL statement " << sql << endl;
@@ -48,11 +50,11 @@ Activity::Activity(size_t _id, string act_name, size_t event_id, string _status)
         return NULL;
     }
 
-    //select statement to get the event id
+    //select statement to get the activity id
     sql = "SELECT activityid FROM activities WHERE name = ? AND eventid = ? AND status = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
-        cout << "Error preparing select statement for activity " << sqlite3_errcode(db) << endl;
+        cout << "Error preparing SQL statement " << sql << ", error code " << sqlite3_errcode(db) << endl;
         return NULL;
     }
     retval = sqlite3_bind_text(s, 1, activity_name.c_str(), activity_name.size(), SQLITE_STATIC);
