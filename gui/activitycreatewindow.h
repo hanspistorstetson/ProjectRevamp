@@ -2,6 +2,7 @@
 #define ACTIVITYCREATEWINDOW_H
 
 #include <QDialog>
+#include "database/activity.h"
 
 namespace Ui {
 class ActivityCreateWindow;

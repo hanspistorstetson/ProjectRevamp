@@ -13,16 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QListWidget" name="prereqListWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>321</width>
-     <height>211</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="prereqLabel">
    <property name="geometry">
     <rect>
@@ -33,16 +23,16 @@
     </rect>
    </property>
    <property name="text">
-    <string>Select Pre-Reqs</string>
+    <string>Double Click Pre-Reqs</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>330</y>
      <width>381</width>
-     <height>24</height>
+     <height>32</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -68,6 +58,24 @@
        <string>Cancel</string>
       </property>
      </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>361</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QListWidget" name="preregSelectList"/>
+    </item>
+    <item>
+     <widget class="QListWidget" name="prereqAddedList"/>
     </item>
    </layout>
   </widget>
