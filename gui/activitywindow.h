@@ -1,6 +1,7 @@
 #ifndef ACTIVITYWINDOW_H
 #define ACTIVITYWINDOW_H
 #include <QDialog>
+#include "database/activity.h"
 
 namespace Ui {
 class ActivityWindow;
@@ -11,7 +12,7 @@ class ActivityWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit ActivityWindow(QWidget *parent = 0);
+    explicit ActivityWindow(QWidget *parent, Activity*);
     ~ActivityWindow();
 
 private slots:

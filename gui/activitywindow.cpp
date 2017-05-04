@@ -2,7 +2,7 @@
 #include "ui_activitywindow.h"
 #include "gui/checkinwindow.h"
 #include "gui/listactivities.h"
-ActivityWindow::ActivityWindow(QWidget *parent) :
+ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     QDialog(parent),
     ui(new Ui::ActivityWindow)
 {

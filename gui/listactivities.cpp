@@ -11,9 +11,10 @@ ListActivities::ListActivities(QWidget *parent) :
     ui->setupUi(this);
     std::vector<Activity*>listOfActivity;
     listOfActivity=Activity::getAllActivities();
-    for (int t = 0; t<listOfActivity.size();t++)
+    for (unsigned int t = 0; t<listOfActivity.size();t++)
     {
-        ui->listWidget->addItem(listOfActivity.at(t).getActivityName());
+        QString name = QString::fromStdString(listOfActivity.at(t)->getActivityName());
+        ui->listWidget->addItem(name);
     }
 }
 
@@ -33,11 +34,19 @@ void ListActivities::on_pushButton_released()
 
 void ListActivities::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    ActivityWindow la;
-    this->hide();
-    la.setModal(true);
-    la.exec();
-    this->show();
+    std::vector<Activity*> acts = Activity::getAllActivities();
+    for(unsigned int i = 0; i< acts.size(); i++)
+    {
+        if(acts.at(i)->getActivityName() == item->text().toStdString())
+        {
+            ActivityWindow* la = new ActivityWindow(this, acts.at(i));
+            this->hide();
+            la->setModal(true);
+            la->exec();
+            delete la;
+            this->show();
+        }
+    }
 }
 
 void ListActivities::on_pushButton_2_released()

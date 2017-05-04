@@ -2,6 +2,7 @@
 #include "ui_activitysearch.h"
 #include "gui/activitywindow.h"
 #include "gui/listactivities.h"
+#include <QString>
 ActivitySearch::ActivitySearch(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ActivitySearch)
@@ -9,9 +10,10 @@ ActivitySearch::ActivitySearch(QWidget *parent) :
     ui->setupUi(this);
     std::vector<Activity*>listOfActivity;
     listOfActivity=Activity::getAllActivities();
-    for (int t = 0; t<listOfActivity.size();t++)
+    for (unsigned int t = 0; t<listOfActivity.size();t++)
     {
-        ui->listWidget->addItem(listOfActivity.at(t).getActivityName(););
+        QString name = QString::fromStdString(listOfActivity.at(t)->getActivityName());
+        ui->listWidget->addItem(name);
     }
 }
 
@@ -22,14 +24,16 @@ ActivitySearch::~ActivitySearch()
 
 void ActivitySearch::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    for(int i=1;i<searchActivity;i++)
+    for(unsigned int i=1;i<searchActivity.size();i++)
     {
-        if(item->text()==searchActivity.at(i).getActivityName());
+        QString name = QString::fromStdString(searchActivity.at(i)->getActivityName());
+        if(item->text()==name)
         {
-            ActivityWindow la;
+            ActivityWindow* la = new ActivityWindow(this, searchActivity.at(i));
             this->hide();
-            la.setModal(true);
-            la.exec();
+            la->setModal(true);
+            la->exec();
+            delete la;
             this->show();
         }
     }
@@ -48,10 +52,12 @@ void ActivitySearch::on_Search_released()
 {
      ui->listWidget->clear();
      searchActivity.clear();
-     searchActivity=Activity::searchByName(lineEdit->text());
-     for (int t = 0; t<listOfActivity.size();t++)
+    std::string name = ui->lineEdit->text().toStdString();
+     searchActivity=Activity::searchByName(name);
+     for (unsigned int t = 0; t<searchActivity.size();t++)
      {
-         ui->listWidget->addItem(searchActivity.at(t).getActivityName(););
+         QString name = QString::fromStdString(searchActivity.at(t)->getActivityName());
+         ui->listWidget->addItem(name);
      }
 
 }

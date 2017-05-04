@@ -4,6 +4,7 @@
 #include "database/activity.h"
 
 #include <QDialog>
+#include <QListWidgetItem>
 
 namespace Ui {
 class PrereqSelectWindow;
