@@ -3,6 +3,7 @@
 #define PREREQSELECTWINDOW_H
 #include "database/activity.h"
 
+#include <QListWidgetItem>
 #include <QDialog>
 #include <QListWidgetItem>
 

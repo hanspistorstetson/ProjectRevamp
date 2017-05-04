@@ -1,17 +1,12 @@
-
 CONFIG += c++11
 CONFIG -= app_bundle
 include(scan/QZXing.pri)
 QT       += core gui multimedia widgets
 INCLUDEPATH += ./include/
 INCLUDEPATH += ./include/gen/
+TEMPLATE = app
 
-
-boo {
-    TARGET = boo
-    TEMPLATE = app
-
-SOURCES += main.cpp\
+SOURCES += main.cpp \
     gui/mainwindow.cpp \
     gui/eventcreatewindow.cpp \
     gui/eventadminwindow.cpp \
@@ -32,7 +27,7 @@ SOURCES += main.cpp\
     database/event.cpp \
     database/user.cpp \
     database/sqlite3.c \
-    gui/prereqselectwindow.cpp\
+    gui/prereqselectwindow.cpp \
     database/dbtest.cpp \
         ./QRHandler.cpp \
         QRScanner.cpp \
@@ -89,36 +84,12 @@ FORMS    += gui/mainwindow.ui \
 DISTFILES += README.txt \
     boo.pro.user
 
-}
-
-test {
-    TARGET = dbtest
-    TEMPLATE = app
-    
-    SOURCES += test.cpp \
-    database/database.cpp \
-    database/event.cpp \
-    database/user.cpp \
-    database/checkin.cpp \
-    database/activity.cpp \
-    database/sqlite3.c \
-    database/dbtest.cpp
-
-    HEADERS += database/database.h \
-    database/event.h \
-    database/user.h \
-    database/checkin.h \
-    database/activity.h \
-    database/sqlite3.h \
-    database/dbtest.h
-
-}
-
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
+DEFINES += GUID_WINDOWS
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
