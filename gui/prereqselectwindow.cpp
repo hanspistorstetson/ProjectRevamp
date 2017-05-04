@@ -12,18 +12,20 @@ PrereqSelectWindow::PrereqSelectWindow(QWidget *parent, Activity* act) :
     ui(new Ui::PrereqSelectWindow)
 {
     ui->setupUi(this);
+    activity = act;
     totalActs = act->getAllActivities();
-    for(int i = 0; i<totalActs.size();i++)
+    for(unsigned int i = 0; i<totalActs.size();i++)
     {
-       // QString name = QString::fromStdString(totalActs.at(i)->getName());
+        QString name = QString::fromStdString(totalActs.at(i)->getActivityName());
         actMap[i] = totalActs.at(i);
-        //ui->prereqSelectList->addItem(name);
+        ui->prereqSelectList->addItem(name);
     }
 
 }
 
 PrereqSelectWindow::~PrereqSelectWindow()
 {
+    delete activity;
     delete ui;
 }
 
@@ -36,7 +38,7 @@ void PrereqSelectWindow::on_cancelButton_released()
 void PrereqSelectWindow::on_prereqSelectList_itemDoubleClicked(QListWidgetItem *item)
 {
 
-    //prereqs.push_back(actMap[ui->prereqSelectList->row(item)]);
+    prereqs.push_back(actMap[ui->prereqSelectList->row(item)]);
     ui->prereqAddedList->addItem(item);
 
 }
@@ -44,7 +46,5 @@ void PrereqSelectWindow::on_prereqSelectList_itemDoubleClicked(QListWidgetItem *
 
 void PrereqSelectWindow::on_chooseButton_released()
 {
-//    for(i = 0; i< ui->prereqAddedList->size(); i++)
-//    {
-//    }
+    activity->addPrereqs(prereqs);
 }
