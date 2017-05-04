@@ -8,6 +8,14 @@ ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :
     ui(new Ui::ActivityCreateWindow)
 {
     ui->setupUi(this);
+
+    totalActs = Activity::getAllActivities();
+    for(unsigned int i = 0; i<totalActs.size();i++)
+    {
+        QString name = QString::fromStdString(totalActs.at(i)->getActivityName());
+        actMap[i] = totalActs.at(i);
+        ui->prereqSelectList->addItem(name);
+    }
 }
 
 ActivityCreateWindow::~ActivityCreateWindow()
@@ -39,13 +47,7 @@ void ActivityCreateWindow::on_createActivityButton_released()
 
    // populates left list with all existing activities, and adds them to a map
 
-   totalActs = Activity::getAllActivities();
-   for(unsigned int i = 0; i<totalActs.size();i++)
-   {
-       QString name = QString::fromStdString(totalActs.at(i)->getActivityName());
-       actMap[i] = totalActs.at(i);
-       ui->prereqSelectList->addItem(name);
-   }
+
 
     if(prereqs.size()>0)
     {
