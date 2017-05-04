@@ -13,7 +13,7 @@ ListActivities::ListActivities(QWidget *parent) :
     listOfActivity=Activity::getAllActivities();
     for (int t = 0; t<listOfActivity.size();t++)
     {
-        ui->listWidget->addItem(listOfActivity.at(t).getActivityName());
+        //ui->listWidget->addItem(listOfActivity.at(t)->getActivityName());
     }
 }
 
