@@ -34,7 +34,8 @@ void dbtest::testCreating() {
     user->setUsername("John Cena");
     user->setUserFname("John");
     user->setUserLname("Cena");
-    cout<<"UUID: "<<user->getUserId()<<endl;
+    cout << "USERID: " << user->getUserId() << endl;
+    cout<<"UUID: "<<user->getUUID()<<endl;
 
     Activity* act = Activity::createActivity("Test Activity Name", 1, "Test Activity Status");
     cout << act->getActivityName() << " ,"<< act->getEventId() << ", " << act->getStatus() << endl;
@@ -52,19 +53,9 @@ void dbtest::testCreating() {
     vector<Activity*> act2Prereqs = act2->getPrereqs();
     cout << act2Prereqs[0]->getActivityName() << endl;
 
-/*
-<<<<<<< HEAD
-
-    Checkin* checkin = Checkin::createCheckin("6a53b7da-65da-417d-811e-837d7605a631", 1);
-    cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
-    checkin->setActivity_ID(1);
-
-=======
-*/
     Checkin* checkin = Checkin::createCheckin(1, 1);
     cout << "USERID: " << checkin->getUserId() << " , ACTIVITYID: " << checkin->getActId()<< endl;
     checkin->setActivity_ID(2);
-//>>>>>>> 41503debebd6463107ce8899916fbf55f6d15e4d
     cout << checkin->getActId() << endl;
     checkin->setUserId(2);
     cout << checkin->getUserId() << endl;
