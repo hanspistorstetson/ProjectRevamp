@@ -1,6 +1,5 @@
 #include "gui/activitycreatewindow.h"
 #include "ui_activitycreatewindow.h"
-#include "prereqselectwindow.h"
 #include "database/activity.h"
 #include "gui/prereqselectwindow.h"
 
@@ -13,6 +12,7 @@ ActivityCreateWindow::ActivityCreateWindow(QWidget *parent) :
 
 ActivityCreateWindow::~ActivityCreateWindow()
 {
+    delete act;
     delete ui;
 }
 
@@ -24,8 +24,7 @@ void ActivityCreateWindow::on_cancelButton_released()
 void ActivityCreateWindow::on_createActivityButton_released()
 {
     /* This will take data in textfields
-     * and then pass to controller
-     * then close window
+     * and then create activity
      */
     std::string name = ui->actNameTF->text().toStdString();
     std::string status;
@@ -38,16 +37,17 @@ void ActivityCreateWindow::on_createActivityButton_released()
    {
        status="upcoming";
    }
-   Activity::createActivity(name,1,status);
+    act = Activity::createActivity(name,1,status);
     this->close();
+
 }
 
 void ActivityCreateWindow::on_preReqSelectButton_released()
 {
 
-    PrereqSelectWindow psw;
+    PrereqSelectWindow* psw = new PrereqSelectWindow(this, act);
     psw.setModal(true);
     psw.exec();
-
+    delete psw;
 
 }
