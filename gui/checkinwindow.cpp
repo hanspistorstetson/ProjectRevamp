@@ -17,11 +17,12 @@ CheckInWindow::~CheckInWindow()
 
 void CheckInWindow::on_Back_released()
 {
-    ActivityWindow la;
+  /*  ActivityWindow la;
     this->hide();
     la.setModal(true);
     la.exec();
     this->show();
+    */
 }
 
 void CheckInWindow::on_Scan_released()
