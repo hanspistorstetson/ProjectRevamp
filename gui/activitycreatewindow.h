@@ -24,6 +24,8 @@ private slots:
 
 private:
     Ui::ActivityCreateWindow *ui;
+    Activity* act;
+
 };
 
 #endif // ACTIVITYCREATEWINDOW_H
