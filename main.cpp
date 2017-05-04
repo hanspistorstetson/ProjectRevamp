@@ -21,14 +21,14 @@ int main(int argc, char *argv[])
     //dbtest::testCreating();
     //dbtest::testLoading();
 
-    Camera camera;
-    camera.show();
+    //Camera camera;
+    //camera.show();
 
 
     int retval = a.exec();
     Database::closeDatabase();
 
-    return app.exec();
+    return 0;
 }
 
 

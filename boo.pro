@@ -5,7 +5,7 @@ include(scan/QZXing.pri)
 QT       += core gui multimedia widgets
 INCLUDEPATH += ./include/
 INCLUDEPATH += ./include/gen/
-win32:QMAKE_LFLAGS += -shared
+
 
 boo {
     TARGET = boo
