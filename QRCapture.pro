@@ -9,14 +9,14 @@ INCLUDEPATH += ./include/
 INCLUDEPATH += ./include/gen/
 
 HEADERS += \
-    imagesettings.h \
-    videosettings.h \
+	include/imagesettings.h \
+	include/videosettings.h \
     include/QRHandler.h \
 	include/QRScanner.h \
 	include/gen/BitBuffer.hpp \
 	include/gen/QrSegment.hpp \
     include/gen/QrCodeGen.hpp \
-    QRCapture.h
+	include/QRCapture.h
 
 SOURCES += \
     main.cpp \
