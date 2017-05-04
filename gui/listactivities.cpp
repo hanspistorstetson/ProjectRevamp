@@ -13,12 +13,8 @@ ListActivities::ListActivities(QWidget *parent) :
     listOfActivity=Activity::getAllActivities();
     for (unsigned int t = 0; t<listOfActivity.size();t++)
     {
-<<<<<<< HEAD
         QString name = QString::fromStdString(listOfActivity.at(t)->getActivityName());
         ui->listWidget->addItem(name);
-=======
-        //ui->listWidget->addItem(listOfActivity.at(t)->getActivityName());
->>>>>>> cb7a9b11507a7aafbf41d68863b9cbc82717e4d8
     }
 }
 
