@@ -1,6 +1,6 @@
 #ifndef ACTIVITYSEARCH_H
 #define ACTIVITYSEARCH_H
-
+#include "database/activity.h"
 #include <QListWidgetItem>
 #include <QDialog>
 
@@ -21,8 +21,11 @@ private slots:
 
     void on_back_released();
 
+    void on_Search_released();
+
 private:
     Ui::ActivitySearch *ui;
+    std::vector<Activity*>searchActivity;
 };
 
 #endif // ACTIVITYSEARCH_H

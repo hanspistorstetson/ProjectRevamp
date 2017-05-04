@@ -7,7 +7,12 @@ ActivitySearch::ActivitySearch(QWidget *parent) :
     ui(new Ui::ActivitySearch)
 {
     ui->setupUi(this);
-
+    std::vector<Activity*>listOfActivity;
+    listOfActivity=Activity::getAllActivities();
+    for (int t = 0; t<listOfActivity.size();t++)
+    {
+        ui->listWidget->addItem(listOfActivity.at(t).getActivityName(););
+    }
 }
 
 ActivitySearch::~ActivitySearch()
@@ -17,11 +22,17 @@ ActivitySearch::~ActivitySearch()
 
 void ActivitySearch::on_listWidget_itemClicked(QListWidgetItem *item)
 {
-    ActivityWindow la;
-    this->hide();
-    la.setModal(true);
-    la.exec();
-    this->show();
+    for(int i=1;i<searchActivity;i++)
+    {
+        if(item->text()==searchActivity.at(i).getActivityName());
+        {
+            ActivityWindow la;
+            this->hide();
+            la.setModal(true);
+            la.exec();
+            this->show();
+        }
+    }
 }
 
 void ActivitySearch::on_back_released()
@@ -31,4 +42,16 @@ void ActivitySearch::on_back_released()
     la.setModal(true);
     la.exec();
     this->show();
+}
+
+void ActivitySearch::on_Search_released()
+{
+     ui->listWidget->clear();
+     searchActivity.clear();
+     searchActivity=Activity::searchByName(lineEdit->text());
+     for (int t = 0; t<listOfActivity.size();t++)
+     {
+         ui->listWidget->addItem(searchActivity.at(t).getActivityName(););
+     }
+
 }

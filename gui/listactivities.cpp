@@ -2,18 +2,18 @@
 #include "ui_listactivities.h"
 #include "gui/activitysearch.h"
 #include "gui/activitywindow.h"
-
-
+#include "database/activity.h"
+#include <vector>
 ListActivities::ListActivities(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ListActivities)
 {
     ui->setupUi(this);
-    for (int t = 0; t<100;t++)
+    std::vector<Activity*>listOfActivity;
+    listOfActivity=Activity::getAllActivities();
+    for (int t = 0; t<listOfActivity.size();t++)
     {
-        ui->listWidget->addItem("test " + QString::number(i));
-
-        i++;
+        ui->listWidget->addItem(listOfActivity.at(t).getActivityName());
     }
 }
 
