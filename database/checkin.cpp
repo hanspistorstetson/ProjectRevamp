@@ -20,7 +20,6 @@ Checkin* Checkin::createCheckin(size_t user_id, size_t act_id)
     int retval;
     sqlite3_stmt* s;
 
-
     const char* sql = "SELECT * FROM users WHERE userid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
@@ -36,6 +35,7 @@ Checkin* Checkin::createCheckin(size_t user_id, size_t act_id)
         cout << "Check to make sure that the user exists in the database." << endl;
         return NULL;
     }
+    sqlite3_reset(s);
 
     sql = "SELECT * FROM activities WHERE activityid = ?";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -53,6 +53,7 @@ Checkin* Checkin::createCheckin(size_t user_id, size_t act_id)
         cout << "Check to make sure that the act_id exists in the database." << endl;
         return NULL;
     }
+    sqlite3_reset(s);
 
     sql = "INSERT INTO checkins(userid, activityid) values (?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -65,21 +66,19 @@ Checkin* Checkin::createCheckin(size_t user_id, size_t act_id)
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-    
-    retval = sqlite3_bind_int(s, 2, act_id);
+    retval = sqlite3_bind_int(s, 2, (int)act_id);
     if (retval != SQLITE_OK) {
         cout << "Error in binding SQL statement " << sql << endl;
         return NULL;
     }
-    if (sqlite3_step(s) != SQLITE_DONE) {
-        cout << "Error executing sql statement " << sql << ": error code " << sqlite3_errcode(db) <<endl;
+    size_t checkin_id;
+    if (sqlite3_step(s) == SQLITE_DONE) {
+        checkin_id = (size_t)sqlite3_column_int(s, 0);
+    } else {
+        cout << "Error executing SQL statement " << sql << ", error code: " << sqlite3_errcode(db) << endl;
         return NULL;
     }
-    
-    size_t checkin_id = 0;
-    if (sqlite3_step(s) == SQLITE_ROW) {
-        checkin_id = (size_t)sqlite3_column_int(s, 0);
-    }
+    cout << "RESULTCODE: " << sqlite3_errcode(db) << endl;
     sqlite3_reset(s);
 
     Checkin* myCheckin = new Checkin(checkin_id, user_id, act_id);

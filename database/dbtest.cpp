@@ -27,7 +27,7 @@ void dbtest::testCreating() {
     cout << event->getOrgName() << endl;
     event->setStatus("Exhibiting now!");
     cout << event->getStatus() << endl;
-    cout << event->getEventId() << endl;
+    cout << "EVENTID: " << event->getEventId() << endl;
     User* user = User::createUser("test@test.test", "test", "test", event->getEventId());
 
 
@@ -41,7 +41,7 @@ void dbtest::testCreating() {
     act->setActivityName("Spit distance contest");
     cout << act->getActivityName() << endl;
     act->setEventId(15);
-    cout << act->getEventId() << endl;
+    cout << "NEW EVENTID: " << act->getEventId() << endl;
     act->setStatus("Exhibiting now!");
     cout << act->getStatus() << endl;
     cout << act->getId() <<"---activtity id"<< endl;
