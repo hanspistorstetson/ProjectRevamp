@@ -15,6 +15,10 @@ using namespace std;
   */
 
 void dbtest::testCreating() {
+
+    cout << "TEST CREATING: " << endl;
+    cout << endl;
+
     Event* event = Event::createEvent("Test Name", "Test Description", "Test Org", "Test Status");
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
     event->setEventName("Naked Mole Rate Exhibition");
@@ -48,7 +52,7 @@ void dbtest::testCreating() {
     vector<Activity*> act2Prereqs = act2->getPrereqs();
     cout << act2Prereqs[0]->getActivityName() << endl;
 
-    Checkin* checkin = Checkin::createCheckin("test", 1);
+    Checkin* checkin = Checkin::createCheckin("e635ec8d-f8bf-4e4e-b9dd-2a51dc8bebb8", 1);
     cout << checkin->getUserId() << " ,"<< checkin->getActId()<< endl;
     checkin->setActivity_ID(1);
     cout << checkin->getActId() << endl;
@@ -63,6 +67,10 @@ void dbtest::testCreating() {
 }
 
 void dbtest::testLoading() {
+
+    cout << "TEST LOADING: " << endl;
+    cout << endl;
+
     Event* event = Event::loadEventById(1);
     cout << event->getEventName() << " " << event->getEventDesc() << " " << event->getOrgName() << " " << event->getStatus() << endl;
    /* User* user = User::loadUserById();
