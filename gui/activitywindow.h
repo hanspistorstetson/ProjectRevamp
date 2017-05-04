@@ -23,6 +23,7 @@ private slots:
 
 private:
     Ui::ActivityWindow *ui;
+    Activity* activity;
 };
 
 #endif // ACTIVITYWINDOW_H

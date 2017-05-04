@@ -7,6 +7,7 @@ ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     ui(new Ui::ActivityWindow)
 {
     ui->setupUi(this);
+    activity = act;
 }
 
 ActivityWindow::~ActivityWindow()
