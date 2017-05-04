@@ -12,7 +12,7 @@ class ActivityWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit ActivityWindow(QWidget *parent, Activity*);
+    explicit ActivityWindow(QWidget *parent, Activity* activity);
     ~ActivityWindow();
 
 private slots:
@@ -22,6 +22,7 @@ private slots:
     void on_back_released();
 
 private:
+    Activity* activity;
     Ui::ActivityWindow *ui;
 };
 

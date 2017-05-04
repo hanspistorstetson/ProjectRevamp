@@ -2,11 +2,15 @@
 #include "ui_activitywindow.h"
 #include "gui/checkinwindow.h"
 #include "gui/listactivities.h"
+#include <QString>
 ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     QDialog(parent),
     ui(new Ui::ActivityWindow)
 {
     ui->setupUi(this);
+    activity=act;
+    QString name = QString::fromStdString(activity->getActivityName());
+    ui->label_2->setText(name);
 }
 
 ActivityWindow::~ActivityWindow()

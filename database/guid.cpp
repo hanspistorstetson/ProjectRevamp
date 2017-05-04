@@ -33,7 +33,8 @@ THE SOFTWARE.
 #endif
 
 #ifdef GUID_WINDOWS
-#include <objbase.h>
+#include <windows.h>
+#include <ole2.h>
 #endif
 
 #ifdef GUID_ANDROID
@@ -208,7 +209,7 @@ Guid GuidGenerator::newGuid()
 Guid GuidGenerator::newGuid()
 {
   GUID newId;
-  CoCreateGuid(&newId);
+  ::CoCreateGuid(&newId);
 
   const unsigned char bytes[16] = 
   {
