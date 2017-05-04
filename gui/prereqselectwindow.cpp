@@ -1,21 +1,25 @@
 #include "gui/prereqselectwindow.h"
 #include "ui_prereqselectwindow.h"
-#include <iostream>
+#include "database/activity.h"
 
 /* TODO
- * add to constructor an integer of number of all activities in an event
- * get that number from the number of elements within the vector of the event's activities
+ *
+ *
  */
 
-PrereqSelectWindow::PrereqSelectWindow(QWidget *parent) :
+PrereqSelectWindow::PrereqSelectWindow(QWidget *parent, Activity* act) :
     QDialog(parent),
     ui(new Ui::PrereqSelectWindow)
 {
     ui->setupUi(this);
-    for(int i = 0; i<5;i++)
+    totalActs = act->getAllActivities();
+    for(int i = 0; i<totalActs.size();i++)
     {
-    ui->prereqListWidget->addItem("Activity information + more information");
+        Qstring name = Qstring::fromStdString(totalActs.at(i)->getName());
+        actMap[i] = totalActs.at(i);
+        ui->prereqSelectList->addItem(name);
     }
+
 }
 
 PrereqSelectWindow::~PrereqSelectWindow()
@@ -27,4 +31,20 @@ PrereqSelectWindow::~PrereqSelectWindow()
 void PrereqSelectWindow::on_cancelButton_released()
 {
     this->close();
+}
+
+void PrereqSelectWindow::on_prereqSelectList_itemDoubleClicked(QListWidgetItem *item)
+{
+
+    prereqs.push_back(actMap[ui->prereqSelectList->row(item)]);
+    ui->prereqAddedList->addItem(item);
+
+}
+
+
+void PrereqSelectWindow::on_chooseButton_released()
+{
+//    for(i = 0; i< ui->prereqAddedList->size(); i++)
+//    {
+//    }
 }
