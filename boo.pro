@@ -90,7 +90,6 @@ DISTFILES += README.txt \
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-DEFINES += GUID_WINDOWS
 DEFINES += GUID_CFUUID
 LIBS += -framework CoreFoundation
 
