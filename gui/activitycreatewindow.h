@@ -2,6 +2,7 @@
 #define ACTIVITYCREATEWINDOW_H
 
 #include <QDialog>
+#include <QListWidgetItem>
 #include "database/activity.h"
 
 namespace Ui {
@@ -21,11 +22,13 @@ private slots:
 
     void on_createActivityButton_released();
 
-    void on_preReqSelectButton_released();
+    void on_prereqSelectList_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::ActivityCreateWindow *ui;
-    Activity* act;
+    std::map<int, Activity*> actMap;
+    std::vector<Activity*> totalActs;
+    std::vector<Activity*> prereqs;
 
 };
 
