@@ -28,7 +28,7 @@ void eventCreateWindow::on_cancelButton_released()
     this->close();
 }
 
-void eventCreateWindow::on_createButton_released()
+/*void eventCreateWindow::on_createButton_released()
 {
     //get text from string fields -- done
     //test text for syntax -- TODO
@@ -56,4 +56,4 @@ void eventCreateWindow::on_createButton_released()
     eaw.setModal(true);
     eaw.exec();
     this->show();
-}
+}*/

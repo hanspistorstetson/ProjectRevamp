@@ -18,7 +18,7 @@ public:
 private slots:
     void on_cancelButton_released();
 
-    void on_createButton_released();
+   // void on_createButton_released();
 
 private:
     Ui::eventCreateWindow *ui;

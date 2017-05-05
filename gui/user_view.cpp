@@ -2,6 +2,9 @@
 #include "ui_user_view.h"
 #include "gui/user_search.h"
 #include "gui/user_list.h"
+#include "database/checkin.h"
+#include "database/activity.h"
+#include <vector>
 
 
 user_view::user_view(QWidget *parent , User* user):
@@ -19,6 +22,12 @@ user_view::user_view(QWidget *parent , User* user):
         QString UUID = QString::fromStdString(user->getUUID());
         ui->listWidget->addItem(UUID + " " + Fname + " " + Lname + " " + username);
 
+        std::vector<Activity*> tempActs = Checkin::getActivitiybyUserId(user->getUserId());
+
+        for (int i = 0; i < tempActs.size();i++){
+            QString tempName = QString::fromStdString(tempActs[i]->getActivityName());
+            ui->listWidget_2->addItem(tempName);
+        }
 
 }
 
