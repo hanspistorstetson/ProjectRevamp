@@ -1,0 +1,21 @@
+digraph "unixInodeInfo"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{unixInodeInfo\n|+ nShared\l+ eFileLock\l+ bProcessLock\l+ nRef\l+ nLock\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +pUnused" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 [label="{UnixUnusedFd\n|+ fd\l+ flags\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structUnixUnusedFd.html"];
+  Node2 -> Node2 [color="grey25",fontsize="10",style="solid",label=" +pNext" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node1 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +pPrev\n+pNext" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +fileId" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 [label="{unixFileId\n|+ dev\l+ ino\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structunixFileId.html"];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +pShmNode" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 [label="{unixShmNode\n|+ zFilename\l+ h\l+ szRegion\l+ nRegion\l+ isReadonly\l+ apRegion\l+ nRef\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structunixShmNode.html"];
+  Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" +mutex" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node5 [label="{sqlite3_mutex\n|+ mutex\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structsqlite3__mutex.html"];
+  Node6 -> Node4 [color="grey25",fontsize="10",style="solid",label=" +pFirst" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node6 [label="{unixShm\n|+ hasMutex\l+ id\l+ sharedMask\l+ exclMask\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structunixShm.html"];
+  Node6 -> Node6 [color="grey25",fontsize="10",style="solid",label=" +pNext" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 -> Node6 [color="grey25",fontsize="10",style="solid",label=" +pShmNode" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node1 -> Node4 [color="grey25",fontsize="10",style="solid",label=" +pInode" ,arrowhead="odiamond",fontname="FreeSans"];
+}

@@ -1,0 +1,11 @@
+digraph "pagerLockDb"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node201176 [label="pagerLockDb",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node201176 -> Node201177 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node201177 [label="sqlite3OsLock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ae224ca9067bc3e682180d0ecc1cd2206"];
+  Node201176 -> Node201178 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node201178 [label="sqlite3OsDeviceCharacteristics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a251e030ce1bd2e552bc2dd66b1ac36d0"];
+}

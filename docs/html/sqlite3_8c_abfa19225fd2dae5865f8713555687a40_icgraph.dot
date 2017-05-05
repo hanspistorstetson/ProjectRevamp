@@ -1,0 +1,19 @@
+digraph "triggerStepAllocate"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node841887 [label="triggerStepAllocate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node841887 -> Node841888 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node841888 [label="sqlite3TriggerInsertStep",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7204c378dad0dfefd6ab40c3d9508c64"];
+  Node841888 -> Node841889 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node841889 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node841889 -> Node841890 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node841890 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node841887 -> Node841891 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node841891 [label="sqlite3TriggerUpdateStep",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a747552fbad2050589d779b2baee13941"];
+  Node841891 -> Node841889 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node841887 -> Node841892 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node841892 [label="sqlite3TriggerDeleteStep",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7f1bcb4e2de5e641f2c286d27348f823"];
+  Node841892 -> Node841889 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

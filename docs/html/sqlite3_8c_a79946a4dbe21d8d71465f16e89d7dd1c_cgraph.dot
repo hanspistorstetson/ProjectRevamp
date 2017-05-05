@@ -1,0 +1,24 @@
+digraph "termCanDriveIndex"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node838472 [label="termCanDriveIndex",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node838472 -> Node838473 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838473 [label="sqlite3IndexAffinityOk",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a9d43a9db81f31f7473f7ca11fd823900"];
+  Node838473 -> Node838474 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838474 [label="comparisonAffinity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a288a61b5d72d6974ed9b0bb4f57f45ac"];
+  Node838474 -> Node838475 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838475 [label="sqlite3ExprAffinity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aca6a667380b05650f917422118d8b7d3"];
+  Node838475 -> Node838476 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838476 [label="sqlite3ExprSkipCollate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a91b59896d4e3534de7c33940dca8537c"];
+  Node838475 -> Node838477 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838477 [label="sqlite3AffinityType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad3b6641027549ec6634f6239256676bd"];
+  Node838477 -> Node838478 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838478 [label="sqlite3GetInt32",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5f876209b4343549fc9224cd11c70928"];
+  Node838478 -> Node838479 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838479 [label="sqlite3HexToInt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ae3802c77b18399c03c8c9f973ff47239"];
+  Node838474 -> Node838480 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node838480 [label="sqlite3CompareAffinity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a4bd560a9a6a8d11bec0a070a46eb38fa"];
+  Node838480 -> Node838475 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

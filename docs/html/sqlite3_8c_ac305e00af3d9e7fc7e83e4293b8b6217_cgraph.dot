@@ -1,0 +1,12 @@
+digraph "whereSortingCost"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node922201 [label="whereSortingCost",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node922201 -> Node922202 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node922202 [label="sqlite3LogEst",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a14c7d015bfd3d4a869739b9e6139c84f"];
+  Node922201 -> Node922203 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node922203 [label="estLog",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac4420ab2b01a2e2efe5d4ac054868246"];
+  Node922203 -> Node922202 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

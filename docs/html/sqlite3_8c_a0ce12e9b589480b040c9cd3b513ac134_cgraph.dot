@@ -1,0 +1,9 @@
+digraph "addToVTrans"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node3582 [label="addToVTrans",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3582 -> Node3583 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3583 [label="sqlite3VtabLock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa2b6bcc2ba2b313da4b72e6b0d83dea6"];
+}

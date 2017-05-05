@@ -1,0 +1,20 @@
+digraph "destroyRootPage"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node86974 [label="destroyRootPage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node86974 -> Node86975 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node86975 [label="destroyTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#af9dd6dd5525753fa1319b280d8280b1e"];
+  Node86975 -> Node86976 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node86976 [label="sqlite3CodeDropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aaf9a8d65346dc15bfcd60bc48e885f46"];
+  Node86976 -> Node86977 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node86977 [label="sqlite3DropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5534f77364b5568783c0e50db3c9defb"];
+  Node86977 -> Node86978 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node86978 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node86978 -> Node86979 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node86979 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node86974 -> Node86980 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node86980 [label="sqlite3DropIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3ffd2536f34a0cf6d427710b06b71e83"];
+  Node86980 -> Node86978 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

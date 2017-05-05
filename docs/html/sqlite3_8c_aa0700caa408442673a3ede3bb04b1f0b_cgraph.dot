@@ -1,0 +1,13 @@
+digraph "pager_truncate"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node195620 [label="pager_truncate",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node195620 -> Node195621 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node195621 [label="sqlite3OsFileSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a395914ef2826de6ed70e92b5d02887de"];
+  Node195620 -> Node195622 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node195622 [label="sqlite3OsTruncate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab14e17fc93b09d52b42c433c47eb3b68"];
+  Node195620 -> Node195623 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node195623 [label="sqlite3OsWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eea7ec327af84c05b4dd4cc075a537f"];
+}

@@ -1,0 +1,17 @@
+digraph "sqlite3_value_int64"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node396366 [label="sqlite3_value_int64",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node396366 -> Node396367 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node396367 [label="sqlite3VdbeIntValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3dc28e3bfdbecf81633c3697a3aacd45"];
+  Node396367 -> Node396368 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node396368 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node396367 -> Node396369 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node396369 [label="doubleToInt64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a85975c48e5a38f9b8c99b72eb72ebc44"];
+  Node396367 -> Node396370 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node396370 [label="sqlite3Atoi64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5b13083911b3dc0a0b54f43acc686a39"];
+  Node396370 -> Node396371 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node396371 [label="compare2pow63",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#adcbebdd3f570175519922276b83132e0"];
+}

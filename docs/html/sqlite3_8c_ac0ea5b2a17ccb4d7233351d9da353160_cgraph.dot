@@ -1,0 +1,19 @@
+digraph "walWriteOneFrame"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node906100 [label="walWriteOneFrame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node906100 -> Node906101 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906101 [label="walEncodeFrame",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c90af52fec5e62ea28fdea09e13a662"];
+  Node906101 -> Node906102 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906102 [label="sqlite3Put4byte",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a90821e542f11539726c50c15993056c4"];
+  Node906101 -> Node906103 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906103 [label="walChecksumBytes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a19c69852e7fdedf0dac08453403f7487"];
+  Node906100 -> Node906104 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906104 [label="walWriteToLog",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a82466bed614b85599272d77ed66efb64"];
+  Node906104 -> Node906105 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906105 [label="sqlite3OsWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eea7ec327af84c05b4dd4cc075a537f"];
+  Node906104 -> Node906106 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906106 [label="sqlite3OsSync",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3f01629ca3b49854944cecdd14dc3358"];
+}

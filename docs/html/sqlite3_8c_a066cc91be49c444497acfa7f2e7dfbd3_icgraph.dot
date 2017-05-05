@@ -1,0 +1,15 @@
+digraph "likeFunc"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node156470 [label="likeFunc",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node156470 -> Node156471 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node156471 [label="sqlite3RegisterLikeFunctions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a8d807e0e5709528765edfc75696dbdb5"];
+  Node156471 -> Node156472 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node156472 [label="sqlite3Pragma",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a111391370f58f8e6a6eca51fd34d62ed"];
+  Node156472 -> Node156473 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node156473 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node156473 -> Node156474 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node156474 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+}

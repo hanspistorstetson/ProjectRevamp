@@ -1,0 +1,13 @@
+digraph "getLockingMode"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node129536 [label="getLockingMode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node129536 -> Node129537 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node129537 [label="sqlite3Pragma",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a111391370f58f8e6a6eca51fd34d62ed"];
+  Node129537 -> Node129538 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node129538 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node129538 -> Node129539 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node129539 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+}

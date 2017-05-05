@@ -1,0 +1,9 @@
+digraph "binCollFunc"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node21534 [label="binCollFunc",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node21534 -> Node21535 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node21535 [label="allSpaces",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad57090497c424eb7fa5c68c3e98eaa60"];
+}

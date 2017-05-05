@@ -1,0 +1,18 @@
+digraph "resizeIndexObject"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node269509 [label="resizeIndexObject",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node269509 -> Node269510 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node269510 [label="convertToWithoutRowidTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0d41effc4e4a0ba740429a08f6747313"];
+  Node269510 -> Node269511 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node269511 [label="sqlite3EndTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7b5f2c66c0f0b6f819d970ca389768b0"];
+  Node269511 -> Node269512 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node269512 [label="sqlite3CreateView",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a9d85cb00ff71dee5cd9a019503a6982e"];
+  Node269512 -> Node269513 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node269513 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node269513 -> Node269514 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node269514 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node269511 -> Node269513 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

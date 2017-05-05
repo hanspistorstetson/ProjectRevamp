@@ -1,0 +1,22 @@
+digraph "sqliteErrorFromPosixError"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node824075 [label="sqliteErrorFromPosixError",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node824075 -> Node824076 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824076 [label="unixLock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a17c6c9164321b4c2a65289e259abf409"];
+  Node824075 -> Node824077 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824077 [label="posixUnlock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a90bcc6164aa2d367ff91d4c32b549be6"];
+  Node824077 -> Node824078 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824078 [label="unixUnlock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad78004d74bd51bdf7ac43d20999a1208"];
+  Node824078 -> Node824079 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824079 [label="unixClose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a84cdb6e4ff75f085e8c05dfdec178927"];
+  Node824079 -> Node824080 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824080 [label="unixOpen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a8ed5efc47b6e14f7805cd1bb9b215775"];
+  Node824077 -> Node824081 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824081 [label="dotlockClose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa72eaafaa850f2889e15af7cfb08fa1b"];
+  Node824075 -> Node824082 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node824082 [label="dotlockLock",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac84e37c57dd74a6abf3cc32b06be303c"];
+  Node824075 -> Node824081 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

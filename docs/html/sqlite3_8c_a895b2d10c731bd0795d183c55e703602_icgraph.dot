@@ -1,0 +1,19 @@
+digraph "seekAndWriteFd"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node285645 [label="seekAndWriteFd",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node285645 -> Node285646 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node285646 [label="seekAndWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad863c78df6608ad70a90ca625c97f772"];
+  Node285646 -> Node285647 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node285647 [label="unixWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a4385beabc5689db595bbe5a18b3c619a"];
+  Node285647 -> Node285648 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node285648 [label="unixGetLastError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aed1e42f49d74b419c3c85b559dd61240"];
+  Node285646 -> Node285649 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node285649 [label="fcntlSizeHint",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83b00fec4238518b00e315fe0eff28e6"];
+  Node285649 -> Node285650 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node285650 [label="unixFileControl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad71f213fa385cc58f307cefd953c03ae"];
+  Node285645 -> Node285651 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node285651 [label="unixShmMap",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aeaa77f0ab08a4f4ee5f86e8c9727e974"];
+}

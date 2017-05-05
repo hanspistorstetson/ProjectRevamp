@@ -1,0 +1,9 @@
+digraph "walShmBarrier"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node904376 [label="walShmBarrier",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node904376 -> Node904377 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node904377 [label="sqlite3OsShmBarrier",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a57052198198859565aeda03fd69bbcab"];
+}

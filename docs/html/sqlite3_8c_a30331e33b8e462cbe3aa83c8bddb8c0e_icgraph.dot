@@ -1,0 +1,19 @@
+digraph "sqlite3CodeVerifyNamedSchema"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node478914 [label="sqlite3CodeVerifyNamedSchema",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node478914 -> Node478915 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node478915 [label="sqlite3DropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5534f77364b5568783c0e50db3c9defb"];
+  Node478915 -> Node478916 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node478916 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node478916 -> Node478917 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node478917 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node478914 -> Node478918 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node478918 [label="sqlite3DropIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3ffd2536f34a0cf6d427710b06b71e83"];
+  Node478918 -> Node478916 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node478914 -> Node478919 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node478919 [label="sqlite3DropTrigger",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#affdf1dd65e331b06feaef6ff8636305f"];
+  Node478919 -> Node478916 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

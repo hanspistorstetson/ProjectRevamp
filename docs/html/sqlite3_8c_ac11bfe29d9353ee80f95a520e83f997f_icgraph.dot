@@ -1,0 +1,15 @@
+digraph "closeUnixFile"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node48214 [label="closeUnixFile",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node48214 -> Node48215 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node48215 [label="unixClose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a84cdb6e4ff75f085e8c05dfdec178927"];
+  Node48215 -> Node48216 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node48216 [label="unixOpen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a8ed5efc47b6e14f7805cd1bb9b215775"];
+  Node48214 -> Node48217 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node48217 [label="nolockClose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a946bda4aff58be65e29d6222fcc6e3f6"];
+  Node48214 -> Node48218 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node48218 [label="dotlockClose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa72eaafaa850f2889e15af7cfb08fa1b"];
+}
