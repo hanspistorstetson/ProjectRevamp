@@ -94,7 +94,6 @@ DEFINES += GUID_CFUUID
 LIBS += -framework CoreFoundation
 
 
-
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.

@@ -52,6 +52,7 @@ Database::Database() {
 
     retval = sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS checkins (checkinid integer PRIMARY KEY, userid int, activityid int, FOREIGN KEY(userid) REFERENCES users(userid), FOREIGN KEY(activityid) REFERENCES activities(activityid));", NULL, NULL, &errmsg);
     if (retval != SQLITE_OK) {
+
         cout << "Error creating checkins table: " << errmsg << endl;
         sqlite3_free(errmsg);
     }
