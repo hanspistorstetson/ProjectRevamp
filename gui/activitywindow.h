@@ -20,6 +20,8 @@ private slots:
     void on_QR_released();
     void on_back_released();
 
+    void on_pushButton_released();
+
 private:
     Activity* activity;
     Ui::ActivityWindow *ui;
