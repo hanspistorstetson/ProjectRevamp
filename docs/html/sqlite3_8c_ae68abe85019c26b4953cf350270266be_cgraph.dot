@@ -1,9 +1,0 @@
-digraph "whereLoopAdjustCost"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node914177 [label="whereLoopAdjustCost",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node914177 -> Node914178 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node914178 [label="whereLoopCheaperProperSubset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3d9d20fb47a95d59a26c9d1be759b1bc"];
-}

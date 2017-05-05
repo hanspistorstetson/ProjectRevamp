@@ -1,9 +1,0 @@
-digraph "sqlite3StmtCurrentTime"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node712788 [label="sqlite3StmtCurrentTime",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node712788 -> Node712789 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node712789 [label="sqlite3OsCurrentTimeInt64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a8fba11754c83b89782ef18af266f5ec2"];
-}

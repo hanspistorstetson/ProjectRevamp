@@ -1,9 +1,0 @@
-digraph "dotlockUnlock"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node89865 [label="dotlockUnlock",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node89865 -> Node89866 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node89866 [label="dotlockClose",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aa72eaafaa850f2889e15af7cfb08fa1b"];
-}

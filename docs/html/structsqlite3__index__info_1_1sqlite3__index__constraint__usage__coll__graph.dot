@@ -1,6 +1,0 @@
-digraph "sqlite3_index_info::sqlite3_index_constraint_usage"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  Node1 [label="{sqlite3_index_info\l::sqlite3_index_constraint_usage\n|+ argvIndex\l+ omit\l|}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-}

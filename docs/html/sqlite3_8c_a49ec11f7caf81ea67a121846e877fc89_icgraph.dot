@@ -1,9 +1,0 @@
-digraph "sqlite3PagerCacheStat"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node623699 [label="sqlite3PagerCacheStat",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node623699 -> Node623700 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node623700 [label="sqlite3_db_status",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#ab64e8333313ee2e44116842711818940"];
-}

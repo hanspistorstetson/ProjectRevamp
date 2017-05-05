@@ -1,9 +1,0 @@
-digraph "pcache1PinPage"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node228304 [label="pcache1PinPage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node228304 -> Node228305 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node228305 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
-}

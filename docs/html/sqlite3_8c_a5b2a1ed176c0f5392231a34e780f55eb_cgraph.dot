@@ -1,9 +1,0 @@
-digraph "sqlite3BtreeGetJournalname"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node451172 [label="sqlite3BtreeGetJournalname",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node451172 -> Node451173 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node451173 [label="sqlite3PagerJournalname",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1473ed8e00f2664d9c92663609b04d2e"];
-}

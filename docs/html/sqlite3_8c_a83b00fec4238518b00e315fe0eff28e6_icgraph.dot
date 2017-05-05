@@ -1,9 +1,0 @@
-digraph "fcntlSizeHint"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node107401 [label="fcntlSizeHint",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node107401 -> Node107402 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node107402 [label="unixFileControl",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ad71f213fa385cc58f307cefd953c03ae"];
-}
