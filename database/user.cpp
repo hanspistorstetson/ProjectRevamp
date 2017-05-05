@@ -58,7 +58,7 @@ User* User::createUser(string username, string fname, string lname, size_t event
         cout << "Something strange happened... " << endl;
         return NULL;
     }
-    sqlite3_reset(s);
+    //sqlite3_reset(s);
 
     sql = "INSERT INTO users (uuid, username, fname, lname, eventid) values (?, ?, ?, ?, ?)";
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
@@ -95,7 +95,7 @@ User* User::createUser(string username, string fname, string lname, size_t event
         cout << "Error executing sql statement " << sql << ": error code " << sqlite3_errcode(db) <<endl;
         return NULL;
     }
-    sqlite3_reset(s);
+    //sqlite3_reset(s);
     
     size_t id = 0;    
     sql = "SELECT userid FROM users WHERE uuid = ?";
