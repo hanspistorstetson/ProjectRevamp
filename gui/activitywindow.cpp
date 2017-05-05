@@ -22,6 +22,7 @@ ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     ui->label_2->setText(name);
     ui->status_label->setText(stat);
 
+
     updateList();
 
 }
@@ -51,6 +52,14 @@ void ActivityWindow::updateList()
        ui->listWidget->addItem(name);
        ui->listWidget->update();
    }
+   std::cout<<activity->getPrereqs().size()<<std::endl;
+   for(unsigned int i = 0; i<activity->getPrereqs().size();i++)
+   {
+      QString name = QString::fromStdString(activity->getPrereqs().at(i)->getActivityName());
+       ui->prereq_list->addItem(name);
+       ui->prereq_list->update();
+   }
+
 
 
 }
