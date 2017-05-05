@@ -308,7 +308,7 @@ vector<User*> User::getAllUsers() {
     }
     return results;
 }
-User* User::getUserWithUUID(std::string _guid) {
+User* User::getUserWithUUID(std::string guid) {
 
     sqlite3* db = Database::openDatabase();
     int retval;
@@ -316,7 +316,6 @@ User* User::getUserWithUUID(std::string _guid) {
     size_t id = 0;
     size_t _eventid = 0;
     string _username, _fname, _lname;
-    vector<User*> results;
     string _uuid;
 
 
@@ -324,13 +323,13 @@ User* User::getUserWithUUID(std::string _guid) {
     retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
     if (retval != SQLITE_OK) {
         cout << "Error preparing select statement for users " << sqlite3_errcode(db) << endl;
-        return results;
+        return;
     }
 
     retval = sqlite3_bind_text(s, 1, guid.c_str(), guid.size(), SQLITE_STATIC);
     if (retval != SQLITE_OK) {
         cout << "Error binding text to SQL statement " << sql << endl;
-        return results;
+        return;
     }
 
     if(sqlite3_step(s) == SQLITE_ROW) {
