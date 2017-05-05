@@ -90,8 +90,9 @@ DISTFILES += README.txt \
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-DEFINES += GUID_WINDOWS
-LIBS += -lole32
+DEFINES += GUID_CFUUID
+LIBS += -framework CoreFoundation
+
 
 
 # You can also make your code fail to compile if you use deprecated APIs.
