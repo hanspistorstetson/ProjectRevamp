@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Event Name</string>
+    <string>Default Event</string>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
