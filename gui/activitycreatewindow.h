@@ -22,8 +22,6 @@ private slots:
 
     void on_createActivityButton_released();
 
-    void on_prereqSelectList_itemDoubleClicked(QListWidgetItem *item);
-
 private:
     Ui::ActivityCreateWindow *ui;
     std::map<int, Activity*> actMap;
