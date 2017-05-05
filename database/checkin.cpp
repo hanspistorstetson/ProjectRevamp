@@ -1,6 +1,7 @@
 #include <iostream>
 #include "database/sqlite3.h"
 #include "database/checkin.h"
+#include "database/activity.h"
 #include <cstdlib>
 #include <string>
 #include <cstring>
@@ -290,6 +291,36 @@ std::vector<User*> Checkin::getUsersbyActivityId(size_t _actid) {
         users.push_back(s);
     }
     return users;
+
+
+}
+std::vector<Activity*> Checkin::getActivitiybyUserId(size_t _userid) {
+    sqlite3* db = Database::openDatabase();
+    sqlite3_stmt* s;
+    int retval;
+    vector<Activity*> acts;
+    size_t act_id = 0;
+
+
+    const char* sql = "SELECT * FROM checkins WHERE userid = ?";
+    retval = sqlite3_prepare(db, sql, strlen(sql), &s, NULL);
+    if (retval != SQLITE_OK) {
+        cout << "Error preparing select statement for checkins " << sqlite3_errcode(db) << endl;
+
+    }
+    retval = sqlite3_bind_int(s, 1, _userid);
+    if (retval != SQLITE_OK) {
+        cout << "Error in binding value to SQL statement " << sql << endl;
+
+    }
+
+    while(sqlite3_step(s) == SQLITE_ROW) {
+        act_id = (size_t)sqlite3_column_int(s, 2);
+
+        Activity* s = Activity::loadActivityById(act_id);
+        acts.push_back(s);
+    }
+    return acts;
 
 
 }
