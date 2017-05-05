@@ -30,8 +30,12 @@ private slots:
 
     void on_listUsersButton_clicked();
 
+
 private:
     Ui::EventAdminWindow *ui;
+    void change_button_status(bool status);
+
+
 };
 
 #endif // EVENTADMINWINDOW_H

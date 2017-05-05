@@ -41,6 +41,17 @@ void EventAdminWindow::on_activeEventButton_released()
     /*  This will set event to 'active'
      *
      */
+    change_button_status(true);
+
+
+
+}
+
+void EventAdminWindow::change_button_status(bool status) {
+    ui->addActsButton->setEnabled(status);
+    ui->addUsersButton->setEnabled(status);
+
+
 }
 
 void EventAdminWindow::on_deactEventButton_released()
@@ -48,6 +59,9 @@ void EventAdminWindow::on_deactEventButton_released()
     /*  This will deactivate event, or set event to 'inactive'
      *
      */
+    change_button_status(false);
+
+
 }
 
 void EventAdminWindow::on_listActsButton_released()
