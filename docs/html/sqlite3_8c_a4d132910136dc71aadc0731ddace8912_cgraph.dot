@@ -1,0 +1,11 @@
+digraph "sqlite3_compileoption_used"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node322022 [label="sqlite3_compileoption_used",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node322022 -> Node322023 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node322023 [label="sqlite3Strlen30",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3dcd80ba41f1a308193dee74857b62a7"];
+  Node322022 -> Node322024 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node322024 [label="sqlite3IsIdChar",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1f47ecef66dd22ee0124ff472349f5e1"];
+}

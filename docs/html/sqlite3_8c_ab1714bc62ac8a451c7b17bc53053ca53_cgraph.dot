@@ -1,0 +1,13 @@
+digraph "lockBtreeMutex"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node159807 [label="lockBtreeMutex",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node159807 -> Node159808 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node159808 [label="sqlite3_mutex_notheld",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83967c837c1c000d3b5adcfaa688f5dc"];
+  Node159807 -> Node159809 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node159809 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node159807 -> Node159810 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node159810 [label="sqlite3_mutex_enter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1c12cde690bd89f104de5cbad12a6bf5"];
+}

@@ -1,0 +1,17 @@
+digraph "osLocaltime"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node188976 [label="osLocaltime",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node188976 -> Node188977 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188977 [label="sqlite3MutexAlloc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0e3f432ee581f6876b590e7ad7e84e19"];
+  Node188976 -> Node188978 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188978 [label="sqlite3_mutex_enter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1c12cde690bd89f104de5cbad12a6bf5"];
+  Node188976 -> Node188979 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188979 [label="sqlite3_mutex_leave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5838d235601dbd3c1fa993555c6bcc93"];
+  Node188979 -> Node188980 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188980 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node188979 -> Node188981 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node188981 [label="sqlite3_mutex_notheld",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83967c837c1c000d3b5adcfaa688f5dc"];
+}

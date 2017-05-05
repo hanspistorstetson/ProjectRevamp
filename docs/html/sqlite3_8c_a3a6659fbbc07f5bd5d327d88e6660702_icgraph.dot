@@ -1,0 +1,16 @@
+digraph "sqlite3ClearStatTables"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node471425 [label="sqlite3ClearStatTables",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node471425 -> Node471426 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node471426 [label="sqlite3DropTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5534f77364b5568783c0e50db3c9defb"];
+  Node471426 -> Node471427 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node471427 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node471427 -> Node471428 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node471428 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node471425 -> Node471429 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node471429 [label="sqlite3DropIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3ffd2536f34a0cf6d427710b06b71e83"];
+  Node471429 -> Node471427 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

@@ -1,0 +1,27 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node105 [label="QDialog",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node105 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node0 [label="ActivityCreateWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classActivityCreateWindow.html"];
+  Node105 -> Node107 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node107 [label="ActivitySearch",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classActivitySearch.html"];
+  Node105 -> Node108 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node108 [label="ActivityWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classActivityWindow.html"];
+  Node105 -> Node109 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node109 [label="CheckInWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classCheckInWindow.html"];
+  Node105 -> Node110 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node110 [label="EventAdminWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEventAdminWindow.html"];
+  Node105 -> Node111 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node111 [label="eventCreateWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classeventCreateWindow.html"];
+  Node105 -> Node112 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node112 [label="ListActivities",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classListActivities.html"];
+  Node105 -> Node113 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node113 [label="QrCodeFound",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classQrCodeFound.html"];
+  Node105 -> Node114 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node114 [label="QrnotFound",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classQrnotFound.html"];
+  Node105 -> Node115 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node115 [label="UserCreateWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUserCreateWindow.html"];
+}

@@ -1,0 +1,16 @@
+digraph "defragmentPage"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node85736 [label="defragmentPage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node85736 -> Node85737 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node85737 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node85736 -> Node85738 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node85738 [label="sqlite3PagerTempSpace",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#af68cac400afc59cdb804b586278d9f0e"];
+  Node85736 -> Node85739 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node85739 [label="cellSizePtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a6c95c9aac1c8a00490e36674f43e76ec"];
+  Node85739 -> Node85740 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node85740 [label="btreeParseCellPtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eba22ca0ddf563de0b29c64551c759f"];
+  Node85740 -> Node85737 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

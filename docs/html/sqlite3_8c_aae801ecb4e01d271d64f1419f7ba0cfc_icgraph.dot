@@ -1,0 +1,20 @@
+digraph "callStatGet"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node34777 [label="callStatGet",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node34777 -> Node34778 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node34778 [label="analyzeOneTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a31d4182bf855943a5d0526dbb4987803"];
+  Node34778 -> Node34779 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node34779 [label="analyzeDatabase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a19f2a630f42aaa010d1b47b81f8cea18"];
+  Node34779 -> Node34780 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node34780 [label="sqlite3Analyze",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ac696deb1ccaae3fa855cfbd0bfd4d048"];
+  Node34780 -> Node34781 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node34781 [label="yy_reduce",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a7c419a9b25711c666a9a2449ef377f14"];
+  Node34781 -> Node34782 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node34782 [label="sqlite3Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a0327d71a5fabe0b6a343d78a2602e72a"];
+  Node34778 -> Node34783 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node34783 [label="analyzeTable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a85f18bcf2d42d5d6ae3033b0c49144b6"];
+  Node34783 -> Node34780 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

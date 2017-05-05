@@ -1,0 +1,28 @@
+digraph "sqlite3BtreeLeave"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node457831 [label="sqlite3BtreeLeave",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node457831 -> Node457832 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457832 [label="unlockBtreeMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a29bc7d1c753dfa2af9fb296b7dc19a4a"];
+  Node457832 -> Node457833 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457833 [label="sqlite3_mutex_held",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#acf77da68932b6bc163c5e68547ecc3e7"];
+  Node457832 -> Node457834 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457834 [label="sqlite3_mutex_leave",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a5838d235601dbd3c1fa993555c6bcc93"];
+  Node457834 -> Node457833 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457834 -> Node457835 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457835 [label="sqlite3_mutex_notheld",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a83967c837c1c000d3b5adcfaa688f5dc"];
+  Node457832 -> Node457836 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457836 [label="btreeLockCarefully",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a796746b1c1e4d6926960636bd74c79d7"];
+  Node457836 -> Node457837 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457837 [label="sqlite3_mutex_try",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a196f84b09bdfda96ae5ae23189be1ec8"];
+  Node457836 -> Node457832 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457836 -> Node457838 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457838 [label="lockBtreeMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab1714bc62ac8a451c7b17bc53053ca53"];
+  Node457838 -> Node457835 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457838 -> Node457833 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457838 -> Node457839 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node457839 [label="sqlite3_mutex_enter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1c12cde690bd89f104de5cbad12a6bf5"];
+  Node457831 -> Node457833 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+}

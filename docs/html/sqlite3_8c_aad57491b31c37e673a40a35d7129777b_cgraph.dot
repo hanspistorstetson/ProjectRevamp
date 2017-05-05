@@ -1,0 +1,15 @@
+digraph "vdbePmaWriteVarint"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node875101 [label="vdbePmaWriteVarint",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node875101 -> Node875102 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node875102 [label="sqlite3PutVarint",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a89360605369969b4b3d6a9067c648d14"];
+  Node875102 -> Node875103 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node875103 [label="putVarint64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a96ae471c96f39c74e9eb9f56781634e0"];
+  Node875101 -> Node875104 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node875104 [label="vdbePmaWriteBlob",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab86066e4f912cd54aac5cbdb550c6e73"];
+  Node875104 -> Node875105 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node875105 [label="sqlite3OsWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eea7ec327af84c05b4dd4cc075a537f"];
+}

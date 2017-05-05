@@ -1,0 +1,11 @@
+digraph "walWriteToLog"
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node906383 [label="walWriteToLog",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node906383 -> Node906384 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906384 [label="sqlite3OsWrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a1eea7ec327af84c05b4dd4cc075a537f"];
+  Node906383 -> Node906385 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node906385 [label="sqlite3OsSync",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a3f01629ca3b49854944cecdd14dc3358"];
+}
