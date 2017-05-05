@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>180</y>
+     <x>310</x>
+     <y>0</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="QR">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>220</y>
+     <x>300</x>
+     <y>40</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -43,9 +43,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
-     <width>256</width>
-     <height>192</height>
+     <y>91</y>
+     <width>221</width>
+     <height>191</height>
     </rect>
    </property>
   </widget>
@@ -65,7 +65,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>80</x>
      <y>60</y>
      <width>81</width>
      <height>16</height>
@@ -78,14 +78,37 @@
   <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>260</y>
+     <x>300</x>
+     <y>80</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="prereq_list">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>130</y>
+     <width>121</width>
+     <height>151</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>110</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Prereqs</string>
    </property>
   </widget>
  </widget>
