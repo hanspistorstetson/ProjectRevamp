@@ -35,8 +35,16 @@ void UserCreateWindow::on_createUserButton_released()
     User* newUser = User::createUser(userName, firstName, lastName, 1);
     std::string UUID = newUser->getUUID();
     std::cout << UUID << std::endl;
-    handler.generateToFile(QString::fromStdString(UUID), QString::fromStdString("img/" + UUID + ".png"));
-
+    system("mkdir img");
+    std::string filepath = "img/" + UUID + ".png";
+    handler.generateToFile(QString::fromStdString(UUID), QString::fromStdString(filepath));
+    QImage myImage(filepath.c_str());
+    std::cout << "here" << std::endl;
+    QLabel *label = new QLabel();
+    label->setPixmap(QPixmap::fromImage(myImage));
+    std::cout << "there" << std::endl;
+    label->setWindowModality( Qt::WindowModal );
+    label->show();
     delete newUser;
     this->close();
 }

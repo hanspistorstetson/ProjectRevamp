@@ -20,7 +20,7 @@ SOURCES += main.cpp \
     gui/qrnotfound.cpp \
     gui/user_list.cpp \
     gui/user_search.cpp \
-    gui/user_view.cpp\
+    gui/user_view.cpp \
     database/activity.cpp \
     database/checkin.cpp \
     database/database.cpp \
