@@ -6,6 +6,7 @@
 #include "database/checkin.h"
 #include "QRCapture.h"
 #include "database/user.h"
+#include "QMessageBox"
 #include <vector>
 #include <iostream>
 
@@ -16,7 +17,10 @@ ActivityWindow::ActivityWindow(QWidget *parent, Activity* act) :
     ui->setupUi(this);
     activity=act;
     QString name = QString::fromStdString(activity->getActivityName());
+    QString stat = QString::fromStdString(activity->getStatus());
+
     ui->label_2->setText(name);
+    ui->status_label->setText(stat);
 
     updateList();
 
@@ -29,8 +33,12 @@ ActivityWindow::~ActivityWindow()
 
 void ActivityWindow::on_QR_released()
 {
+    if(activity->getStatus() == "inactive") {
+        QMessageBox::warning(this, tr("Error"), QString("This Activity is Inactive"));
+    }else {
     Camera* scanner = new Camera(this, activity, this);
     scanner->show();
+    }
 }
 
 void ActivityWindow::updateList()
@@ -43,9 +51,22 @@ void ActivityWindow::updateList()
        ui->listWidget->addItem(name);
        ui->listWidget->update();
    }
+
+
 }
 
 void ActivityWindow::on_back_released()
 {
     this->close();
+}
+
+void ActivityWindow::on_pushButton_released()
+{
+    if(activity->getStatus() == "active") {
+        activity->setStatus("inactive");
+    }else {
+        activity->setStatus("active");
+    }
+    QString stat = QString::fromStdString(activity->getStatus());
+    ui->status_label->setText(stat);
 }
