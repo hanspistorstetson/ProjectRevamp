@@ -1,9 +1,0 @@
-digraph "sqlite3MutexEnd"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node601113 [label="sqlite3MutexEnd",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node601113 -> Node601114 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node601114 [label="sqlite3_shutdown",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#aeaf9947fe863ba3d3aca061475e3af2e"];
-}

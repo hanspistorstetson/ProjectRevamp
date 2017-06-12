@@ -1,9 +1,0 @@
-digraph "subjRequiresPage"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node829151 [label="subjRequiresPage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node829151 -> Node829152 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node829152 [label="sqlite3BitvecTest",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#ab08693a5ff8d1b759eb50dc307ee910f"];
-}

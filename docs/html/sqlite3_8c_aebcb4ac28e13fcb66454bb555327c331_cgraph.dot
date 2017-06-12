@@ -1,9 +1,0 @@
-digraph "pagerOpentemp"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node201468 [label="pagerOpentemp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node201468 -> Node201469 [color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node201469 [label="sqlite3OsOpen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#a12a1f3451e28f9cecd19cf0bb4f8f416"];
-}

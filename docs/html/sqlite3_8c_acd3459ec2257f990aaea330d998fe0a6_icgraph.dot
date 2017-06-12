@@ -1,9 +1,0 @@
-digraph "setDestPgsz"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node291501 [label="setDestPgsz",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node291501 -> Node291502 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node291502 [label="sqlite3_backup_init",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8h.html#a9c9aa9e8edeb9910d93148a6621c1097"];
-}

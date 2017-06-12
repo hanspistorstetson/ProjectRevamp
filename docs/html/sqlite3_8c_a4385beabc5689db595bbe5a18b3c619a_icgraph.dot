@@ -1,9 +1,0 @@
-digraph "unixWrite"
-{
-  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
-  node [fontname="FreeSans",fontsize="10",shape=record];
-  rankdir="LR";
-  Node850490 [label="unixWrite",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node850490 -> Node850491 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
-  Node850491 [label="unixGetLastError",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$sqlite3_8c.html#aed1e42f49d74b419c3c85b559dd61240"];
-}
