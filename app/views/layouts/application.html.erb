@@ -4,9 +4,50 @@
     <title>Project221Revamp</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Uncle Sam", root_path, class: "navbar-brand" %></li>
+            <li><a data-toggle="tab" href="#">Events</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+
+              <%= link_to new_user_registration_path do %>
+                  <span class="glyphicon glyphicon-user"></span> Sign up
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path do %>
+                  <span class="glyphicon glyphicon-log-in"></span> Login
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+  </header>
 
   <body>
     <%= yield %>
