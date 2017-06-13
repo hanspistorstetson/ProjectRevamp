@@ -1,3 +1,16 @@
+<% if not user_signed_in? %>
+    <% flash.now[:error] = "You are not able to sign up for events unless you log in" %>
+<% end %>
+
+<% if user_signed_in? %>
+    <div id="createevent" class="text-center">
+      <%= link_to "Create an Event", new_event_path, class: "btn btn-success create-event-btn" %>
+
+    </div>
+<% end %>
+
+</div>
+
 <% @events.each do |event| %>
     <%= link_to event do %>
         <div class="col-lg-3 col-md-4 col-xs-6  thumb thumblink">

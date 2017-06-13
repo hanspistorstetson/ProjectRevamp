@@ -1,0 +1,32 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+=stroke($stroke, $color)
+  text-shadow: stroke($stroke, $color)
+
+@function stroke($stroke, $color)
+  $shadow: ()
+  $from: $stroke*-1
+  @for $i from $from through $stroke
+    @for $j from $from through $stroke
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma)
+
+  @return $shadow
+
+#content
+  margin-top: 0rem
+
+.welcomejumbo
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image_url("people-sitting.jpg")
+  background-position: center
+  background-size: cover
+  height: 70vh
+  .container
+    font-weight: 900
+    color: $screen
+    +stroke(5, $steel)
+
+
+

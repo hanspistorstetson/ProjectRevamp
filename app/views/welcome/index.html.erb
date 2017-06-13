@@ -1,2 +1,13 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div id="content">
+
+  <div class="jumbotron welcomejumbo">
+    <div class="container">
+      <% if user_signed_in? %>
+          <h1 class="display-3">Welcome back <%= current_user.firstname %></h1>
+      <% else %>
+          <h1 class="display-3">Welcome</h1>
+      <% end %>
+    </div>
+  </div>
+
+</div>
