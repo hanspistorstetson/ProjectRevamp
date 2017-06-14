@@ -1,2 +1,22 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="eventshow">
+  <h1><%= @event.title %></h1>
+  <hr>
+  <div idw="eventdescription">
+    <%= simple_format @event.description %>
+  </div>
+
+  <% if user_signed_in? %>
+      <%= link_to "Add an Activity!", new_activity_path(:activity => {:event_id => @event.id}), class: "btn btn-primary" %>
+      <button class="btn btn-danger">Leave this Event</button>
+  <% end %>
+</div>
+
+<% if @event.activities.count > 0 %>
+    <div class="eventshow">
+      <h1>Activities!</h1>
+      <% @event.activities.each.with_index(1) do |activity, index| %>
+          <h3><%= index %>. <%= activity.title %></h3>
+          <hr class="activityseperate">
+      <% end %>
+    </div>
+<% end %>

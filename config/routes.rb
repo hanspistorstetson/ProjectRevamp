@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get 'activities/index'
+
   get 'welcome/index'
   root 'welcome#index'
 
   resources :events
+  resources :activities
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

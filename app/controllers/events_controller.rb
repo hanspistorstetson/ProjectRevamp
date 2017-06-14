@@ -3,8 +3,9 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.order("DATEOF")
   end
+  
 
   def show
 
@@ -16,11 +17,13 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new event_params
-
+    @event.dateof = Date.parse(params[:dateof])
     if @event.save
-      redirect_to @event, flash[:success] = "You succesfully created an event"
+      flash[:success] = "You succesfully created an event"
+      redirect_to @event
     else
-      render 'new', flash[:danger] = "Your event did not save successfully"
+      flash[:danger] = "Your event did not save successfully"
+      render 'new'
     end
   end
 
@@ -31,9 +34,11 @@ class EventsController < ApplicationController
 
   def update
     if @event.update event_params
-      redirect_to @event, flash[:success] = "Successfully updated your event"
+      flash[:success] = "Successfully updated your event"
+      redirect_to @event
     else
-      render 'edit', flash[:danger] = "Your event was not successfully updated "
+      flash[:danger] = "Your event was not successfully updated "
+      render 'edit'
     end
   end
 

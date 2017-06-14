@@ -1,15 +1,31 @@
-<div class="border-form-div">
-  <h2>Create an Event!</h2>
-  <div class="text-center">
-    <%= form_for @event do |f| %>
-        <%= f.text_field :title, placeholder: "Title", autofocus: true %>
-        <%= f.text_area :description, placeholder: "A description of your event" %>
-        <%= f.text_field :firstname, placeholder: "First name", autofocus: true %>
-        <%= f.text_field :lastname, placeholder: "Last name" %>
-        <%= f.email_field :email, placeholder: "Email Address" %>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
-        <%= f.submit "Sign up!", class: "btn btn-primary" %>
-    <% end %>
+<script>
+
+    $(document).ready(function () {
+        var date_input = $('input[name="dateof"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        var options = {
+            format: 'yyyy/mm/dd',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        };
+
+        date_input.datepicker(options);
+    })
+</script>
+
+
+<div class="bootstrap-iso">
+  <h1>Create an Event!</h1>
+  <div class="container-fluid">
+
+    <div class="col-md-12">
+      <%= form_for @event do |f| %>
+          <%= f.text_field :title, placeholder: "Title", autofocus: true %>
+          <%= f.text_area :description, placeholder: "A description of your event" %>
+          <%= f.text_field :dateof, placeholder: "YYYY/MM/DD", name: "dateof" %>
+          <%= f.submit "Sign up!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
