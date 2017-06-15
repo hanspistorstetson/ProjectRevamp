@@ -1,0 +1,25 @@
+<div class="eventshow">
+  <h1>Upcoming Events</h1>
+  <% @user.events.order("DATEOF").each do |event| %>
+      <% if event.dateof > Date.today %>
+          <div class="userevent">
+            <h3 class="usereventdates"><%= event.dateof.strftime("%Y/%m/%d") %></h3>
+            <h3 class="usereventname"><%= event.title %></h3>
+            <hr>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+
+<div class="eventshow">
+  <h1>Events Attended</h1>
+  <% @user.events.order("DATEOF").each do |event| %>
+      <% if event.dateof < Date.today %>
+          <div class="userevent">
+            <h3 class="usereventdates"><%= event.dateof.strftime("%Y/%m/%d") %></h3>
+            <h3 class="usereventname"><%= event.title %></h3>
+            <hr>
+          </div>
+      <% end %>
+  <% end %>
+</div>

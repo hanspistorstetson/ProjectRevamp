@@ -5,7 +5,7 @@
     <%= simple_format @event.description %>
   </div>
 
-  <% if user_signed_in? %>
+  <% if user_signed_in? and @event.user_id == current_user.id %>
       <%= link_to "Add an Activity!", new_activity_path(:activity => {:event_id => @event.id}), class: "btn btn-primary" %>
       <button class="btn btn-danger">Leave this Event</button>
   <% end %>

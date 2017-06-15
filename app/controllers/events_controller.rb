@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.order("DATEOF")
   end
-  
+
 
   def show
 
@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new event_params
     @event.dateof = Date.parse(params[:dateof])
+
     if @event.save
       flash[:success] = "You succesfully created an event"
       redirect_to @event
@@ -52,7 +53,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :dateof)
+    params.require(:event).permit(:title, :description, :dateof, :user_id)
   end
 
   def find_event
