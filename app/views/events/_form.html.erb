@@ -14,13 +14,20 @@
     })
 </script>
 
-
 <div class="bootstrap-iso">
   <h1>Create an Event!</h1>
   <div class="container-fluid">
 
     <div class="col-md-12">
       <%= form_for @event do |f| %>
+          <% if @event.errors.any? %>
+              <h2><%= pluralize(@event.errors.count, 'error') %> prevented the event from coming to life</h2>
+              <ul>
+                <% @event.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+          <% end %>
           <%= f.text_field :title, placeholder: "Title", autofocus: true %>
           <%= f.text_area :description, placeholder: "A description of your event" %>
           <%= f.text_field :dateof, placeholder: "YYYY/MM/DD", name: "dateof" %>

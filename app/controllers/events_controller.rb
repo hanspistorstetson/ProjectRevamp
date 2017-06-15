@@ -41,9 +41,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new event_params
     @event.dateof = Date.parse(params[:dateof])
-
+    puts "#########"
+    puts @event.host_id
     if @event.save
       flash[:success] = "You succesfully created an event"
+      User.find(@event.host_id).events << @event
       redirect_to @event
     else
       flash[:danger] = "Your event did not save successfully"
@@ -67,6 +69,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event.users.each do |usr|
+      usr.events.delete(@event)
+    end
     @event.destroy
     redirect_to events_path
 

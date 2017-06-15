@@ -5,11 +5,14 @@
     <%= simple_format @event.description %>
   </div>
 
-  <% if user_signed_in? and @event.user_id == current_user.id %>
-      <%= link_to "Add an Activity!", new_activity_path(:activity => {:event_id => @event.id}), class: "btn btn-primary" %>
+  <% if user_signed_in? and @event.host_id == current_user.id %>
+      <%= link_to "Add an Activity!", new_activity_path(:activity => {:event_id => @event.id}), class: "btn btn-success" %>
+      <%= link_to "Destroy this Event", event_path(@event), method: :delete, class: "btn btn-danger" %>
+  <% else %>
       <%= link_to "Join this Event!", event_join_path(:event => {:user_id => current_user.id}, :event_id => @event.id), class: "btn btn-success" %>
       <%= link_to "Leave this Event", event_leave_path(:event => {:user_id => current_user.id}, :event_id => @event.id), class: "btn btn-danger" %>
   <% end %>
+
 </div>
 
 <% if @event.activities.count > 0 %>
