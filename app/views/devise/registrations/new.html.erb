@@ -9,6 +9,7 @@
         <%= f.email_field :email, placeholder: "Email Address" %>
         <%= f.password_field :password, placeholder: "Password" %>
         <%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+        <%= f.hidden_field :uuid, value: SecureRandom.uuid %>
         <%= f.submit "Sign up!", class: "btn btn-primary" %>
       </div>
   <% end %>
