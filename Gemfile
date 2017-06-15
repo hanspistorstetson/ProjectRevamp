@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'rqrcode'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
