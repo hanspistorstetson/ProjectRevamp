@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :checkins
   has_many :activities, :through => :checkins
-  has_many :events
+  has_many :signups
+  has_many :events, :through => :signups
 end

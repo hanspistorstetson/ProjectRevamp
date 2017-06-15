@@ -6,8 +6,7 @@ class QrController < ApplicationController
   end
 
   def read
-    value = %x(python --version 2>&1)
-    puts value
+
     redirect_to current_user
   end
 

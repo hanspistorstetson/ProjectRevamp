@@ -2,10 +2,13 @@
   <div class="eventshow">
     <h1>Hey <%= @user.firstname %>!</h1>
     <h2>Get your QR Code
-      <%= link_to "Here", qr_new_path(:qr => {:uuid => @user.uuid}), class: "btn btn-primary" %></h2>
+      <%= link_to "Here", qr_new_path(:qr => {:uuid => @user.uuid}), class: "btn btn-primary" %>
+      <%= link_to "Read", qr_read_path, class: "btn btn-danger" %>
+    </h2>
   </div>
   <div class="eventshow">
     <h2>Upcoming Events</h2>
+    <hr>
     <% @user.events.order("DATEOF").each do |event| %>
         <% if event.dateof > Date.today %>
             <div class="userevent">
@@ -19,6 +22,7 @@
 
   <div class="eventshow">
     <h2>Events Attended</h2>
+    <hr>
     <% @user.events.order("DATEOF").each do |event| %>
         <% if event.dateof < Date.today %>
             <div class="userevent">

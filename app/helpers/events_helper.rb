@@ -4,4 +4,11 @@ module EventsHelper
       form.text_field field, class: 'form-control', placeholder: 'YYYY-MM-DD'
     end
   end
+
+  def create_signup user_id, event_id
+    Signup.create(user_id: user_id, event_id: event_id)
+    flash[:success] = "You have successfully signed up for " + @event.title
+
+  end
+
 end

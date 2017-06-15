@@ -7,7 +7,8 @@
 
   <% if user_signed_in? and @event.user_id == current_user.id %>
       <%= link_to "Add an Activity!", new_activity_path(:activity => {:event_id => @event.id}), class: "btn btn-primary" %>
-      <button class="btn btn-danger">Leave this Event</button>
+      <%= link_to "Join this Event!", event_join_path(:event => {:user_id => current_user.id}, :event_id => @event.id), class: "btn btn-success" %>
+      <%= link_to "Leave this Event", event_leave_path(:event => {:user_id => current_user.id}, :event_id => @event.id), class: "btn btn-danger" %>
   <% end %>
 </div>
 

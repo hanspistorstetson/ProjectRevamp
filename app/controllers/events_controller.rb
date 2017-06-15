@@ -11,6 +11,29 @@ class EventsController < ApplicationController
 
   end
 
+  def join
+
+    user_id = params[:event][:user_id]
+    event_id = params[:event_id]
+    event = Event.find(event_id)
+    user = User.find(user_id)
+    user.events << event
+    flash[:success] = "You have successfully signed up for " + event.title
+    redirect_to Event.find(event_id)
+
+  end
+
+  def leave
+
+    user_id = params[:event][:user_id]
+    event_id = params[:event_id]
+    user = User.find(user_id)
+    user.events.delete(Event.find(event_id))
+    event = Event.find(event_id)
+    flash[:alert] = "You have successfully unsubscribed from " + event.title
+    redirect_to root_path
+  end
+
   def new
     @event = Event.new
   end
@@ -53,7 +76,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :dateof, :user_id)
+    params.require(:event).permit(:title, :description, :dateof, :host_id)
   end
 
   def find_event
