@@ -1,6 +1,8 @@
 <div class="content">
   <div class="eventshow">
     <h1>Hey <%= @user.firstname %>!</h1>
+    <h2>Get your QR Code
+      <%= link_to "Here", qr_new_path(:qr => {:uuid => @user.uuid}), class: "btn btn-primary" %></h2>
   </div>
   <div class="eventshow">
     <h2>Upcoming Events</h2>
