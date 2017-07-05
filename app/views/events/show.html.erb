@@ -20,6 +20,8 @@
       <h1>Activities!</h1>
       <% @event.activities.each.with_index(1) do |activity, index| %>
           <h3><%= index %>. <%= activity.title %></h3>
+          <%= link_to "Current Users", activity_path(activity), class: "btn btn-primary" %>
+          <%= link_to "Sign Up", activity_path(activity), class: "btn btn-danger" %>
           <hr class="activityseperate">
       <% end %>
     </div>

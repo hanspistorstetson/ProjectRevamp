@@ -18,6 +18,7 @@ class EventsController < ApplicationController
     event = Event.find(event_id)
     user = User.find(user_id)
     user.events << event
+    activities = event.activities
     flash[:success] = "You have successfully signed up for " + event.title
     redirect_to Event.find(event_id)
 

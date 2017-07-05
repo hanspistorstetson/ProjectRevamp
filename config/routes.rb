@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     get 'leave' => 'events#leave'
   end
 
-  resources :activities
+  resources :activities do
+    get 'complete' => 'activities#complete'
+  end
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

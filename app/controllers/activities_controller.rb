@@ -1,11 +1,31 @@
 class ActivitiesController < ApplicationController
   before_action :find_activity, only: [:show, :edit, :update, :destroy]
 
+  def complete
+    user = current_user
+    activity_id = params[:activity_id]
+    activity = Activity.find(activity_id)
+    already_checked_in = false
+    user.activities.each do |activ|
+      if activ.id == activity.id
+        flash[:error] = "You have already signed into " + activity.title
+        already_checked_in = true
+      end
+    end
+    if not already_checked_in
+      user.activities << activity
+      flash[:success] = "You have successfully shown up to" + activity.title
+    end
+    redirect_to activity
+  end
+
+
   def index
     @activities = Activity.all
   end
 
   def show
+    @activity = Activity.find(params[:id])
 
   end
 
@@ -17,11 +37,9 @@ class ActivitiesController < ApplicationController
   def create
 
     @activity = Activity.new activity_params
-    puts @activity.title
-    puts @activity.description
-    puts @activity.event_id
 
     if @activity.save
+      event = Event.find(@activity.event_id)
       flash[:success] = "You have created a new Activity"
       redirect_to Event.find(@activity.event_id)
     else

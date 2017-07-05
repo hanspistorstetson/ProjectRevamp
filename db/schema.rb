@@ -23,18 +23,12 @@ ActiveRecord::Schema.define(version: 20170615031246) do
     t.integer "event_id"
   end
 
-  create_table "checkin", force: :cascade do |t|
+  create_table "checkins", force: :cascade do |t|
     t.integer "activity_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "finished", default: false
-  end
-
-  create_table "checkins", force: :cascade do |t|
-    t.datetime "dateof"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|

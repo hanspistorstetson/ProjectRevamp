@@ -1,7 +1,41 @@
 <div class="eventshow">
   <h1><%= @activity.title %></h1>
   <hr>
-  <div idw="eventdescription">
+  <div id="activitydescription">
     <%= simple_format @activity.description %>
   </div>
+  <hr>
+  <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-success" %>
+  <hr>
+  <div id="activityusers">
+    <h3>Complete Users</h3>
+    <br>
+
+    <% @activity.users.sort.each do |user| %>
+        <p> <%= user.email %> </p>
+    <% end %>
+  </div>
+  <hr>
+  <div id="activityusers">
+    <h3>Incomplete Users</h3>
+    <br>
+    <% eventusers = @activity.event.users %>
+    <% activityusers = @activity.users.all %>
+    <% incompleteusers = [] %>
+    <% eventusers.each do |euser| %>
+        <% found = false %>
+        <% activityusers.each do |auser| %>
+            <% if euser.id == auser.id %>
+                <% found = true %>
+            <% end %>
+        <% end %>
+        <% if not found %>
+            <% incompleteusers.push(euser.email) %>
+        <% end %>
+    <% end %>
+    <% incompleteusers.sort.each do |email| %>
+        <p><%= email %></p>
+    <% end %>
+  </div>
+
 </div>
