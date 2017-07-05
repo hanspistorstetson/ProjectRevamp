@@ -21,7 +21,11 @@
       <% @event.activities.each.with_index(1) do |activity, index| %>
           <div class="eventactivities">
             <div class="eventactivityname">
-              <h3><%= index %>. <%= activity.title %></h3>
+              <% if current_user.activities.ids.include? activity.id %>
+                  <h3><%= index %>. <%= activity.title %><span class="glyphicon glyphicon-ok"></span></h3>
+              <% else %>
+                  <h3><%= index %>. <%= activity.title %><span class="glyphicon glyphicon-remove"></span></h3>
+              <% end %>
             </div>
             <div class="eventactivitystatus">
               <%= link_to "Activity Status", activity_path(activity), class: "btn btn-primary" %>
