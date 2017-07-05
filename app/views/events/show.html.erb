@@ -19,9 +19,14 @@
     <div class="eventshow">
       <h1>Activities!</h1>
       <% @event.activities.each.with_index(1) do |activity, index| %>
-          <h3><%= index %>. <%= activity.title %></h3>
-          <%= link_to "Current Users", activity_path(activity), class: "btn btn-primary" %>
-          <%= link_to "Sign Up", activity_path(activity), class: "btn btn-danger" %>
+          <div class="eventactivities">
+            <div class="eventactivityname">
+              <h3><%= index %>. <%= activity.title %></h3>
+            </div>
+            <div class="eventactivitystatus">
+              <%= link_to "Activity Status", activity_path(activity), class: "btn btn-primary" %>
+            </div>
+          </div>
           <hr class="activityseperate">
       <% end %>
     </div>
