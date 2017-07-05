@@ -8,6 +8,17 @@
           <%= f.text_field :title, placeholder: "Title", autofocus: true %>
           <%= f.text_area :description, placeholder: "A description of your Activity" %>
           <%= f.hidden_field :event_id, value: params[:activity][:event_id] %>
+
+
+          <h2>Prerequisites?</h2>
+          <table>
+            <% Event.find(params[:activity][:event_id]).activities.each do |activity| %>
+                <tr>
+                  <td><%= check_box_tag "activity[prereqs][]", activity.id, false, :id => "activity_#{activity.id}" %>&nbsp;&nbsp;</td>
+                  <td><%= label_tag "activity_#{activity.id}", activity.title %></td>
+                </tr>
+            <% end %>
+          </table>
           <%= f.submit "Sign up!", class: "btn btn-primary" %>
       <% end %>
     </div>

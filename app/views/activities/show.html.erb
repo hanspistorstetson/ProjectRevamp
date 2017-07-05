@@ -5,7 +5,17 @@
     <%= simple_format @activity.description %>
   </div>
   <hr>
-  <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-success" %>
+  <% finished_prereq = true %>
+  <% @activity.prereqs.all.each do |prereq| %>
+      <% if not current_user.activities.ids.include? prereq.prereq_id %>
+          <% finished_prereq = false %>
+      <% end %>
+  <% end %>
+  <% if finished_prereq %>
+      <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-success" %>
+  <% else %>
+      <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-danger disabled" %>
+  <% end %>
 
   <div id="activityusers">
     <h3>Complete Users</h3>
@@ -37,5 +47,24 @@
         <p><%= email %></p>
     <% end %>
   </div>
+  <hr>
 
+
+  <div id="activityprereqs" class="container-fluid">
+    <% finished_prereqs = true %>
+    <h2>Prerequisites</h2>
+    <% @activity.prereqs.each do |prereq| %>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <h4>
+            <% if current_user.activities.ids.include? prereq.prereq_id %>
+                <span class="glyphicon glyphicon-ok"></span><%= Activity.find(prereq.prereq_id).title %>
+            <% else %>
+                <span class="glyphicon glyphicon-remove"></span><%= Activity.find(prereq.prereq_id).title %>
+            <% end %>
+          </h4>
+        </div>
+    <% end %>
+
+
+  </div>
 </div>

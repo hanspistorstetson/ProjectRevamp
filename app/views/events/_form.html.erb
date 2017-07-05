@@ -32,6 +32,8 @@
           <%= f.text_area :description, placeholder: "A description of your event" %>
           <%= f.text_field :dateof, placeholder: "YYYY/MM/DD", name: "dateof" %>
           <%= f.hidden_field :host_id, value: current_user.id %>
+
+
           <%= f.submit "Sign up!", class: "btn btn-primary" %>
       <% end %>
     </div>

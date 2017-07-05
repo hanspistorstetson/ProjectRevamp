@@ -35,10 +35,19 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-
     @activity = Activity.new activity_params
 
+
+    puts params[:activity][:prereqs].class
+    puts "##########"
     if @activity.save
+      if params[:activity][:prereqs] != nil
+
+        params[:activity][:prereqs].each do |prereqid|
+          Prereq.create activity_id: @activity.id, prereq_id: prereqid
+        end
+      end
+
       event = Event.find(@activity.event_id)
       flash[:success] = "You have created a new Activity"
       redirect_to Event.find(@activity.event_id)
@@ -60,7 +69,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :event_id)
+    params.require(:activity).permit(:title, :description, :event_id, :prereqs)
   end
 
   def find_activity
