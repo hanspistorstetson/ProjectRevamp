@@ -11,10 +11,12 @@
           <% finished_prereq = false %>
       <% end %>
   <% end %>
-  <% if finished_prereq %>
-      <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-success" %>
-  <% else %>
-      <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-danger disabled" %>
+  <% if user_signed_in? %>
+      <% if finished_prereq %>
+          <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-success" %>
+      <% else %>
+          <%= link_to "Attend", activity_complete_path(@activity), class: "btn btn-danger disabled" %>
+      <% end %>
   <% end %>
 
   <div id="activityusers">
@@ -56,10 +58,14 @@
     <% @activity.prereqs.each do |prereq| %>
         <div class="col-lg-3 col-md-4 col-xs-6">
           <h4>
-            <% if current_user.activities.ids.include? prereq.prereq_id %>
-                <span class="glyphicon glyphicon-ok"></span><%= Activity.find(prereq.prereq_id).title %>
+            <% if user_signed_in? %>
+                <% if current_user.activities.ids.include? prereq.prereq_id %>
+                    <span class="glyphicon glyphicon-ok"></span><%= Activity.find(prereq.prereq_id).title %>
+                <% else %>
+                    <span class="glyphicon glyphicon-remove"></span><%= Activity.find(prereq.prereq_id).title %>
+                <% end %>
             <% else %>
-                <span class="glyphicon glyphicon-remove"></span><%= Activity.find(prereq.prereq_id).title %>
+                <%= Activity.find(prereq.prereq_id).title %>
             <% end %>
           </h4>
         </div>

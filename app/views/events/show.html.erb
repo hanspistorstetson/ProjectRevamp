@@ -8,7 +8,7 @@
   <% if user_signed_in? and @event.host_id == current_user.id %>
       <%= link_to "Add an Activity!", new_activity_path(:activity => {:event_id => @event.id}), class: "btn btn-success" %>
       <%= link_to "Destroy this Event", event_path(@event), method: :delete, class: "btn btn-danger" %>
-  <% else %>
+  <% elsif user_signed_in? %>
       <%= link_to "Join this Event!", event_join_path(:event => {:user_id => current_user.id}, :event_id => @event.id), class: "btn btn-success" %>
       <%= link_to "Leave this Event", event_leave_path(:event => {:user_id => current_user.id}, :event_id => @event.id), class: "btn btn-danger" %>
   <% end %>
@@ -21,10 +21,14 @@
       <% @event.activities.each.with_index(1) do |activity, index| %>
           <div class="eventactivities">
             <div class="eventactivityname">
-              <% if current_user.activities.ids.include? activity.id %>
-                  <h3><%= index %>. <%= activity.title %><span class="glyphicon glyphicon-ok"></span></h3>
+              <% if user_signed_in? %>
+                  <% if current_user.activities.ids.include? activity.id %>
+                      <h3><%= index %>. <%= activity.title %><span class="glyphicon glyphicon-ok"></span></h3>
+                  <% else %>
+                      <h3><%= index %>. <%= activity.title %><span class="glyphicon glyphicon-remove"></span></h3>
+                  <% end %>
               <% else %>
-                  <h3><%= index %>. <%= activity.title %><span class="glyphicon glyphicon-remove"></span></h3>
+                  <h3><%= index %>. <%= activity.title %></h3>
               <% end %>
             </div>
             <div class="eventactivitystatus">

@@ -26,8 +26,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if current_page?(events_path) %>"><%= link_to "Events", events_path %></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li class="<%= 'active' if current_page?(welcome_pricing_path) %>"><%= link_to "Piricing", welcome_pricing_path %></li>
+            <li class="<%= 'active' if current_page?(welcome_contact_path) %>"><%= link_to "Contact Us", welcome_contact_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>

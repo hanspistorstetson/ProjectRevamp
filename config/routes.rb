@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
 
+  get 'welcome/pricing'
+  get 'welcome/contact'
+
   resources :events do
     get 'join' => 'events#join'
     get 'leave' => 'events#leave'
