@@ -1,6 +1,6 @@
 <div class="eventshow">
-  <%= link_to "Back to Event", event_path(@activity.event), class: "btn btn-danger" %>
   <h1><%= @activity.title %></h1>
+  <%= link_to "Back to Activity List", event_path(@activity.event), class: "btn btn-danger" %>
   <hr>
   <div id="activitydescription">
     <%= simple_format @activity.description %>
